@@ -3,3 +3,5 @@ floor: https://www.turbosquid.com/3d-models/arab-desert-3ds-free/658720
 treasure chest: https://www.turbosquid.com/3d-models/free-treasure-chest-3d-model/615861
 
 shark: https://www.turbosquid.com/3d-models/free-max-mode-great-white-shark/763930
+
+waves: https://www.turbosquid.com/3d-models/free-obj-mode-ocean-sea-wave/629015
