@@ -126,6 +126,24 @@
     <ClCompile Include="raytracer\Tracers\Tracer.cpp">
       <Filter>Tracers</Filter>
     </ClCompile>
+    <ClCompile Include="raytracer\Utilities\BBox.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Utilities\Mesh.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\Instance.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\MeshTriangle.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\SmoothMeshTriangle.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\SmoothTriangle.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -214,6 +232,24 @@
     </ClInclude>
     <ClInclude Include="raytracer\Tracers\Tracer.h">
       <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\BBox.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\Mesh.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\Instance.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\MeshTriangle.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\SmoothMeshTriangle.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\SmoothTriangle.h">
+      <Filter>Geometric Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

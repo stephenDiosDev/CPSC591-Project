@@ -130,7 +130,11 @@
     <ClCompile Include="raytracer\Cameras\Camera.cpp" />
     <ClCompile Include="raytracer\Cameras\Pinhole.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\GeometricObject.cpp" />
+    <ClCompile Include="raytracer\GeometricObjects\Instance.cpp" />
+    <ClCompile Include="raytracer\GeometricObjects\MeshTriangle.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\Plane.cpp" />
+    <ClCompile Include="raytracer\GeometricObjects\SmoothMeshTriangle.cpp" />
+    <ClCompile Include="raytracer\GeometricObjects\SmoothTriangle.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\Sphere.cpp" />
     <ClCompile Include="raytracer\Lights\Ambient.cpp" />
     <ClCompile Include="raytracer\Lights\Directional.cpp" />
@@ -142,7 +146,9 @@
     <ClCompile Include="raytracer\Tracers\SingleSphere.cpp" />
     <ClCompile Include="raytracer\Tracers\Tracer.cpp" />
     <ClCompile Include="raytracer\UserInterface\wxraytracer.cpp" />
+    <ClCompile Include="raytracer\Utilities\BBox.cpp" />
     <ClCompile Include="raytracer\Utilities\Matrix.cpp" />
+    <ClCompile Include="raytracer\Utilities\Mesh.cpp" />
     <ClCompile Include="raytracer\Utilities\Normal.cpp" />
     <ClCompile Include="raytracer\Utilities\Point2D.cpp" />
     <ClCompile Include="raytracer\Utilities\Point3D.cpp" />
@@ -159,7 +165,11 @@
     <ClInclude Include="raytracer\Cameras\Camera.h" />
     <ClInclude Include="raytracer\Cameras\Pinhole.h" />
     <ClInclude Include="raytracer\GeometricObjects\GeometricObject.h" />
+    <ClInclude Include="raytracer\GeometricObjects\Instance.h" />
+    <ClInclude Include="raytracer\GeometricObjects\MeshTriangle.h" />
     <ClInclude Include="raytracer\GeometricObjects\Plane.h" />
+    <ClInclude Include="raytracer\GeometricObjects\SmoothMeshTriangle.h" />
+    <ClInclude Include="raytracer\GeometricObjects\SmoothTriangle.h" />
     <ClInclude Include="raytracer\GeometricObjects\Sphere.h" />
     <ClInclude Include="raytracer\Lights\Ambient.h" />
     <ClInclude Include="raytracer\Lights\Directional.h" />
@@ -171,9 +181,11 @@
     <ClInclude Include="raytracer\Tracers\SingleSphere.h" />
     <ClInclude Include="raytracer\Tracers\Tracer.h" />
     <ClInclude Include="raytracer\UserInterface\wxraytracer.h" />
+    <ClInclude Include="raytracer\Utilities\BBox.h" />
     <ClInclude Include="raytracer\Utilities\Constants.h" />
     <ClInclude Include="raytracer\Utilities\Maths.h" />
     <ClInclude Include="raytracer\Utilities\Matrix.h" />
+    <ClInclude Include="raytracer\Utilities\Mesh.h" />
     <ClInclude Include="raytracer\Utilities\Normal.h" />
     <ClInclude Include="raytracer\Utilities\Point2D.h" />
     <ClInclude Include="raytracer\Utilities\Point3D.h" />
