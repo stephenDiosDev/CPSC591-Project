@@ -9,6 +9,7 @@
 
 #include "Plane.h"
 #include "Sphere.h"
+#include "SmoothTriangle.h"
 
 // tracers
 
