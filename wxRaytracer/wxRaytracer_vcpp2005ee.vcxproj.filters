@@ -251,5 +251,11 @@
     <ClInclude Include="raytracer\GeometricObjects\SmoothTriangle.h">
       <Filter>Geometric Objects</Filter>
     </ClInclude>
+    <ClInclude Include="raytracer\Utilities\MeshOBJ.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\Model.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

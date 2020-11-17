@@ -75,10 +75,10 @@
       <AdditionalIncludeDirectories>C:\wxWidgets-2.8.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>wxmsw31ud_core.lib;wxbase31ud.lib;wxtiff.lib;wxjpeg.lib;wxpng.lib;wxzlib.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;oleacc.lib;odbc32.lib;kernel32.lib;user32.lib;gdi32.lib;ole32.lib;oleaut32.lib;comdlg32.lib;uuid.lib;advapi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>wxmsw31ud_core.lib;wxbase31ud.lib;wxtiff.lib;wxjpeg.lib;wxpng.lib;wxzlib.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;oleacc.lib;odbc32.lib;kernel32.lib;user32.lib;gdi32.lib;ole32.lib;oleaut32.lib;comdlg32.lib;uuid.lib;advapi32.lib;shell32.lib;assimp-vc140-mt.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)wxRaytracer.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>wxWidgets\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\lib\glfw;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\lib\assimp;wxWidgets\lib;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\stb;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\include;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>MSVCRT.lib;LIBCD.lib;LIBCMTD.lib;LIBC.lib;LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)wxRaytracer.pdb</ProgramDatabaseFile>
@@ -186,6 +186,8 @@
     <ClInclude Include="raytracer\Utilities\Maths.h" />
     <ClInclude Include="raytracer\Utilities\Matrix.h" />
     <ClInclude Include="raytracer\Utilities\Mesh.h" />
+    <ClInclude Include="raytracer\Utilities\MeshOBJ.h" />
+    <ClInclude Include="raytracer\Utilities\Model.h" />
     <ClInclude Include="raytracer\Utilities\Normal.h" />
     <ClInclude Include="raytracer\Utilities\Point2D.h" />
     <ClInclude Include="raytracer\Utilities\Point3D.h" />
