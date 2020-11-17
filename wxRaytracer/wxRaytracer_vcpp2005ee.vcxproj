@@ -209,9 +209,6 @@
     <ClInclude Include="raytracer\World\ViewPlane.h" />
     <ClInclude Include="raytracer\World\World.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="raytracer\Utilities\triangle.tpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

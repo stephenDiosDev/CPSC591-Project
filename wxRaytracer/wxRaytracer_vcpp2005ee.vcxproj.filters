@@ -291,9 +291,4 @@
       <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="raytracer\Utilities\triangle.tpp">
-      <Filter>Utilities</Filter>
-    </None>
-  </ItemGroup>
 </Project>

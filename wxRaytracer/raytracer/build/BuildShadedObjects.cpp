@@ -69,7 +69,9 @@ void World::build(void)
 	float kd = 0.75;
 
 	//Mesh and OBJ
-	//Model testModel("../Models/sphere.obj");
+	//need objmeshFileIO and objmesh to store the result
+	//go through the objmesh and copy stuff over to the Mesh.cpp object
+	//then move 
 
 
 	// spheres
