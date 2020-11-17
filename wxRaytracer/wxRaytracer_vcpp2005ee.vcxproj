@@ -53,7 +53,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>wxWidgets\include;wxWidgets\msw;raytracer\BRDFs;raytracer\BTDFs;raytracer\build;raytracer\Cameras;raytracer\GeometricObjects;raytracer\Lights;raytracer\Mappings;raytracer\Materials;raytracer\Noises;raytracer\Samplers;raytracer\Textures;raytracer\Tracers;raytracer\UserInterface;raytracer\Utilities;CPSC591-Project\glm-0.9.8.2\glm;raytracer\World;CPSC591-Project\stb;CPSC591-Project\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>wxWidgets\include;wxWidgets\msw;raytracer\BRDFs;raytracer\BTDFs;raytracer\build;raytracer\Cameras;raytracer\GeometricObjects;raytracer\Lights;raytracer\Mappings;raytracer\Materials;raytracer\Noises;raytracer\Samplers;raytracer\Textures;raytracer\Tracers;raytracer\UserInterface;raytracer\Utilities;CPSC591-Project\glm-0.9.8.2\glm;raytracer\World;CPSC591-Project\stb;CPSC591-Project\include\assimp;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\include\glad;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;__WIN32__;__WXMSW__;WINVER=0x0400;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -150,11 +150,16 @@
     <ClCompile Include="raytracer\Utilities\Matrix.cpp" />
     <ClCompile Include="raytracer\Utilities\Mesh.cpp" />
     <ClCompile Include="raytracer\Utilities\Normal.cpp" />
+    <ClCompile Include="raytracer\Utilities\obj_mesh.cpp" />
+    <ClCompile Include="raytracer\Utilities\obj_mesh_file_io.cpp" />
     <ClCompile Include="raytracer\Utilities\Point2D.cpp" />
     <ClCompile Include="raytracer\Utilities\Point3D.cpp" />
     <ClCompile Include="raytracer\Utilities\Ray.cpp" />
     <ClCompile Include="raytracer\Utilities\RGBColor.cpp" />
     <ClCompile Include="raytracer\Utilities\ShadeRec.cpp" />
+    <ClCompile Include="raytracer\Utilities\triangle.cpp" />
+    <ClCompile Include="raytracer\Utilities\vec2f.cpp" />
+    <ClCompile Include="raytracer\Utilities\vec3f.cpp" />
     <ClCompile Include="raytracer\Utilities\Vector3D.cpp" />
     <ClCompile Include="raytracer\World\ViewPlane.cpp" />
     <ClCompile Include="raytracer\World\World.cpp" />
@@ -189,16 +194,23 @@
     <ClInclude Include="raytracer\Utilities\Matrix.h" />
     <ClInclude Include="raytracer\Utilities\Mesh.h" />
     <ClInclude Include="raytracer\Utilities\MeshOBJ.h" />
-    <ClInclude Include="raytracer\Utilities\Model.h" />
     <ClInclude Include="raytracer\Utilities\Normal.h" />
+    <ClInclude Include="raytracer\Utilities\obj_mesh.hpp" />
+    <ClInclude Include="raytracer\Utilities\obj_mesh_file_io.hpp" />
     <ClInclude Include="raytracer\Utilities\Point2D.h" />
     <ClInclude Include="raytracer\Utilities\Point3D.h" />
     <ClInclude Include="raytracer\Utilities\Ray.h" />
     <ClInclude Include="raytracer\Utilities\RGBColor.h" />
     <ClInclude Include="raytracer\Utilities\ShadeRec.h" />
+    <ClInclude Include="raytracer\Utilities\triangle.hpp" />
+    <ClInclude Include="raytracer\Utilities\vec2f.hpp" />
+    <ClInclude Include="raytracer\Utilities\vec3f.hpp" />
     <ClInclude Include="raytracer\Utilities\Vector3D.h" />
     <ClInclude Include="raytracer\World\ViewPlane.h" />
     <ClInclude Include="raytracer\World\World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="raytracer\Utilities\triangle.tpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

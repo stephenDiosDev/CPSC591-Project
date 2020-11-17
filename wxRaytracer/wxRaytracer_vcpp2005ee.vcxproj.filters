@@ -144,6 +144,21 @@
     <ClCompile Include="raytracer\GeometricObjects\SmoothTriangle.cpp">
       <Filter>Geometric Objects</Filter>
     </ClCompile>
+    <ClCompile Include="raytracer\Utilities\obj_mesh.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Utilities\obj_mesh_file_io.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Utilities\vec2f.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Utilities\vec3f.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Utilities\triangle.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -254,14 +269,31 @@
     <ClInclude Include="raytracer\Utilities\MeshOBJ.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="raytracer\Utilities\Model.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="..\stb\stb_image.h">
       <Filter>Utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\stb\stb_image_write.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="raytracer\Utilities\obj_mesh.hpp">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\obj_mesh_file_io.hpp">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\vec2f.hpp">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\vec3f.hpp">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\triangle.hpp">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="raytracer\Utilities\triangle.tpp">
+      <Filter>Utilities</Filter>
+    </None>
   </ItemGroup>
 </Project>
