@@ -53,7 +53,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>wxWidgets\include;wxWidgets\msw;raytracer\BRDFs;raytracer\BTDFs;raytracer\build;raytracer\Cameras;raytracer\GeometricObjects;raytracer\Lights;raytracer\Mappings;raytracer\Materials;raytracer\Noises;raytracer\Samplers;raytracer\Textures;raytracer\Tracers;raytracer\UserInterface;raytracer\Utilities;raytracer\World;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>wxWidgets\include;wxWidgets\msw;raytracer\BRDFs;raytracer\BTDFs;raytracer\build;raytracer\Cameras;raytracer\GeometricObjects;raytracer\Lights;raytracer\Mappings;raytracer\Materials;raytracer\Noises;raytracer\Samplers;raytracer\Textures;raytracer\Tracers;raytracer\UserInterface;raytracer\Utilities;CPSC591-Project\glm-0.9.8.2\glm;raytracer\World;CPSC591-Project\stb;CPSC591-Project\include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;__WIN32__;__WXMSW__;WINVER=0x0400;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -75,10 +75,10 @@
       <AdditionalIncludeDirectories>C:\wxWidgets-2.8.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>wxmsw31ud_core.lib;wxbase31ud.lib;wxtiff.lib;wxjpeg.lib;wxpng.lib;wxzlib.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;oleacc.lib;odbc32.lib;kernel32.lib;user32.lib;gdi32.lib;ole32.lib;oleaut32.lib;comdlg32.lib;uuid.lib;advapi32.lib;shell32.lib;assimp-vc140-mt.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>wxmsw31ud_core.lib;wxbase31ud.lib;wxtiff.lib;wxjpeg.lib;wxpng.lib;wxzlib.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;oleacc.lib;odbc32.lib;kernel32.lib;user32.lib;gdi32.lib;ole32.lib;oleaut32.lib;comdlg32.lib;uuid.lib;advapi32.lib;shell32.lib;assimp.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)wxRaytracer.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\lib\glfw;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\lib\assimp;wxWidgets\lib;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\stb;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\include;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\include\glad;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\lib\glfw;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\lib\assimp;wxWidgets\lib;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\stb;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\include;C:\Users\tfsha\Desktop\591Project\SkeletonRayTracer\CPSC591-Project\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>MSVCRT.lib;LIBCD.lib;LIBCMTD.lib;LIBC.lib;LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)wxRaytracer.pdb</ProgramDatabaseFile>
@@ -160,6 +160,8 @@
     <ClCompile Include="raytracer\World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\stb\stb_image.h" />
+    <ClInclude Include="..\stb\stb_image_write.h" />
     <ClInclude Include="raytracer\BRDFs\BRDF.h" />
     <ClInclude Include="raytracer\BRDFs\Lambertian.h" />
     <ClInclude Include="raytracer\Cameras\Camera.h" />

@@ -1,5 +1,5 @@
-#ifndef MESHOBJ_H
-#define MESHOBJ_H
+#ifndef MESH_H
+#define MESH_H
 
 #include <glad/glad.h> // holds all OpenGL type declarations
 

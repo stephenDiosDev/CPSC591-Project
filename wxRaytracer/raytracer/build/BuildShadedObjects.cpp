@@ -7,6 +7,12 @@
 // These are in the Chapter 5 download file.
 // The spheres are the same as those in the Chapter 14 page one image.
 
+#include "Mesh.h"
+#include "Model.h"
+#include "MeshOBJ.h"
+
+
+
 void World::build(void)
 {
 	int num_samples = 1;
@@ -61,6 +67,10 @@ void World::build(void)
 
 	float ka = 0.25;
 	float kd = 0.75;
+
+	//Mesh and OBJ
+	Model testModel("../Models/sphere.obj");
+
 
 	// spheres
 
