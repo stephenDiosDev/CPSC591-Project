@@ -147,6 +147,7 @@
     <ClCompile Include="raytracer\Tracers\Tracer.cpp" />
     <ClCompile Include="raytracer\UserInterface\wxraytracer.cpp" />
     <ClCompile Include="raytracer\Utilities\BBox.cpp" />
+    <ClCompile Include="raytracer\Utilities\Grid.cpp" />
     <ClCompile Include="raytracer\Utilities\Matrix.cpp" />
     <ClCompile Include="raytracer\Utilities\Mesh.cpp" />
     <ClCompile Include="raytracer\Utilities\Normal.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="raytracer\UserInterface\wxraytracer.h" />
     <ClInclude Include="raytracer\Utilities\BBox.h" />
     <ClInclude Include="raytracer\Utilities\Constants.h" />
+    <ClInclude Include="raytracer\Utilities\Grid.h" />
     <ClInclude Include="raytracer\Utilities\Maths.h" />
     <ClInclude Include="raytracer\Utilities\Matrix.h" />
     <ClInclude Include="raytracer\Utilities\Mesh.h" />

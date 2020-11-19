@@ -159,6 +159,9 @@
     <ClCompile Include="raytracer\Utilities\triangle.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="raytracer\Utilities\Grid.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -288,6 +291,9 @@
       <Filter>Utilities</Filter>
     </ClInclude>
     <ClInclude Include="raytracer\Utilities\triangle.hpp">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\Grid.h">
       <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
