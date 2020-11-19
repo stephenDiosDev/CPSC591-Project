@@ -173,9 +173,18 @@
     </ClCompile>
     <ClCompile Include="raytracer\Ply\obj2ply.c" />
     <ClCompile Include="raytracer\Ply\ply.c" />
-    <ClCompile Include="ImageTexture.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="raytracer\Textures\Image.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\ImageTexture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\Texture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\ppm.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -320,8 +329,17 @@
       <Filter>Geometric Objects</Filter>
     </ClInclude>
     <ClInclude Include="raytracer\Ply\ply.h" />
-    <ClInclude Include="ImageTexture.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="Image.h" />
+    <ClInclude Include="raytracer\Textures\Image.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\ImageTexture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\Texture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\ppm.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
