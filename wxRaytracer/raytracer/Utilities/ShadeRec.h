@@ -20,7 +20,6 @@ class World;
 #include "Normal.h"
 #include "Ray.h"
 #include "RGBColor.h"
-#include "World.h"
 
 class ShadeRec {
 	public:
@@ -40,7 +39,7 @@ class ShadeRec {
 				
 		ShadeRec(World& wr);					// constructor
 		ShadeRec(const ShadeRec& sr);			// copy constructor
-		~ShadeRec(void);						// destructor
+		//~ShadeRec(void);						// destructor
 };
 
 #endif

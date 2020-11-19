@@ -82,7 +82,7 @@ void World::build(void)
 	matte_ptr1->set_cd(yellow);
 	Sphere *sphere_ptr1 = new Sphere(Point3D(0, 0, 0), 30);
 	sphere_ptr1->set_material(matte_ptr1); // yellow
-	//add_object(sphere_ptr1);
+	add_object(sphere_ptr1);
 
 	//smooth triangle
 	Matte *matteptr2 = new Matte;
