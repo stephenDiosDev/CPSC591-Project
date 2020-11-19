@@ -10,6 +10,7 @@
 #include "Mesh.h"
 //#include "Model.h"
 #include "MeshOBJ.h"
+#include "ImageTexture.h"
 
 
 
@@ -69,6 +70,9 @@ void World::build(void)
 	float kd = 0.75;
 
 	//Mesh and OBJ
+	string filePath = "TextureImages/blueTest.ppm";
+	Image* image_ptr = new Image(filePath);
+	ImageTexture* imageTexture = new ImageTexture(image_ptr);
 	//need objmeshFileIO and objmesh to store the result
 	//go through the objmesh and copy stuff over to the Mesh.cpp object
 	//then move 

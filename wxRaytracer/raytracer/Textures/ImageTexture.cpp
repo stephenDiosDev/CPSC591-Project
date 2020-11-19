@@ -1,6 +1,10 @@
 #include "ImageTexture.h"
 
 
+ImageTexture::ImageTexture(Image* imgptr) {
+	image_ptr = imgptr;
+}
+
 RGBColor ImageTexture::get_color(const ShadeRec& sr) const
 {
 	int row, column;
