@@ -125,6 +125,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ImageTexture.cpp" />
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp" />
     <ClCompile Include="raytracer\BRDFs\Lambertian.cpp" />
     <ClCompile Include="raytracer\Cameras\Camera.cpp" />
@@ -169,10 +171,13 @@
     <ClCompile Include="raytracer\Utilities\Vector3D.cpp" />
     <ClCompile Include="raytracer\World\ViewPlane.cpp" />
     <ClCompile Include="raytracer\World\World.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\stb\stb_image.h" />
     <ClInclude Include="..\stb\stb_image_write.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="ImageTexture.h" />
     <ClInclude Include="raytracer\BRDFs\BRDF.h" />
     <ClInclude Include="raytracer\BRDFs\Lambertian.h" />
     <ClInclude Include="raytracer\Cameras\Camera.h" />
@@ -219,6 +224,7 @@
     <ClInclude Include="raytracer\Utilities\Vector3D.h" />
     <ClInclude Include="raytracer\World\ViewPlane.h" />
     <ClInclude Include="raytracer\World\World.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
