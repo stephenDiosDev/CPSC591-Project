@@ -1,10 +1,11 @@
 #pragma once
 
-#include "Texture.h"
+#include "ShadeRec.h"
+#include "RGBColor.h"
 #include "Image.h"
 #include "ppm.h"
 
-class ImageTexture : Texture
+class ImageTexture
 {
 public:
 	ImageTexture(Image* imgptr);

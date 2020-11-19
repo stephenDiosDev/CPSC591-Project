@@ -73,6 +73,8 @@ void World::build(void)
 	string filePath = "TextureImages/blueTest.ppm";
 	Image* image_ptr = new Image(filePath);
 	ImageTexture* imageTexture = new ImageTexture(image_ptr);
+
+	const char* objfilepath = "";
 	//need objmeshFileIO and objmesh to store the result
 	//go through the objmesh and copy stuff over to the Mesh.cpp object
 	//then move 

@@ -43,6 +43,12 @@
     <Filter Include="Noises">
       <UniqueIdentifier>{c06ab5b1-c11d-46b6-b648-05a91af567ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{dd987b36-84f1-4a52-8e2b-b98dd29ddf25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ply">
+      <UniqueIdentifier>{3f3e32c5-5f55-4962-8084-65e0ee601a67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp">
@@ -171,19 +177,20 @@
     <ClCompile Include="raytracer\GeometricObjects\FlatMeshTriangle.cpp">
       <Filter>Geometric Objects</Filter>
     </ClCompile>
-    <ClCompile Include="raytracer\Ply\obj2ply.c" />
-    <ClCompile Include="raytracer\Ply\ply.c" />
     <ClCompile Include="raytracer\Textures\Image.cpp">
       <Filter>Textures</Filter>
     </ClCompile>
     <ClCompile Include="raytracer\Textures\ImageTexture.cpp">
       <Filter>Textures</Filter>
     </ClCompile>
-    <ClCompile Include="raytracer\Textures\Texture.cpp">
-      <Filter>Textures</Filter>
-    </ClCompile>
     <ClCompile Include="raytracer\Textures\ppm.cpp">
       <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Ply\obj2ply.c">
+      <Filter>Ply</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Ply\ply.c">
+      <Filter>Ply</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -328,18 +335,17 @@
     <ClInclude Include="raytracer\GeometricObjects\FlatMeshTriangle.h">
       <Filter>Geometric Objects</Filter>
     </ClInclude>
-    <ClInclude Include="raytracer\Ply\ply.h" />
     <ClInclude Include="raytracer\Textures\Image.h">
       <Filter>Textures</Filter>
     </ClInclude>
     <ClInclude Include="raytracer\Textures\ImageTexture.h">
       <Filter>Textures</Filter>
     </ClInclude>
-    <ClInclude Include="raytracer\Textures\Texture.h">
-      <Filter>Textures</Filter>
-    </ClInclude>
     <ClInclude Include="raytracer\Textures\ppm.h">
       <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Ply\ply.h">
+      <Filter>Ply</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
