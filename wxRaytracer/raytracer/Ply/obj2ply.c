@@ -38,8 +38,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <strings.h>
-#include <ply.h>
+#include <string.h>
+#include "../Ply/ply.h"
 
 
 /* user's vertex and face definitions for a polygonal object */
@@ -106,55 +106,21 @@ static char str[BIG_STRING];
 static char str_orig[BIG_STRING];
 static int flip_vertex_order = 1;
 
-
-/******************************************************************************
-Main program.
-******************************************************************************/
-
-main(int argc, char *argv[])
-{
-  int i,j;
-  char *s;
-  char *progname;
-  int num_major = 20;
-  int num_minor = 20;
-  float r_major = 1;
-  float r_minor = 0.5;
-
-  progname = argv[0];
-
-  while (--argc > 0 && (*++argv)[0]=='-') {
-    for (s = argv[0]+1; *s; s++)
-      switch (*s) {
-        case 'f':
-          flip_vertex_order = 1 - flip_vertex_order;
-          break;
-#if 0
-        case 't':
-          texture_coords = 1 - texture_coords;
-          break;
-#endif
-        default:
-          usage (progname);
-          exit (-1);
-          break;
-      }
-  }
-
-  read_obj();
-  write_file();
-}
-
-
 /******************************************************************************
 Print out usage information.
 ******************************************************************************/
 
-usage(char *progname)
+int usage(char* progname)
 {
-  fprintf (stderr, "usage: %s [flags] <in.obj >out.ply\n", progname);
-  fprintf (stderr, "       -f { flip vertex order in polygons }\n");
+    fprintf(stderr, "usage: %s [flags] <in.obj >out.ply\n", progname);
+    fprintf(stderr, "       -f { flip vertex order in polygons }\n");
+
+    return 1;
 }
+
+
+
+
 
 
 /******************************************************************************
@@ -164,7 +130,7 @@ Entry:
   x,y,z,w - 3D positions, maybe with homogeneous component
 ******************************************************************************/
 
-make_vertex(float x, float y, float z, float w)
+int make_vertex(float x, float y, float z, float w)
 {
   Vertex *v;
 
@@ -184,6 +150,8 @@ make_vertex(float x, float y, float z, float w)
   v->y = y;
   v->z = z;
   v->w = w;
+
+  return 1;
 }
 
 
@@ -200,7 +168,7 @@ Exit:
   nindex - third number (normal vector index)
 ******************************************************************************/
 
-get_indices(char *word, int *vindex, int *tindex, int *nindex)
+int get_indices(char *word, int *vindex, int *tindex, int *nindex)
 {
   char *null = " ";
   char *ptr;
@@ -231,6 +199,8 @@ get_indices(char *word, int *vindex, int *tindex, int *nindex)
   *vindex = atoi (word);
   *tindex = atoi (tp);
   *nindex = atoi (np);
+
+  return 1;
 }
 
 
@@ -242,7 +212,7 @@ Entry:
   nwords - number of words in list
 ******************************************************************************/
 
-make_face(char **words, int nwords)
+int make_face(char **words, int nwords)
 {
   static int warning = 0;
   int i,ii;
@@ -310,7 +280,7 @@ Entry:
   comment - comment to tuck away
 ******************************************************************************/
 
-make_comment(char *comment)
+int make_comment(char *comment)
 {
   /* see if we need to allocate space for comments */
 
@@ -325,6 +295,8 @@ make_comment(char *comment)
 
   comments[ncomments] = strdup (comment);
   ncomments++;
+
+  return 1;
 }
 
 
@@ -464,7 +436,7 @@ int fetch_words()
 Read in a Wavefront OBJ file.
 ******************************************************************************/
 
-read_obj()
+int read_obj()
 {
   int i,j,k;
   FILE *fp;
@@ -534,7 +506,7 @@ read_obj()
 Write out the PLY file to standard out.
 ******************************************************************************/
 
-write_file()
+int write_file()
 {
   int i;
   PlyFile *ply;
@@ -582,5 +554,46 @@ write_file()
 
   close_ply (ply);
   free_ply (ply);
+
+  return 1;
+}
+
+
+/******************************************************************************
+Main program.
+******************************************************************************/
+
+int main(int argc, char* argv[])
+{
+    int i, j;
+    char* s;
+    char* progname;
+    int num_major = 20;
+    int num_minor = 20;
+    float r_major = 1;
+    float r_minor = 0.5;
+
+    progname = argv[0];
+
+    while (--argc > 0 && (*++argv)[0] == '-') {
+        for (s = argv[0] + 1; *s; s++)
+            switch (*s) {
+            case 'f':
+                flip_vertex_order = 1 - flip_vertex_order;
+                break;
+#if 0
+            case 't':
+                texture_coords = 1 - texture_coords;
+                break;
+#endif
+            default:
+                usage(progname);
+                exit(-1);
+                break;
+            }
+    }
+
+    read_obj();
+    write_file();
 }
 

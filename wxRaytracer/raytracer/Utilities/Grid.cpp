@@ -17,13 +17,12 @@
 
 #include "MeshTriangle.h"
 #include "SmoothMeshTriangle.h"
-#include "FlatUVMeshTriangle.h"
-#include "SmoothUVMeshTriangle.h"
+#include "FlatMeshTriangle.h"
 
 #include "Triangle.h"
 #include "SmoothTriangle.h"
 
-#include "ply.h"
+using namespace std;
 
 typedef enum {
 	flat, 
@@ -137,7 +136,7 @@ Grid::setup_cells(void) {
 				
 	// set up a temporary array to hold the number of objects stored in each cell
 	
-	vector<int> counts;
+	std::vector<int> counts;
 	counts.reserve(num_cells);
 		
 	for (int j = 0; j < num_cells; j++)
@@ -376,6 +375,7 @@ Grid::read_ply_file(char* file_name, const int triangle_type) {
 
   	// open a ply file for reading
   
+	
 	ply = ply_open_for_reading(file_name, &nelems, &elist, &file_type, &version);
 	
   	// print what we found out about the file
@@ -389,7 +389,7 @@ Grid::read_ply_file(char* file_name, const int triangle_type) {
 	    // get the description of the first element 
 	    
   	    elem_name = elist[i];
-	    plist = ply_get_element_description (ply, elem_name, &num_elems, &nprops);
+	    plist = get_element_description_ply (ply, elem_name, &num_elems, &nprops);
 
 	    // print the name of the element, for debugging
 	    
@@ -489,14 +489,14 @@ Grid::read_ply_file(char* file_name, const int triangle_type) {
 
 	// grab and print out the comments in the file
 	  
-	comments = ply_get_comments (ply, &num_comments);
+	comments = get_comments_ply (ply, &num_comments);
 	  
 	for (i = 0; i < num_comments; i++)
 	    printf ("comment = '%s'\n", comments[i]);
 
 	// grab and print out the object information
 	  
-	obj_info = ply_get_obj_info (ply, &num_obj_info);
+	obj_info = get_obj_info_ply (ply, &num_obj_info);
 	  
 	for (i = 0; i < num_obj_info; i++)
 	    printf ("obj_info = '%s'\n", obj_info[i]);

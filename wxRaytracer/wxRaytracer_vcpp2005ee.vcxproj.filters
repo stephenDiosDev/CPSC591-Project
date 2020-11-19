@@ -162,6 +162,17 @@
     <ClCompile Include="raytracer\Utilities\Grid.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\Compound.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\Triangle.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\FlatMeshTriangle.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Ply\obj2ply.c" />
+    <ClCompile Include="raytracer\Ply\ply.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -296,5 +307,15 @@
     <ClInclude Include="raytracer\Utilities\Grid.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\Compound.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\Triangle.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\FlatMeshTriangle.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Ply\ply.h" />
   </ItemGroup>
 </Project>

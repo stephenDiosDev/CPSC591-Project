@@ -135,6 +135,15 @@ typedef struct PlyOtherElems {  /* "other" elements, not interpreted by user */
 #define SAME_RULE     5
 #define RANDOM_RULE   6
 
+#define PLY_CHAR 1
+#define PLY_UCHAR 1
+#define PLY_SHORT 2
+#define PLY_USHORT 2
+#define PLY_INT 4
+#define PLY_UINT 4
+#define PLY_FLOAT 4
+#define PLY_DOUBLE 8
+
 typedef struct PlyPropRules {   /* rules for combining "other" properties */
   PlyElement *elem;      /* element whose rules we are making */
   int *rule_list;        /* types of rules (AVERAGE_PLY, MAJORITY_PLY, etc.) */
@@ -176,13 +185,13 @@ extern char *my_alloc();
 
 /* old routines */
 
-#if 0
+//#if 0
 extern PlyFile *ply_write(FILE *, int, char **, int);
 extern PlyFile *ply_read(FILE *, int *, char ***);
 extern PlyFile *ply_open_for_reading( char *, int *, char ***, int *, float *);
 extern void ply_close(PlyFile *);
 extern PlyOtherProp *ply_get_other_properties(PlyFile *, char *, int);
-#endif
+//#endif
 
 extern void ply_describe_property(PlyFile *, char *, PlyProperty *);
 extern void ply_get_property(PlyFile *, char *, PlyProperty *);

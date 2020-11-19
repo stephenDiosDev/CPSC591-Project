@@ -51,7 +51,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include <ply.h>
+#include "../Ply/ply.h"
 
 char *type_names[] = {  /* names of scalar types */
 "invalid",
@@ -3153,7 +3153,7 @@ void *get_new_props_ply(PlyFile *ply)
   }
 
   /* in case we need a random choice */
-  random_pick = (int) floor (rules->nprops * drand48());
+  random_pick = (int) floor (rules->nprops * rand());
 
   /* calculate the combination for each "other" property of the element */
 

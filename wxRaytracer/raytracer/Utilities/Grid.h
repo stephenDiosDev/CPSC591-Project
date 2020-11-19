@@ -22,6 +22,9 @@
 #include "Compound.h"
 #include "ShadeRec.h"
 #include "Mesh.h"
+#include "../Ply/ply.h"
+#include <vector>
+#include "Maths.h"
 
 
 //---------------------------------------------------------------------- class Grid
@@ -73,7 +76,7 @@ class Grid: public Compound {
 
 	private: 
 
-		vector<GeometricObject*>	cells;			// grid of cells
+		std::vector<GeometricObject*>	cells;			// grid of cells
 		int							nx, ny, nz;    	// number of cells in the x, y, and z directions
 		BBox						bbox;			// bounding box
 		Mesh*						mesh_ptr;		// holds triangle data
