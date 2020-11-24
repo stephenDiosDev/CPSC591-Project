@@ -11,6 +11,7 @@
 //#include "Model.h"
 #include "MeshOBJ.h"
 #include "ImageTexture.h"
+#include "Grid.h"
 
 
 
@@ -68,13 +69,25 @@ void World::build(void)
 
 	float ka = 0.25;
 	float kd = 0.75;
+	
+	Matte* mattChest = new Matte();
+	mattChest->set_ka(0.1);
+	mattChest->set_kd(0.75);
+	mattChest->set_cd(0.1, 0.5, 1.0);
+
+	char* fileName = "../Models/tests/TwoTriangles.ply";
+	Grid* grid_ptr = new Grid(new Mesh);
+	grid_ptr->read_flat_triangles(fileName);
+	grid_ptr->set_material(mattChest);
+	grid_ptr->setup_cells();
+	add_object(grid_ptr);
 
 	//Mesh and OBJ
-	string filePath = "TextureImages/blueTest.ppm";
-	Image* image_ptr = new Image(filePath);
-	ImageTexture* imageTexture = new ImageTexture(image_ptr);
+	//string filePath = "TextureImages/blueTest.ppm";
+	//Image* image_ptr = new Image(filePath);
+	//ImageTexture* imageTexture = new ImageTexture(image_ptr);
 
-	const char* objfilepath = "";
+	//const char* objfilepath = "";
 	//need objmeshFileIO and objmesh to store the result
 	//go through the objmesh and copy stuff over to the Mesh.cpp object
 	//then move 
@@ -88,7 +101,7 @@ void World::build(void)
 	matte_ptr1->set_cd(yellow);
 	Sphere *sphere_ptr1 = new Sphere(Point3D(0, 0, 0), 30);
 	sphere_ptr1->set_material(matte_ptr1); // yellow
-	add_object(sphere_ptr1);
+	//add_object(sphere_ptr1);
 
 	//smooth triangle
 	Matte *matteptr2 = new Matte;
@@ -97,7 +110,7 @@ void World::build(void)
 	matteptr2->set_cd(green);
 	SmoothTriangle *smoothTri = new SmoothTriangle(Point3D(80, -80, -400), Point3D(-80, -80, 100), Point3D(0, 80, -200));
 	smoothTri->set_material(matteptr2);
-	add_object(smoothTri);
+	//add_object(smoothTri);
 
 	// vertical plane
 

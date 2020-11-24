@@ -144,7 +144,6 @@
     <ClCompile Include="raytracer\Lights\Light.cpp" />
     <ClCompile Include="raytracer\Materials\Material.cpp" />
     <ClCompile Include="raytracer\Materials\Matte.cpp" />
-    <ClCompile Include="raytracer\Ply\obj2ply.c" />
     <ClCompile Include="raytracer\Ply\ply.c" />
     <ClCompile Include="raytracer\Textures\Image.cpp" />
     <ClCompile Include="raytracer\Textures\ImageTexture.cpp" />

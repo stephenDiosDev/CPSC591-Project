@@ -186,9 +186,6 @@
     <ClCompile Include="raytracer\Textures\ppm.cpp">
       <Filter>Textures</Filter>
     </ClCompile>
-    <ClCompile Include="raytracer\Ply\obj2ply.c">
-      <Filter>Ply</Filter>
-    </ClCompile>
     <ClCompile Include="raytracer\Ply\ply.c">
       <Filter>Ply</Filter>
     </ClCompile>
