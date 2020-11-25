@@ -75,12 +75,12 @@ void World::build(void)
 	mattChest->set_kd(0.75);
 	mattChest->set_cd(0.1, 0.5, 1.0);
 
-	char* fileName = "../Models/tests/TwoTriangles.ply";
+	char* fileName = "../Models/tests/goldfish_low_res.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
-	grid_ptr->read_flat_triangles(fileName);
-	grid_ptr->set_material(mattChest);
-	grid_ptr->setup_cells();
-	add_object(grid_ptr);
+	grid_ptr->read_smooth_triangles("goldfish_low_res");				//the bad line causing the null pointer
+	//grid_ptr->set_material(mattChest);
+	//grid_ptr->setup_cells();
+	//add_object(grid_ptr);
 
 	//Mesh and OBJ
 	//string filePath = "TextureImages/blueTest.ppm";

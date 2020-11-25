@@ -75,8 +75,7 @@ MeshTriangle::~MeshTriangle (void) {
 
 void 
 MeshTriangle::compute_normal(const bool reverse_normal) {
-	normal = (mesh_ptr->vertices[index1] - mesh_ptr->vertices[index0]) ^
-			 (mesh_ptr->vertices[index2] - mesh_ptr->vertices[index0]);
+	normal = (mesh_ptr->vertices[index1] - mesh_ptr->vertices[index0]) ^ (mesh_ptr->vertices[index2] - mesh_ptr->vertices[index0]);
 	normal.normalize();
 	
 	if (reverse_normal)

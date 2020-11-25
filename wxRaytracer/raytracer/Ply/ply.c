@@ -47,6 +47,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -634,6 +635,7 @@ PlyFile *ply_read(FILE *fp, int *nelems, char ***elem_names)
   PlyElement *elem;
   char *orig_line;
 
+  printf("GOT TO CHECKING THE FILE POINTER IN PLY_READ!");
   /* check for NULL file pointer */
   if (fp == NULL)
     return (NULL);
@@ -753,9 +755,13 @@ PlyFile *ply_open_for_reading(
 
   /* open the file for reading */
 
+  name = "C:\\Users\\tfsha\\Desktop\\591Project\\SkeletonRayTracer\\CPSC591-Project\\wxRaytracer\\raytracer\\Models\\tests\\goldfish_low_res.ply";
   fp = fopen (name, "r");
-  if (fp == NULL)
-    return (NULL);
+  if (fp == NULL) {
+      printf("Error: %s", strerror(errno));
+      return (NULL);
+  }
+    
 
   /* create the PlyFile data structure */
 
@@ -763,12 +769,15 @@ PlyFile *ply_open_for_reading(
 
   /* determine the file type and version */
 
+  
+  if(plyfile == NULL)
+      printf("Error: %s", strerror(errno));
   *file_type = plyfile->file_type;
   *version = plyfile->version;
 
   /* return a pointer to the file's information */
 
-  return (plyfile);
+  return plyfile;
 }
 
 
@@ -1380,7 +1389,6 @@ Exit:
 PlyElement *find_element(PlyFile *plyfile, char *element)
 {
   int i;
-
   for (i = 0; i < plyfile->num_elem_types; i++)
     if (equal_strings (element, plyfile->elems[i]->name))
       return (plyfile->elems[i]);
