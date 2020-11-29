@@ -289,5 +289,8 @@
     <None Include="raytracer\Models\TwoTriangles.ply">
       <Filter>Models</Filter>
     </None>
+    <None Include="raytracer\Models\Bunny4K.ply">
+      <Filter>Models</Filter>
+    </None>
   </ItemGroup>
 </Project>

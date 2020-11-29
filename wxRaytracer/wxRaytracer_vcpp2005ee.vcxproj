@@ -206,6 +206,7 @@
     <ClInclude Include="raytracer\World\World.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="raytracer\Models\Bunny4K.ply" />
     <None Include="raytracer\Models\TwoTriangles.ply" />
     <None Include="raytracer\Models\TwoUVTriangles.ply" />
   </ItemGroup>

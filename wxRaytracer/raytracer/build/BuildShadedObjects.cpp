@@ -46,7 +46,7 @@ void World::build(void) {
 	// camera
 	
 	Pinhole* pinhole_ptr = new Pinhole;
-	pinhole_ptr->set_eye(190, 60, 200);
+	pinhole_ptr->set_eye(20, 20, 40);
 	pinhole_ptr->set_lookat(0, 0, 0);
 	pinhole_ptr->set_view_distance(16000);
 	pinhole_ptr->compute_uvw();
@@ -84,7 +84,7 @@ void World::build(void) {
 	meshMatte->set_kd(0.75);
 	meshMatte->set_cd(0.1, 0.5, 1.0);
 
-	char* file_name = "C:\\Users\\tfsha\\Desktop\\591Project\\SkeletonRayTracer\\CPSC591-Project\\wxRaytracer\\raytracer\\Models\\TwoTriangles.ply";
+	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\Bunny4K.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
 //	grid_ptr->read_flat_triangles(file_name);		// for Figure 23.7(a)
 	grid_ptr->read_smooth_triangles(file_name);		// for Figure 23.7(b)
