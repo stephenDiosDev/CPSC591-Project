@@ -1,6 +1,12 @@
+// 	Copyright (C) Kevin Suffern 2000-2007.
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
+
 // This file contains the defintion of the class Normal
 
-#include <math.h>
+#include <math.h>		// for sqrt
 
 #include "Normal.h"
 
@@ -104,6 +110,7 @@ operator* (const Matrix& mat, const Normal& n) {
 					mat.m[0][1] * n.x + mat.m[1][1] * n.y + mat.m[2][1] * n.z,
 					mat.m[0][2] * n.x + mat.m[1][2] * n.y + mat.m[2][2] * n.z));
 }
+
 
 
 

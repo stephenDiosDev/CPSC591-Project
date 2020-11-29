@@ -1,7 +1,12 @@
 #ifndef __RGB_COLOR__
 #define __RGB_COLOR__
 
-// This file contains the declaration of the class RGBColor
+
+// 	Copyright (C) Kevin Suffern 2000-2007.
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 
 //------------------------------------------------------------ class RGBColor
 
@@ -144,7 +149,6 @@ RGBColor::average(void) const {
 
 
 
-
 // inlined non-member function
 
 // ----------------------------------------------------------------------- operator*
@@ -160,3 +164,4 @@ operator* (const float a, const RGBColor& c) {
 
 
 #endif
+

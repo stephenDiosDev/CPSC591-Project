@@ -1,15 +1,18 @@
-
 #ifndef __NORMAL__
 #define __NORMAL__
 
-// This file contains the declaration of the class Normal
+
+// 	Copyright (C) Kevin Suffern 2000-2007.
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 
 #include "Matrix.h"
 #include "Vector3D.h"
 #include "Point3D.h"
 
-class Normal 
-{	
+class Normal {	
 	public:
 	
 		double	x, y, z;
@@ -20,7 +23,7 @@ class Normal
 		Normal(double a);									// constructor
 		Normal(double _x, double _y, double _z);			// constructor
 		Normal(const Normal& n); 							// copy constructor
-		Normal(const Vector3D& v);							// constructs a normal from vector
+		Normal(const Vector3D& v);							// constructs a normal from a vector
 		
 		~Normal(void);										// destructor
 
@@ -51,8 +54,6 @@ class Normal
 		void 												// convert normal to a unit normal
 		normalize(void); 									 		
 };
-
-
 
 
 
@@ -110,7 +111,7 @@ Normal::operator* (const double a) const {
 // ----------------------------------------------------------------------- operator*
 // multiplication by a double on the left
 
-Normal
+Normal											// prototype
 operator* (const double a, const Normal& n);
 
 inline Normal
@@ -122,7 +123,7 @@ operator*(const double f, const Normal& n) {
 // ----------------------------------------------------------------------- operator+
 // addition of a vector on the left to return a vector 
 
-Vector3D
+Vector3D										// prototype
 operator+ (const Vector3D& v, const Normal& n);
 
 inline Vector3D
@@ -161,10 +162,10 @@ operator* (const Vector3D& v, const Normal& n) {
 // ----------------------------------------------------------------------- operator*
 // multiplication by a matrix on the left
 
-Normal 											
+Normal 												// prototype							
 operator* (const Matrix& mat, const Normal& n);
 
-
 #endif
+
 
 

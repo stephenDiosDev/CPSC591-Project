@@ -1,6 +1,12 @@
+// 	Copyright (C) Kevin Suffern 2000-2007.
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
+
 // This file contains the definition of the class Vector3D
 
-#include <math.h>
+#include <math.h>    // for sqrt
 
 #include "Vector3D.h"
 #include "Normal.h"
@@ -49,8 +55,7 @@ Vector3D::Vector3D(const Point3D& p)
 
 // ---------------------------------------------------------- destructor
 
-Vector3D::~Vector3D (void) 							
-{}
+Vector3D::~Vector3D (void) {}
 
 
 
@@ -128,3 +133,4 @@ operator* (const Matrix& mat, const Vector3D& v) {
 					mat.m[1][0] * v.x + mat.m[1][1] * v.y + mat.m[1][2] * v.z,
 					mat.m[2][0] * v.x + mat.m[2][1] * v.y + mat.m[2][2] * v.z));
 }
+

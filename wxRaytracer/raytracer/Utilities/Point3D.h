@@ -1,7 +1,12 @@
 #ifndef __POINT3D__
 #define __POINT3D__
 
-// This file contains the defintion of the class Point3D
+
+// 	Copyright (C) Kevin Suffern 2000-2007.
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 
 #include "Matrix.h"
 #include "Vector3D.h"
@@ -109,7 +114,7 @@ Point3D::d_squared(const Point3D& p) const {
 // -------------------------------------------------------------- operator*
 // multiplication by a double on the left
 
-Point3D
+Point3D												// prototype
 operator* (double a, const Point3D& p);
 
 inline Point3D
@@ -124,7 +129,8 @@ operator* (double a, const Point3D& p) {
 // -------------------------------------------------------------- operator*
 // multiplication by a matrix on the left
 
-Point3D 						
+Point3D 											// prototype					
 operator* (const Matrix& mat, const Point3D& p);
 
 #endif
+
