@@ -56,10 +56,11 @@ ShadeRec::ShadeRec(const ShadeRec& sr)
 ShadeRec::~ShadeRec(void) {
 	if (material_ptr) {
 		delete material_ptr;
-		material_ptr = NULL;
+		material_ptr = nullptr;
 	}
 }
-	*/	
+*/
+		
 		
 						
 		

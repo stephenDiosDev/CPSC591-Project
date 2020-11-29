@@ -33,8 +33,8 @@ class GeometricObject {
 		virtual GeometricObject*								
 		clone(void) const = 0;
 
-		virtual 												
-		~GeometricObject(void);	
+		//virtual 												
+		//~GeometricObject(void);	
 			
 		virtual bool 												 
 		hit(const Ray& ray, double& t, ShadeRec& s) const = 0;	

@@ -43,6 +43,9 @@
     <Filter Include="Noises">
       <UniqueIdentifier>{c06ab5b1-c11d-46b6-b648-05a91af567ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{5f051a09-1c54-4b40-9602-fc84f80fddbc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp">
@@ -278,5 +281,13 @@
     <ClInclude Include="raytracer\Utilities\Mesh.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="raytracer\Models\TwoUVTriangles.ply">
+      <Filter>Models</Filter>
+    </None>
+    <None Include="raytracer\Models\TwoTriangles.ply">
+      <Filter>Models</Filter>
+    </None>
   </ItemGroup>
 </Project>
