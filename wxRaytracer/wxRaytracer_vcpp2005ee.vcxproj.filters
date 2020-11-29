@@ -126,6 +126,9 @@
     <ClCompile Include="raytracer\Tracers\Tracer.cpp">
       <Filter>Tracers</Filter>
     </ClCompile>
+    <ClCompile Include="raytracer\Utilities\ply.c">
+      <Filter>Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -214,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="raytracer\Tracers\Tracer.h">
       <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\ply.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

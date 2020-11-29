@@ -144,6 +144,7 @@
     <ClCompile Include="raytracer\UserInterface\wxraytracer.cpp" />
     <ClCompile Include="raytracer\Utilities\Matrix.cpp" />
     <ClCompile Include="raytracer\Utilities\Normal.cpp" />
+    <ClCompile Include="raytracer\Utilities\ply.c" />
     <ClCompile Include="raytracer\Utilities\Point2D.cpp" />
     <ClCompile Include="raytracer\Utilities\Point3D.cpp" />
     <ClCompile Include="raytracer\Utilities\Ray.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="raytracer\Utilities\Maths.h" />
     <ClInclude Include="raytracer\Utilities\Matrix.h" />
     <ClInclude Include="raytracer\Utilities\Normal.h" />
+    <ClInclude Include="raytracer\Utilities\ply.h" />
     <ClInclude Include="raytracer\Utilities\Point2D.h" />
     <ClInclude Include="raytracer\Utilities\Point3D.h" />
     <ClInclude Include="raytracer\Utilities\Ray.h" />
