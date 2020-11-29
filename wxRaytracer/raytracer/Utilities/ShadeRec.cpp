@@ -1,15 +1,9 @@
-// 	Copyright (C) Kevin Suffern 2000-2007.
-//	This C++ code is for non-commercial purposes only.
-//	This C++ code is licensed under the GNU General Public License Version 2.
-//	See the file COPYING.txt for the full license.
+// this file contains the definition of the class ShadeRec
 
-
-// This file contains the definition of the class ShadeRec
-
-// There is no default constructor as the World reference has to be initialised
-// There is also no assignment operator as we don't want to assign the world anywhere
-// The copy constructor only copies the world reference
-// The ray tracer is written so that new ShadeRec objects are always constructed
+// there is no default constructor as the World reference has to be initialised
+// there is also no assignment operator as we don't want to assign the world
+// the copy constructor only copies the world reference
+// the ray tracer is written so that new ShadeRec objects are always constructed
 // using the first constructor or the copy constructor
 
 #include "Constants.h"
@@ -25,10 +19,7 @@ ShadeRec::ShadeRec(World& wr)
 		normal(),
 		ray(),
 		depth(0),
-		color(black),
 		t(0.0),
-		u(0.0),
-		v(0.0),
 		w(wr)
 {}
 
@@ -43,23 +34,12 @@ ShadeRec::ShadeRec(const ShadeRec& sr)
 		normal(sr.normal),
 		ray(sr.ray),
 		depth(sr.depth),
-		color(sr.color),
 		t(sr.t),
-		u(sr.u),
-		v(sr.v),
 		w(sr.w)
 {}
 
 
-// ------------------------------------------------------------------ destructor
-/*
-ShadeRec::~ShadeRec(void) {
-	if (material_ptr) {
-		delete material_ptr;
-		material_ptr = NULL;
-	}
-}
-*/
+
 		
 		
 						

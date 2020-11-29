@@ -43,12 +43,6 @@
     <Filter Include="Noises">
       <UniqueIdentifier>{c06ab5b1-c11d-46b6-b648-05a91af567ff}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Models">
-      <UniqueIdentifier>{dd987b36-84f1-4a52-8e2b-b98dd29ddf25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Ply">
-      <UniqueIdentifier>{3f3e32c5-5f55-4962-8084-65e0ee601a67}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp">
@@ -131,63 +125,6 @@
     </ClCompile>
     <ClCompile Include="raytracer\Tracers\Tracer.cpp">
       <Filter>Tracers</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Utilities\BBox.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Utilities\Mesh.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\GeometricObjects\Instance.cpp">
-      <Filter>Geometric Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\GeometricObjects\MeshTriangle.cpp">
-      <Filter>Geometric Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\GeometricObjects\SmoothMeshTriangle.cpp">
-      <Filter>Geometric Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\GeometricObjects\SmoothTriangle.cpp">
-      <Filter>Geometric Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Utilities\obj_mesh.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Utilities\obj_mesh_file_io.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Utilities\vec2f.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Utilities\vec3f.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Utilities\triangle.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Utilities\Grid.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\GeometricObjects\Compound.cpp">
-      <Filter>Geometric Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\GeometricObjects\Triangle.cpp">
-      <Filter>Geometric Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\GeometricObjects\FlatMeshTriangle.cpp">
-      <Filter>Geometric Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Textures\Image.cpp">
-      <Filter>Textures</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Textures\ImageTexture.cpp">
-      <Filter>Textures</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Textures\ppm.cpp">
-      <Filter>Textures</Filter>
-    </ClCompile>
-    <ClCompile Include="raytracer\Ply\ply.c">
-      <Filter>Ply</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -277,72 +214,6 @@
     </ClInclude>
     <ClInclude Include="raytracer\Tracers\Tracer.h">
       <Filter>Tracers</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Utilities\BBox.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Utilities\Mesh.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\GeometricObjects\Instance.h">
-      <Filter>Geometric Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\GeometricObjects\MeshTriangle.h">
-      <Filter>Geometric Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\GeometricObjects\SmoothMeshTriangle.h">
-      <Filter>Geometric Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\GeometricObjects\SmoothTriangle.h">
-      <Filter>Geometric Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Utilities\MeshOBJ.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\stb\stb_image.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\stb\stb_image_write.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Utilities\obj_mesh.hpp">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Utilities\obj_mesh_file_io.hpp">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Utilities\vec2f.hpp">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Utilities\vec3f.hpp">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Utilities\triangle.hpp">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Utilities\Grid.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\GeometricObjects\Compound.h">
-      <Filter>Geometric Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\GeometricObjects\Triangle.h">
-      <Filter>Geometric Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\GeometricObjects\FlatMeshTriangle.h">
-      <Filter>Geometric Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Textures\Image.h">
-      <Filter>Textures</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Textures\ImageTexture.h">
-      <Filter>Textures</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Textures\ppm.h">
-      <Filter>Textures</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Ply\ply.h">
-      <Filter>Ply</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
