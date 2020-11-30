@@ -9,10 +9,13 @@ class ConstantColor :
 			ConstantColor(const ConstantColor& constantColor);
 
 			virtual ConstantColor*
-				clone(void) const = 0;
+				clone(void) const;
 
 			virtual
 				~ConstantColor(void);
+
+			ConstantColor&
+				ConstantColor::operator= (const ConstantColor& rhs);
 		
 		void
 		set_color(const RGBColor& c); 
@@ -22,10 +25,10 @@ class ConstantColor :
 		
 	private:
 		
-		RGBColor* color;	 // the color		
+		RGBColor* color = new RGBColor(1.0, 1.0, 1.0);	 // the color		
 };
 		
-		
+inline
 RGBColor
 ConstantColor::get_color(const ShadeRec& sr) const {
 	return (*color);

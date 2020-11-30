@@ -1,3 +1,7 @@
 *.vs
 *.db
 WxRayTracer/Debug/*
+wxRaytracer/raytracer/Models/penguin/*
+wxRaytracer/raytracer/Models/table/*
+wxRaytracer/raytracer/Textures/ppm/penguin_eye.ppm
+wxRaytracer/raytracer/Textures/ppm/penguin_body.ppm

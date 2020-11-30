@@ -134,6 +134,7 @@
     <ClCompile Include="raytracer\GeometricObjects\FlatMeshTriangle.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\GeometricObject.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\Grid.cpp" />
+    <ClCompile Include="raytracer\GeometricObjects\Instance.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\MeshTriangle.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\Plane.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\SmoothMeshTriangle.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="raytracer\GeometricObjects\FlatMeshTriangle.h" />
     <ClInclude Include="raytracer\GeometricObjects\GeometricObject.h" />
     <ClInclude Include="raytracer\GeometricObjects\Grid.h" />
+    <ClInclude Include="raytracer\GeometricObjects\Instance.h" />
     <ClInclude Include="raytracer\GeometricObjects\MeshTriangle.h" />
     <ClInclude Include="raytracer\GeometricObjects\Plane.h" />
     <ClInclude Include="raytracer\GeometricObjects\SmoothMeshTriangle.h" />
@@ -227,12 +229,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\Bunny4K.ply" />
+    <None Include="raytracer\Models\penguin\penguin_body.ply" />
+    <None Include="raytracer\Models\penguin\penguin_left_eyeball.ply" />
+    <None Include="raytracer\Models\penguin\penguin_left_foot.ply" />
+    <None Include="raytracer\Models\penguin\penguin_left_lower_eyelid.ply" />
+    <None Include="raytracer\Models\penguin\penguin_left_upper_eyelid.ply" />
+    <None Include="raytracer\Models\penguin\penguin_left_wing.ply" />
+    <None Include="raytracer\Models\penguin\penguin_right_eyeball.ply" />
+    <None Include="raytracer\Models\penguin\penguin_right_foot.ply" />
+    <None Include="raytracer\Models\penguin\penguin_right_lower_eyelid.ply" />
+    <None Include="raytracer\Models\penguin\penguin_right_upper_eyelid.ply" />
+    <None Include="raytracer\Models\penguin\penguin_right_wing.ply" />
+    <None Include="raytracer\Models\table\Classicsidetable.ply" />
+    <None Include="raytracer\Models\table\Classic_side_table_0.ppm" />
     <None Include="raytracer\Models\treasureChest.ply" />
     <None Include="raytracer\Models\TwoTriangles.ply" />
     <None Include="raytracer\Models\TwoUVTriangles.ply" />
     <None Include="raytracer\Textures\ppm\BilliardBall.ppm" />
     <None Include="raytracer\Textures\ppm\CyanToYellow.ppm" />
     <None Include="raytracer\Textures\ppm\EarthHighRes.ppm" />
+    <None Include="raytracer\Textures\ppm\penguin_body.ppm" />
+    <None Include="raytracer\Textures\ppm\penguin_eye.ppm" />
     <None Include="raytracer\Textures\ppm\Sarah.ppm" />
     <None Include="raytracer\Textures\ppm\treasure_chest.ppm" />
   </ItemGroup>

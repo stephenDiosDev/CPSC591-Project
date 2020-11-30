@@ -10,6 +10,8 @@
 #include "ImageTexture.h"
 #include "SV_Matte.h"
 #include "SphericalMap.h"
+#include "ConstantColor.h"
+#include "Instance.h"
 void World::build(void) {
 	int num_samples = 1;
 
@@ -41,7 +43,7 @@ void World::build(void) {
 	ambient_ptr->scale_radiance(1.0);
 	set_ambient_light(ambient_ptr); 
 
-	background_color = yellow;			// default color - this can be left out
+	background_color = white;			// default color - this can be left out
 	
 	tracer_ptr = new RayCast(this); 
 
@@ -50,7 +52,8 @@ void World::build(void) {
 	
 	Pinhole* pinhole_ptr = new Pinhole;
 	pinhole_ptr->set_eye(50, 5, 120);
-	pinhole_ptr->set_lookat(0, 0, -0.3);
+	//pinhole_ptr->set_lookat(0, 0, -0.3);
+	pinhole_ptr->set_lookat(0, 0, 0);
 	pinhole_ptr->set_view_distance(16000);
 	pinhole_ptr->compute_uvw();
 	set_camera(pinhole_ptr);
@@ -59,7 +62,7 @@ void World::build(void) {
 	// light
 	
 	Directional* directional_ptr = new Directional;
-	directional_ptr->set_direction(-0.75, 0.35, -0.15);
+	directional_ptr->set_direction(0, 0.30, -0.15);
 	directional_ptr->scale_radiance(4.5);
 	//directional_ptr->set_shadows(true);
 	add_light(directional_ptr);
@@ -69,14 +72,32 @@ void World::build(void) {
 	float ka = 0.25;
 	float kd = 0.75;
 	
-	
+/*
 	// spheres
+	Image* earthImg = new Image;
+	earthImg->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\EarthHighRes.ppm");
+	SphericalMap* sphericalMapPtr = new SphericalMap;
+	ImageTexture* earthTexturePtr = new ImageTexture;
+	earthTexturePtr->set_image(earthImg);
+	earthTexturePtr->set_mapping(sphericalMapPtr);
+	SV_Matte* earthMatte = new SV_Matte;
+	earthMatte->set_ka(0.45);
+	earthMatte->set_kd(0.65);
+	earthMatte->set_cd(earthTexturePtr);
+	Sphere* earthSphere = new Sphere;
+	earthSphere->set_material(earthMatte);
+	Instance* earthPtr = new Instance(earthSphere);
+	earthPtr->set_material(earthMatte);
+	earthPtr->rotate_y(280);
+	earthPtr->rotate_x(30);
+	add_object(earthPtr);
+	
 	
 	Matte* matte_ptr1 = new Matte;   
 	matte_ptr1->set_ka(ka);	
 	matte_ptr1->set_kd(kd);
-	matte_ptr1->set_cd(orange);				
-	Sphere*	sphere_ptr1 = new Sphere(Point3D(5, 3, 0), 30); 
+	matte_ptr1->set_cd(lightGreen);				
+	Sphere*	sphere_ptr1 = new Sphere(Point3D(0, 0, 0), 1); 
 	sphere_ptr1->set_material(matte_ptr1);	   							// yellow
 	//add_object(sphere_ptr1);
 
@@ -87,10 +108,15 @@ void World::build(void) {
 	ImageTexture* imgTexturePtr = new ImageTexture;
 	imgTexturePtr->set_image(imgPtr);
 	imgTexturePtr->set_mapping(NULL);
+
+	ConstantColor* constantColor = new ConstantColor;
+	constantColor->set_color(green);
+
 	SV_Matte* svMattePtr = new SV_Matte;
 	svMattePtr->set_ka(0.45);
 	svMattePtr->set_kd(0.65);
-	svMattePtr->set_cd(imgTexturePtr);		//throwing a write access violation
+	//svMattePtr->set_cd(imgTexturePtr);
+	svMattePtr->set_cd(constantColor);
 
 
 	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\treasureChest.ply";
@@ -98,10 +124,32 @@ void World::build(void) {
 	grid_ptr->read_smooth_triangles(file_name);		// for Figure 23.7(b)
 	grid_ptr->set_material(svMattePtr);
 	grid_ptr->setup_cells();
+	//add_object(grid_ptr);
+
+*/
+
+//image texture
+	Image* imgPtr = new Image;
+	imgPtr->read_ppm_file("..\\wxRaytracer\\raytracer\\Models\\table\\Classic_side_table_0.ppm");
+
+	ImageTexture* imgTexturePtr = new ImageTexture;
+	imgTexturePtr->set_image(imgPtr);
+	imgTexturePtr->set_mapping(NULL);
+
+	SV_Matte* svMattePtr = new SV_Matte;
+	svMattePtr->set_ka(0.45);
+	svMattePtr->set_kd(0.65);
+	svMattePtr->set_cd(imgTexturePtr);
+
+
+	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\table\\Classicsidetable.ply";
+	Grid* grid_ptr = new Grid(new Mesh);
+	grid_ptr->read_smooth_triangles(file_name);
+	grid_ptr->set_material(svMattePtr);
+	grid_ptr->setup_cells();
 	add_object(grid_ptr);
 
 
-	
 	
 	// vertical plane
 	

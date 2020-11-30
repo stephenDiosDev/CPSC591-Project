@@ -33,8 +33,8 @@ class ShadeRec {
 		int					depth;				// recursion depth
 		RGBColor			color;				// used in the Chapter 3 only
 		double				t;					// ray parameter
-		float				u;					// texture coordinate
-		float				v;					// texture coordinate
+		float				u = 0;					// texture coordinate
+		float				v = 0;					// texture coordinate
 		World&				w;					// world reference
 				
 		ShadeRec(World& wr);					// constructor

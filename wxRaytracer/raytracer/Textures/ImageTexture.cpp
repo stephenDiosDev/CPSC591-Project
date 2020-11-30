@@ -113,8 +113,8 @@ ImageTexture::~ImageTexture (void) {
 
 RGBColor														
 ImageTexture::get_color(const ShadeRec& sr) const {	
-	int row;
-	int column;
+	int row = 0;
+	int column = 0;
 		
 	if (mapping_ptr)
 		mapping_ptr->get_texel_coordinates(sr.local_hit_point, hres, vres, row, column);

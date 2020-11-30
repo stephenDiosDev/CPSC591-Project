@@ -49,6 +49,12 @@
     <Filter Include="Textures\ppm">
       <UniqueIdentifier>{f761e816-0f34-4df6-a201-b6e48ea29497}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Models\penguin">
+      <UniqueIdentifier>{77122c79-fc1e-4518-94ba-4139f9e09b06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\table">
+      <UniqueIdentifier>{b4fddc06-93c3-4f5f-b763-158611fc34d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp">
@@ -194,6 +200,9 @@
     </ClCompile>
     <ClCompile Include="raytracer\Mappings\SphericalMap.cpp">
       <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\Instance.cpp">
+      <Filter>Geometric Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -344,6 +353,9 @@
     <ClInclude Include="raytracer\Mappings\SphericalMap.h">
       <Filter>Mappings</Filter>
     </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\Instance.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\TwoUVTriangles.ply">
@@ -372,6 +384,51 @@
     </None>
     <None Include="raytracer\Models\treasureChest.ply">
       <Filter>Models</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\penguin_body.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\penguin_eye.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_body.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_eyeball.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_foot.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_lower_eyelid.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_upper_eyelid.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_wing.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_eyeball.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_foot.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_lower_eyelid.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_upper_eyelid.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_wing.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\table\Classic_side_table_0.ppm">
+      <Filter>Models\table</Filter>
+    </None>
+    <None Include="raytracer\Models\table\Classicsidetable.ply">
+      <Filter>Models\table</Filter>
     </None>
   </ItemGroup>
 </Project>

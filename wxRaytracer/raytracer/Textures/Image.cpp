@@ -148,8 +148,9 @@ RGBColor
 Image::get_color(const int row, const int column) const {
 	int index = column + hres * (vres - row - 1);
 	int pixels_size = pixels.size();
+
 	
-	if (index < pixels_size)
+	if (index < pixels_size && index >= 0)
 		return (pixels[index]);
 	else
 		return (red);    // useful for debugging 
