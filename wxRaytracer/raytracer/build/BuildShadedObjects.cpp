@@ -9,6 +9,7 @@
 #include "Image.h"
 #include "ImageTexture.h"
 #include "SV_Matte.h"
+#include "SphericalMap.h"
 void World::build(void) {
 	int num_samples = 1;
 
@@ -28,8 +29,8 @@ void World::build(void) {
 
 	// view plane  
 	  
-	vp.set_hres(400);
-	vp.set_vres(400);
+	vp.set_hres(800);
+	vp.set_vres(800);
 	vp.set_pixel_size(0.5);
 	vp.set_samples(num_samples);
 	
@@ -48,7 +49,7 @@ void World::build(void) {
 	// camera
 	
 	Pinhole* pinhole_ptr = new Pinhole;
-	pinhole_ptr->set_eye(0, 5, 15);
+	pinhole_ptr->set_eye(50, 5, 120);
 	pinhole_ptr->set_lookat(0, 0, -0.3);
 	pinhole_ptr->set_view_distance(16000);
 	pinhole_ptr->compute_uvw();
@@ -81,7 +82,7 @@ void World::build(void) {
 
 	//image texture
 	Image* imgPtr = new Image;
-	imgPtr->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\CyanToYellow.ppm");
+	imgPtr->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\treasure_chest.ppm");
 
 	ImageTexture* imgTexturePtr = new ImageTexture;
 	imgTexturePtr->set_image(imgPtr);
@@ -90,19 +91,12 @@ void World::build(void) {
 	svMattePtr->set_ka(0.45);
 	svMattePtr->set_kd(0.65);
 	svMattePtr->set_cd(imgTexturePtr);		//throwing a write access violation
-	
-	
-	//attempt to read in a ply mesh
-	//Lord have mercy on my soul
-	Matte* meshMatte = new Matte;
-	meshMatte->set_ka(0.1);
-	meshMatte->set_kd(0.75);
-	meshMatte->set_cd(0.1, 0.5, 1.0);
 
-	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\Bunny4K.ply";
+
+	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\treasureChest.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
 	grid_ptr->read_smooth_triangles(file_name);		// for Figure 23.7(b)
-	grid_ptr->set_material(matte_ptr1);
+	grid_ptr->set_material(svMattePtr);
 	grid_ptr->setup_cells();
 	add_object(grid_ptr);
 

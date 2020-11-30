@@ -144,6 +144,8 @@
     <ClCompile Include="raytracer\Lights\Ambient.cpp" />
     <ClCompile Include="raytracer\Lights\Directional.cpp" />
     <ClCompile Include="raytracer\Lights\Light.cpp" />
+    <ClCompile Include="raytracer\Mappings\Mapping.cpp" />
+    <ClCompile Include="raytracer\Mappings\SphericalMap.cpp" />
     <ClCompile Include="raytracer\Materials\Material.cpp" />
     <ClCompile Include="raytracer\Materials\Matte.cpp" />
     <ClCompile Include="raytracer\Materials\SV_Matte.cpp" />
@@ -192,6 +194,8 @@
     <ClInclude Include="raytracer\Lights\Ambient.h" />
     <ClInclude Include="raytracer\Lights\Directional.h" />
     <ClInclude Include="raytracer\Lights\Light.h" />
+    <ClInclude Include="raytracer\Mappings\Mapping.h" />
+    <ClInclude Include="raytracer\Mappings\SphericalMap.h" />
     <ClInclude Include="raytracer\Materials\Material.h" />
     <ClInclude Include="raytracer\Materials\Matte.h" />
     <ClInclude Include="raytracer\Materials\SV_Matte.h" />
@@ -223,9 +227,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\Bunny4K.ply" />
+    <None Include="raytracer\Models\treasureChest.ply" />
     <None Include="raytracer\Models\TwoTriangles.ply" />
     <None Include="raytracer\Models\TwoUVTriangles.ply" />
+    <None Include="raytracer\Textures\ppm\BilliardBall.ppm" />
     <None Include="raytracer\Textures\ppm\CyanToYellow.ppm" />
+    <None Include="raytracer\Textures\ppm\EarthHighRes.ppm" />
+    <None Include="raytracer\Textures\ppm\Sarah.ppm" />
+    <None Include="raytracer\Textures\ppm\treasure_chest.ppm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

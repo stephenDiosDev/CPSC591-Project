@@ -19,8 +19,8 @@ class Texture {
 		
 		Texture(const Texture& texture); 					
 				
-		virtual Texture*									
-		clone(void) const = 0;	
+		//virtual Texture*									
+		//clone(void) const = 0;	
 
 		virtual 											
 		~Texture(void);

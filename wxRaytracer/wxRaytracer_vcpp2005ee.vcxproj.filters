@@ -189,6 +189,12 @@
     <ClCompile Include="raytracer\Materials\SV_Matte.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
+    <ClCompile Include="raytracer\Mappings\Mapping.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Mappings\SphericalMap.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -332,6 +338,12 @@
     <ClInclude Include="raytracer\Materials\SV_Matte.h">
       <Filter>Materials</Filter>
     </ClInclude>
+    <ClInclude Include="raytracer\Mappings\Mapping.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Mappings\SphericalMap.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\TwoUVTriangles.ply">
@@ -345,6 +357,21 @@
     </None>
     <None Include="raytracer\Textures\ppm\CyanToYellow.ppm">
       <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\BilliardBall.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\Sarah.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\EarthHighRes.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\treasure_chest.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Models\treasureChest.ply">
+      <Filter>Models</Filter>
     </None>
   </ItemGroup>
 </Project>
