@@ -177,6 +177,15 @@
     <ClCompile Include="raytracer\Textures\Texture.cpp">
       <Filter>Textures</Filter>
     </ClCompile>
+    <ClCompile Include="ConstantColor.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_Lambertian.cpp">
+      <Filter>BRDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_Matte.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -310,6 +319,15 @@
     </ClInclude>
     <ClInclude Include="raytracer\Textures\Texture.h">
       <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantColor.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_Lambertian.h">
+      <Filter>BRDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_Matte.h">
+      <Filter>Materials</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

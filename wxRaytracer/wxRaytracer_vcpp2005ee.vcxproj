@@ -125,6 +125,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConstantColor.cpp" />
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp" />
     <ClCompile Include="raytracer\BRDFs\Lambertian.cpp" />
     <ClCompile Include="raytracer\Cameras\Camera.cpp" />
@@ -168,8 +169,11 @@
     <ClCompile Include="raytracer\Utilities\Vector3D.cpp" />
     <ClCompile Include="raytracer\World\ViewPlane.cpp" />
     <ClCompile Include="raytracer\World\World.cpp" />
+    <ClCompile Include="SV_Lambertian.cpp" />
+    <ClCompile Include="SV_Matte.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConstantColor.h" />
     <ClInclude Include="raytracer\BRDFs\BRDF.h" />
     <ClInclude Include="raytracer\BRDFs\Lambertian.h" />
     <ClInclude Include="raytracer\Cameras\Camera.h" />
@@ -214,6 +218,8 @@
     <ClInclude Include="raytracer\Utilities\Vector3D.h" />
     <ClInclude Include="raytracer\World\ViewPlane.h" />
     <ClInclude Include="raytracer\World\World.h" />
+    <ClInclude Include="SV_Lambertian.h" />
+    <ClInclude Include="SV_Matte.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\Bunny4K.ply" />
