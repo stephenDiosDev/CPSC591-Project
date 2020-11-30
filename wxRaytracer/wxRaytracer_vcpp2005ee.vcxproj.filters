@@ -162,6 +162,21 @@
     <ClCompile Include="raytracer\Utilities\Mesh.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\SmoothUVMeshTriangle.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\Image.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\ImageTexture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\Mapping.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\Texture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -280,6 +295,21 @@
     </ClInclude>
     <ClInclude Include="raytracer\Utilities\Mesh.h">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\SmoothUVMeshTriangle.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\Image.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\ImageTexture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\Mapping.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\Texture.h">
+      <Filter>Textures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

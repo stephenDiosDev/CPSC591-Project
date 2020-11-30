@@ -137,6 +137,7 @@
     <ClCompile Include="raytracer\GeometricObjects\Plane.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\SmoothMeshTriangle.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\SmoothTriangle.cpp" />
+    <ClCompile Include="raytracer\GeometricObjects\SmoothUVMeshTriangle.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\Sphere.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\Triangle.cpp" />
     <ClCompile Include="raytracer\Lights\Ambient.cpp" />
@@ -144,6 +145,10 @@
     <ClCompile Include="raytracer\Lights\Light.cpp" />
     <ClCompile Include="raytracer\Materials\Material.cpp" />
     <ClCompile Include="raytracer\Materials\Matte.cpp" />
+    <ClCompile Include="raytracer\Textures\Image.cpp" />
+    <ClCompile Include="raytracer\Textures\ImageTexture.cpp" />
+    <ClCompile Include="raytracer\Textures\Mapping.cpp" />
+    <ClCompile Include="raytracer\Textures\Texture.cpp" />
     <ClCompile Include="raytracer\Tracers\MultipleObjects.cpp" />
     <ClCompile Include="raytracer\Tracers\RayCast.cpp" />
     <ClCompile Include="raytracer\Tracers\SingleSphere.cpp" />
@@ -177,6 +182,7 @@
     <ClInclude Include="raytracer\GeometricObjects\Plane.h" />
     <ClInclude Include="raytracer\GeometricObjects\SmoothMeshTriangle.h" />
     <ClInclude Include="raytracer\GeometricObjects\SmoothTriangle.h" />
+    <ClInclude Include="raytracer\GeometricObjects\SmoothUVMeshTriangle.h" />
     <ClInclude Include="raytracer\GeometricObjects\Sphere.h" />
     <ClInclude Include="raytracer\GeometricObjects\Triangle.h" />
     <ClInclude Include="raytracer\Lights\Ambient.h" />
@@ -184,6 +190,10 @@
     <ClInclude Include="raytracer\Lights\Light.h" />
     <ClInclude Include="raytracer\Materials\Material.h" />
     <ClInclude Include="raytracer\Materials\Matte.h" />
+    <ClInclude Include="raytracer\Textures\Image.h" />
+    <ClInclude Include="raytracer\Textures\ImageTexture.h" />
+    <ClInclude Include="raytracer\Textures\Mapping.h" />
+    <ClInclude Include="raytracer\Textures\Texture.h" />
     <ClInclude Include="raytracer\Tracers\MultipleObjects.h" />
     <ClInclude Include="raytracer\Tracers\RayCast.h" />
     <ClInclude Include="raytracer\Tracers\SingleSphere.h" />
