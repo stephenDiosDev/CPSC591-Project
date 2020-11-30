@@ -45,8 +45,8 @@ class Image {
 		get_color(const int row, const int col) const;		
 		
 	private:
-		int 				hres;			// horizontal resolution of image
-		int					vres;			// vertical resolution of image
+		int 				hres = 100;			// horizontal resolution of image
+		int					vres = 100;			// vertical resolution of image
 		vector<RGBColor> 	pixels;
 };
 

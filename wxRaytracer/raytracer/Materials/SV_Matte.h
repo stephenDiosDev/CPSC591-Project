@@ -36,8 +36,8 @@ private:
 
 inline void
 SV_Matte::set_cd(const Texture* t_ptr) {
-	ambient_brdf->set_cd(t_ptr->clone());
-	diffuse_brdf->set_cd(t_ptr->clone());
+	ambient_brdf->set_cd(t_ptr);
+	diffuse_brdf->set_cd(t_ptr);
 }
 
 // ---------------------------------------------------------------- set_ka

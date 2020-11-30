@@ -29,7 +29,7 @@ public:
 	void
 		set_kd(const float kd);
 
-	void set_cd(Texture* t_ptr);
+	void set_cd(const Texture* t_ptr);
 
 private:
 
@@ -66,7 +66,7 @@ SV_Lambertian::set_kd(const float k) {
 }
 
 inline
-void SV_Lambertian::set_cd(Texture* t_ptr) {
+void SV_Lambertian::set_cd(const Texture* t_ptr) {
 	cd = t_ptr->clone();
 }
 
