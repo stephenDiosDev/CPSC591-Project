@@ -16,6 +16,15 @@ public:
 
 	~SV_Matte(void);
 
+	void
+		set_ka(const float k);
+
+	void
+		set_kd(const float k);
+
+	void
+		set_cd(const Texture* t_ptr);
+
 	virtual RGBColor
 		shade(ShadeRec& s);
 
@@ -25,6 +34,30 @@ private:
 	SV_Lambertian* diffuse_brdf;
 };
 
+inline void
+SV_Matte::set_cd(const Texture* t_ptr) {
+	ambient_brdf->set_cd(t_ptr->clone());
+	diffuse_brdf->set_cd(t_ptr->clone());
+}
+
+// ---------------------------------------------------------------- set_ka
+// this sets Lambertian::kd
+// there is no Lambertian::ka data member because ambient reflection 
+// is diffuse reflection
+
+inline void
+SV_Matte::set_ka(const float ka) {
+	ambient_brdf->set_kd(ka);
+}
+
+
+// ---------------------------------------------------------------- set_kd
+// this also sets Lambertian::kd, but for a different Lambertian object
+
+inline void
+SV_Matte::set_kd(const float kd) {
+	diffuse_brdf->set_kd(kd);
+}
 
 inline
 RGBColor

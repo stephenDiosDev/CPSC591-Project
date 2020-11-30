@@ -6,7 +6,9 @@
 // There are no sampler classes in this project.
 // These are in the Chapter 5 download file.
 // The spheres are the same as those in the Chapter 14 page one image. 
-
+#include "Image.h"
+#include "ImageTexture.h"
+#include "SV_Matte.h"
 void World::build(void) {
 	int num_samples = 1;
 
@@ -76,6 +78,19 @@ void World::build(void) {
 	Sphere*	sphere_ptr1 = new Sphere(Point3D(5, 3, 0), 30); 
 	sphere_ptr1->set_material(matte_ptr1);	   							// yellow
 	//add_object(sphere_ptr1);
+
+	//image texture
+	Image* imgPtr = new Image;
+	imgPtr->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\CyanToYellow.ppm");
+
+	ImageTexture* imgTexturePtr = new ImageTexture;
+	imgTexturePtr->set_image(imgPtr);
+	imgTexturePtr->set_mapping(NULL);
+	SV_Matte* svMattePtr = new SV_Matte;
+	svMattePtr->set_ka(0.45);
+	svMattePtr->set_kd(0.65);
+	svMattePtr->set_cd(imgTexturePtr);		//throwing a write access violation
+	
 	
 	//attempt to read in a ply mesh
 	//Lord have mercy on my soul
@@ -90,6 +105,8 @@ void World::build(void) {
 	grid_ptr->set_material(matte_ptr1);
 	grid_ptr->setup_cells();
 	add_object(grid_ptr);
+
+
 	
 	
 	// vertical plane

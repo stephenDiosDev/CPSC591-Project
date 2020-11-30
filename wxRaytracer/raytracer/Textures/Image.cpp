@@ -45,7 +45,7 @@ Image::operator= (const Image& rhs) {
 
 // ---------------------------------------------------- destructor	
 
-Image::~Image(void)	{}
+//Image::~Image(void)	{}
 	
 
 // ---------------------------------------------------- read_ppm_file

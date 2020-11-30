@@ -46,6 +46,9 @@
     <Filter Include="Models">
       <UniqueIdentifier>{5f051a09-1c54-4b40-9602-fc84f80fddbc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Textures\ppm">
+      <UniqueIdentifier>{f761e816-0f34-4df6-a201-b6e48ea29497}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp">
@@ -177,13 +180,13 @@
     <ClCompile Include="raytracer\Textures\Texture.cpp">
       <Filter>Textures</Filter>
     </ClCompile>
-    <ClCompile Include="ConstantColor.cpp">
-      <Filter>Textures</Filter>
-    </ClCompile>
-    <ClCompile Include="SV_Lambertian.cpp">
+    <ClCompile Include="raytracer\BRDFs\SV_Lambertian.cpp">
       <Filter>BRDFs</Filter>
     </ClCompile>
-    <ClCompile Include="SV_Matte.cpp">
+    <ClCompile Include="raytracer\Textures\ConstantColor.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Materials\SV_Matte.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
   </ItemGroup>
@@ -320,13 +323,13 @@
     <ClInclude Include="raytracer\Textures\Texture.h">
       <Filter>Textures</Filter>
     </ClInclude>
-    <ClInclude Include="ConstantColor.h">
-      <Filter>Textures</Filter>
-    </ClInclude>
-    <ClInclude Include="SV_Lambertian.h">
+    <ClInclude Include="raytracer\BRDFs\SV_Lambertian.h">
       <Filter>BRDFs</Filter>
     </ClInclude>
-    <ClInclude Include="SV_Matte.h">
+    <ClInclude Include="raytracer\Textures\ConstantColor.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Materials\SV_Matte.h">
       <Filter>Materials</Filter>
     </ClInclude>
   </ItemGroup>
@@ -339,6 +342,9 @@
     </None>
     <None Include="raytracer\Models\Bunny4K.ply">
       <Filter>Models</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\CyanToYellow.ppm">
+      <Filter>Textures\ppm</Filter>
     </None>
   </ItemGroup>
 </Project>

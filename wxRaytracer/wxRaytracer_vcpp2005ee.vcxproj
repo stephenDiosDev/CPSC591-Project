@@ -125,9 +125,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConstantColor.cpp" />
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp" />
     <ClCompile Include="raytracer\BRDFs\Lambertian.cpp" />
+    <ClCompile Include="raytracer\BRDFs\SV_Lambertian.cpp" />
     <ClCompile Include="raytracer\Cameras\Camera.cpp" />
     <ClCompile Include="raytracer\Cameras\Pinhole.cpp" />
     <ClCompile Include="raytracer\GeometricObjects\Compound.cpp" />
@@ -146,6 +146,8 @@
     <ClCompile Include="raytracer\Lights\Light.cpp" />
     <ClCompile Include="raytracer\Materials\Material.cpp" />
     <ClCompile Include="raytracer\Materials\Matte.cpp" />
+    <ClCompile Include="raytracer\Materials\SV_Matte.cpp" />
+    <ClCompile Include="raytracer\Textures\ConstantColor.cpp" />
     <ClCompile Include="raytracer\Textures\Image.cpp" />
     <ClCompile Include="raytracer\Textures\ImageTexture.cpp" />
     <ClCompile Include="raytracer\Textures\Mapping.cpp" />
@@ -169,13 +171,11 @@
     <ClCompile Include="raytracer\Utilities\Vector3D.cpp" />
     <ClCompile Include="raytracer\World\ViewPlane.cpp" />
     <ClCompile Include="raytracer\World\World.cpp" />
-    <ClCompile Include="SV_Lambertian.cpp" />
-    <ClCompile Include="SV_Matte.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ConstantColor.h" />
     <ClInclude Include="raytracer\BRDFs\BRDF.h" />
     <ClInclude Include="raytracer\BRDFs\Lambertian.h" />
+    <ClInclude Include="raytracer\BRDFs\SV_Lambertian.h" />
     <ClInclude Include="raytracer\Cameras\Camera.h" />
     <ClInclude Include="raytracer\Cameras\Pinhole.h" />
     <ClInclude Include="raytracer\GeometricObjects\Compound.h" />
@@ -194,6 +194,8 @@
     <ClInclude Include="raytracer\Lights\Light.h" />
     <ClInclude Include="raytracer\Materials\Material.h" />
     <ClInclude Include="raytracer\Materials\Matte.h" />
+    <ClInclude Include="raytracer\Materials\SV_Matte.h" />
+    <ClInclude Include="raytracer\Textures\ConstantColor.h" />
     <ClInclude Include="raytracer\Textures\Image.h" />
     <ClInclude Include="raytracer\Textures\ImageTexture.h" />
     <ClInclude Include="raytracer\Textures\Mapping.h" />
@@ -218,13 +220,12 @@
     <ClInclude Include="raytracer\Utilities\Vector3D.h" />
     <ClInclude Include="raytracer\World\ViewPlane.h" />
     <ClInclude Include="raytracer\World\World.h" />
-    <ClInclude Include="SV_Lambertian.h" />
-    <ClInclude Include="SV_Matte.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\Bunny4K.ply" />
     <None Include="raytracer\Models\TwoTriangles.ply" />
     <None Include="raytracer\Models\TwoUVTriangles.ply" />
+    <None Include="raytracer\Textures\ppm\CyanToYellow.ppm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -23,10 +23,13 @@ public:
 	virtual RGBColor
 		f(const ShadeRec& sr, const Vector3D& wo, const Vector3D& wi) const;
 
-//	virtual RGBColor
-//		sample_f(const ShadeRec& sr, const Vector3D& wo, const Vector3D& wi) const;
+	void
+		set_ka(const float ka);
 
-	void set_cd(const Texture* t_ptr);
+	void
+		set_kd(const float kd);
+
+	void set_cd(Texture* t_ptr);
 
 private:
 
@@ -46,8 +49,24 @@ SV_Lambertian::f(const ShadeRec& sr, const Vector3D& wo, const Vector3D& wi) con
 	return (kd * cd->get_color(sr) * invPI);
 }
 
+// -------------------------------------------------------------- set_ka
+
+inline void
+SV_Lambertian::set_ka(const float k) {
+	kd = k;
+}
+
+
+
+// -------------------------------------------------------------- set_kd
+
+inline void
+SV_Lambertian::set_kd(const float k) {
+	kd = k;
+}
+
 inline
-void SV_Lambertian::set_cd(const Texture* t_ptr) {
+void SV_Lambertian::set_cd(Texture* t_ptr) {
 	cd = t_ptr->clone();
 }
 

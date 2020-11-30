@@ -30,7 +30,7 @@ class Image {
 		Image& 										
 		operator= (const Image& image);		
 
-		~Image(void) ;								
+		//~Image(void) ;								
 		
 		void										
 		read_ppm_file(const char* file_name);
