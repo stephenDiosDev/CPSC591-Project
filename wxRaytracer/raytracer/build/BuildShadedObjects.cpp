@@ -27,12 +27,15 @@ void World::build(void) {
 	RGBColor lightPurple(0.65, 0.3, 1);								// light purple
 	RGBColor darkPurple(0.5, 0, 1);									// dark purple
 	RGBColor grey(0.25);
+	RGBColor red(1, 0, 0);
+	RGBColor sand(249,227,190);
+	RGBColor water(0, 76, 153);
 
 
 	// view plane  
 	  
-	vp.set_hres(800);
-	vp.set_vres(800);
+	vp.set_hres(600);
+	vp.set_vres(600);
 	vp.set_pixel_size(0.5);
 	vp.set_samples(num_samples);
 	
@@ -43,7 +46,7 @@ void World::build(void) {
 	ambient_ptr->scale_radiance(1.0);
 	set_ambient_light(ambient_ptr); 
 
-	background_color = white;			// default color - this can be left out
+	background_color = water;			// default color - this can be left out
 	
 	tracer_ptr = new RayCast(this); 
 
@@ -51,10 +54,9 @@ void World::build(void) {
 	// camera
 	
 	Pinhole* pinhole_ptr = new Pinhole;
-	pinhole_ptr->set_eye(50, 5, 120);
-	//pinhole_ptr->set_lookat(0, 0, -0.3);
+	pinhole_ptr->set_eye(30, 30, 30);
 	pinhole_ptr->set_lookat(0, 0, 0);
-	pinhole_ptr->set_view_distance(16000);
+	pinhole_ptr->set_view_distance(200);
 	pinhole_ptr->compute_uvw();
 	set_camera(pinhole_ptr);
 
@@ -62,7 +64,7 @@ void World::build(void) {
 	// light
 	
 	Directional* directional_ptr = new Directional;
-	directional_ptr->set_direction(0, 0.30, -0.15);
+	directional_ptr->set_direction(0, 0, 0);
 	directional_ptr->scale_radiance(4.5);
 	//directional_ptr->set_shadows(true);
 	add_light(directional_ptr);
@@ -72,7 +74,7 @@ void World::build(void) {
 	float ka = 0.25;
 	float kd = 0.75;
 	
-/*
+
 	// spheres
 	Image* earthImg = new Image;
 	earthImg->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\EarthHighRes.ppm");
@@ -84,14 +86,16 @@ void World::build(void) {
 	earthMatte->set_ka(0.45);
 	earthMatte->set_kd(0.65);
 	earthMatte->set_cd(earthTexturePtr);
-	Sphere* earthSphere = new Sphere;
+	Sphere* earthSphere = new Sphere(Point3D(0,10,0), 10);
+	//earthSphere->set_center(0,10,0);
+	//earthSphere->set_radius(10);
 	earthSphere->set_material(earthMatte);
 	Instance* earthPtr = new Instance(earthSphere);
 	earthPtr->set_material(earthMatte);
-	earthPtr->rotate_y(280);
-	earthPtr->rotate_x(30);
-	//add_object(earthPtr);
-	*/
+	//earthPtr->rotate_y(280);
+	//earthPtr->rotate_x(30);
+	add_object(earthPtr);
+	
 	
 	Matte* matte_ptr1 = new Matte;   
 	matte_ptr1->set_ka(ka);	
@@ -101,46 +105,26 @@ void World::build(void) {
 	sphere_ptr1->set_material(matte_ptr1);	   							// yellow
 	//add_object(sphere_ptr1);
 
-	//image texture
-	Image* imgPtr = new Image;
-	imgPtr->read_ppm_file("..\\wxRaytracer\\raytracer\\Models\\greatwhiteshark.ppm");
-
-	//SphericalMap* testMap = new SphericalMap;
-	ImageTexture* imgTexturePtr = new ImageTexture;
-	imgTexturePtr->set_image(imgPtr);
-	//imgTexturePtr->set_mapping(testMap);
 
 	ConstantColor* constantColor = new ConstantColor;
-	constantColor->set_color(green);
+	constantColor->set_color(sand);
 
-	SV_Matte* svMattePtr = new SV_Matte;
-	svMattePtr->set_ka(0.45);
-	svMattePtr->set_kd(0.65);
-	svMattePtr->set_cd(imgTexturePtr);
-	//svMattePtr->set_cd(constantColor);
+	Matte* testMatte = new Matte;
+	testMatte->set_ka(0.45);
+	testMatte->set_kd(0.55);
+	testMatte->set_cd(sand);
 
 
-	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\sharkTest.ply";
+	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\ocean\\sand.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
-	grid_ptr->read_smooth_triangles(file_name);		// for Figure 23.7(b)
-	grid_ptr->set_material(svMattePtr);
+	grid_ptr->read_smooth_triangles(file_name);		
+	//grid_ptr->read_flat_triangles(file_name);
+	grid_ptr->set_material(testMatte);
 	grid_ptr->setup_cells();
 	Instance* gridInstance = new Instance(grid_ptr);
 	add_object(gridInstance);
 
 
-
-
-
-	
-	// vertical plane
-	
-	Matte* matte_ptr36 = new Matte;
-	matte_ptr36->set_ka(ka);	
-	matte_ptr36->set_kd(kd);
-	matte_ptr36->set_cd(white);
-	Plane* plane_ptr = new Plane(Point3D(0, 0, -150), Normal(0, 0, 1));
-	plane_ptr->set_material(matte_ptr36);
-	add_object (plane_ptr);
+	char* chestMeshPath = "..\\wxRaytracer\\raytracer\\Models\\ocean\\sand.ply";
 }
 
