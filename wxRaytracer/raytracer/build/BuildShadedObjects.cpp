@@ -75,27 +75,6 @@ void World::build(void) {
 	float ka = 0.25;
 	float kd = 0.75;
 
-	/*
-		// spheres
-		Image* earthImg = new Image;
-		earthImg->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\EarthHighRes.ppm");
-		SphericalMap* sphericalMapPtr = new SphericalMap;
-		ImageTexture* earthTexturePtr = new ImageTexture;
-		earthTexturePtr->set_image(earthImg);
-		earthTexturePtr->set_mapping(sphericalMapPtr);
-		SV_Matte* earthMatte = new SV_Matte;
-		earthMatte->set_ka(0.45);
-		earthMatte->set_kd(0.65);
-		earthMatte->set_cd(earthTexturePtr);
-		Sphere* earthSphere = new Sphere;
-		earthSphere->set_material(earthMatte);
-		Instance* earthPtr = new Instance(earthSphere);
-		earthPtr->set_material(earthMatte);
-		earthPtr->rotate_y(280);
-		earthPtr->rotate_x(30);
-		//add_object(earthPtr);
-		*/
-
 
 	//shark=================================================================================================================
 	ConstantColor* constantColor = new ConstantColor;
@@ -135,6 +114,24 @@ void World::build(void) {
 	Instance* chestGridInstance = new Instance(chestGrid);
 	add_object(chestGridInstance);
 
+
+	//sand floor=================================================================================================================
+	ConstantColor* sandColour = new ConstantColor;
+	sandColour->set_color(sand);
+
+	SV_Matte* sandMatte = new SV_Matte;
+	sandMatte->set_ka(0.45);
+	sandMatte->set_kd(0.65);
+	sandMatte->set_cd(sandColour);
+
+
+	char* sandFileName = "..\\wxRaytracer\\raytracer\\Models\\ocean\\sand.ply";
+	Grid* sandGrid = new Grid(new Mesh);
+	sandGrid->read_smooth_triangles(sandFileName);		// for Figure 23.7(b)
+	sandGrid->set_material(sandMatte);
+	sandGrid->setup_cells();
+	Instance* sandGridInstance = new Instance(sandGrid);
+	add_object(sandGridInstance);
 
 
 	// vertical plane
