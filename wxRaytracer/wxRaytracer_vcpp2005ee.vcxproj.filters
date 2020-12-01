@@ -43,6 +43,18 @@
     <Filter Include="Noises">
       <UniqueIdentifier>{c06ab5b1-c11d-46b6-b648-05a91af567ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{5f051a09-1c54-4b40-9602-fc84f80fddbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Textures\ppm">
+      <UniqueIdentifier>{f761e816-0f34-4df6-a201-b6e48ea29497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\penguin">
+      <UniqueIdentifier>{77122c79-fc1e-4518-94ba-4139f9e09b06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\table">
+      <UniqueIdentifier>{b4fddc06-93c3-4f5f-b763-158611fc34d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp">
@@ -126,13 +138,16 @@
     <ClCompile Include="raytracer\Tracers\Tracer.cpp">
       <Filter>Tracers</Filter>
     </ClCompile>
-    <ClCompile Include="raytracer\Utilities\BBox.cpp">
+    <ClCompile Include="raytracer\Utilities\ply.c">
       <Filter>Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="raytracer\Utilities\Mesh.cpp">
-      <Filter>Utilities</Filter>
+    <ClCompile Include="raytracer\GeometricObjects\Grid.cpp">
+      <Filter>Geometric Objects</Filter>
     </ClCompile>
-    <ClCompile Include="raytracer\GeometricObjects\Instance.cpp">
+    <ClCompile Include="raytracer\GeometricObjects\Compound.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\FlatMeshTriangle.cpp">
       <Filter>Geometric Objects</Filter>
     </ClCompile>
     <ClCompile Include="raytracer\GeometricObjects\MeshTriangle.cpp">
@@ -142,6 +157,51 @@
       <Filter>Geometric Objects</Filter>
     </ClCompile>
     <ClCompile Include="raytracer\GeometricObjects\SmoothTriangle.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\Triangle.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Utilities\BBox.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Utilities\Maths.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Utilities\Mesh.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\SmoothUVMeshTriangle.cpp">
+      <Filter>Geometric Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\Image.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\ImageTexture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\Mapping.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\Texture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\BRDFs\SV_Lambertian.cpp">
+      <Filter>BRDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Textures\ConstantColor.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Materials\SV_Matte.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Mappings\Mapping.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\Mappings\SphericalMap.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="raytracer\GeometricObjects\Instance.cpp">
       <Filter>Geometric Objects</Filter>
     </ClCompile>
   </ItemGroup>
@@ -233,13 +293,16 @@
     <ClInclude Include="raytracer\Tracers\Tracer.h">
       <Filter>Tracers</Filter>
     </ClInclude>
-    <ClInclude Include="raytracer\Utilities\BBox.h">
+    <ClInclude Include="raytracer\Utilities\ply.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="raytracer\Utilities\Mesh.h">
-      <Filter>Utilities</Filter>
+    <ClInclude Include="raytracer\GeometricObjects\Grid.h">
+      <Filter>Geometric Objects</Filter>
     </ClInclude>
-    <ClInclude Include="raytracer\GeometricObjects\Instance.h">
+    <ClInclude Include="raytracer\GeometricObjects\Compound.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\FlatMeshTriangle.h">
       <Filter>Geometric Objects</Filter>
     </ClInclude>
     <ClInclude Include="raytracer\GeometricObjects\MeshTriangle.h">
@@ -251,5 +314,121 @@
     <ClInclude Include="raytracer\GeometricObjects\SmoothTriangle.h">
       <Filter>Geometric Objects</Filter>
     </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\Triangle.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\BBox.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\Mesh.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\SmoothUVMeshTriangle.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\Image.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\ImageTexture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\Mapping.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\Texture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\BRDFs\SV_Lambertian.h">
+      <Filter>BRDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Textures\ConstantColor.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Materials\SV_Matte.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Mappings\Mapping.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Mappings\SphericalMap.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\GeometricObjects\Instance.h">
+      <Filter>Geometric Objects</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="raytracer\Models\TwoUVTriangles.ply">
+      <Filter>Models</Filter>
+    </None>
+    <None Include="raytracer\Models\TwoTriangles.ply">
+      <Filter>Models</Filter>
+    </None>
+    <None Include="raytracer\Models\Bunny4K.ply">
+      <Filter>Models</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\CyanToYellow.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\BilliardBall.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\Sarah.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\EarthHighRes.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\treasure_chest.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Models\treasureChest.ply">
+      <Filter>Models</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\penguin_body.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Textures\ppm\penguin_eye.ppm">
+      <Filter>Textures\ppm</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_body.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_eyeball.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_foot.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_lower_eyelid.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_upper_eyelid.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_left_wing.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_eyeball.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_foot.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_lower_eyelid.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_upper_eyelid.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\penguin\penguin_right_wing.ply">
+      <Filter>Models\penguin</Filter>
+    </None>
+    <None Include="raytracer\Models\table\Classic_side_table_0.ppm">
+      <Filter>Models\table</Filter>
+    </None>
+    <None Include="raytracer\Models\table\Classicsidetable.ply">
+      <Filter>Models\table</Filter>
+    </None>
   </ItemGroup>
 </Project>

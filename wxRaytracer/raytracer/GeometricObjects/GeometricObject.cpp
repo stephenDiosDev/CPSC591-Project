@@ -16,6 +16,7 @@
 GeometricObject::GeometricObject(void)
 	: 	color(black),
 		material_ptr(NULL)
+		//shadows(true)
 {}
 
 
@@ -47,19 +48,21 @@ GeometricObject::operator= (const GeometricObject& rhs) {
 	if (rhs.material_ptr)
 		material_ptr = rhs.material_ptr->clone();
 
+	//shadows = rhs.shadows;
 
 	return (*this);
 }
 
 
 // ---------------------------------------------------------------------- destructor
-
+/*
 GeometricObject::~GeometricObject (void) {	
 	if (material_ptr) {
 		delete material_ptr;
 		material_ptr = NULL;
 	}
 }
+*/
 
 
 // ---------------------------------------------------------------------- add_object

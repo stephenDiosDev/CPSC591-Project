@@ -9,7 +9,6 @@
 
 #include "Plane.h"
 #include "Sphere.h"
-#include "SmoothTriangle.h"
 
 // tracers
 
@@ -49,7 +48,7 @@
 // and set its parameters
 
 World::World(void)
-	:  	background_color(black),
+	:  	background_color(RGBColor(0.25)),
 		tracer_ptr(NULL),
 		ambient_ptr(new Ambient),
 		camera_ptr(NULL)

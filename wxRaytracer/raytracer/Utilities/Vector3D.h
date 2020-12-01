@@ -1,7 +1,12 @@
 #ifndef __VECTOR_3D__
 #define __VECTOR_3D__
 
-// This file contains the defintion of the class Vector3D
+
+// 	Copyright (C) Kevin Suffern 2000-2007.
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 
 #include "Matrix.h"
 
@@ -165,7 +170,7 @@ Vector3D::operator+= (const Vector3D& v) {
 // ----------------------------------------------------------------------- operator*
 // multiplication by a double on the left
 
-Vector3D 
+Vector3D 											// prototype
 operator* (const double a, const Vector3D& v);
 
 inline Vector3D 
@@ -180,10 +185,11 @@ operator* (const double a, const Vector3D& v) {
 // ----------------------------------------------------------------------- operator* 
 // multiplication by a matrix on the left
 
-Vector3D 
+Vector3D 											// prototype
 operator* (const Matrix& mat, const Vector3D& v);
 
 
 #endif
+
 
 

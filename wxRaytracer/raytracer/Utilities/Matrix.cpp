@@ -1,3 +1,9 @@
+// 	Copyright (C) Kevin Suffern 2000-2007.
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
+
 // This file contains the definition of the class Matrix
 
 #include "Matrix.h"
@@ -28,8 +34,6 @@ Matrix::Matrix (const Matrix& mat) {
 // ----------------------------------------------------------------------- destructor
 
 Matrix::~Matrix (void) {}   
-
-
 
 
 // ----------------------------------------------------------------------- assignment operator
@@ -69,7 +73,7 @@ Matrix::operator* (const Matrix& mat) const {
 
 
 // ----------------------------------------------------------------------- operator/
-// division by a scalar
+// division by a double
 
 Matrix 
 Matrix::operator/ (const double d) {
@@ -95,6 +99,7 @@ Matrix::set_identity(void) {
 				m[x][y] = 0.0;
 		}
 }
+
 
 
 

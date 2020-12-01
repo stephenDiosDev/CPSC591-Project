@@ -36,4 +36,3 @@ Light::L(ShadeRec& s) {
 	return (black);
 }
 
-

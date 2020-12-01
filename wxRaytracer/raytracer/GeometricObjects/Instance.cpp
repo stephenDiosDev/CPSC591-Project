@@ -6,7 +6,6 @@
 
 #include "Constants.h"
 #include "Instance.h"
-#include "BBox.h"
 
 // initialise the static transformation matrix
 

@@ -23,7 +23,6 @@
 
 #include "GeometricObject.h"
 #include "Mesh.h"
-#include "BBox.h"
 
 class MeshTriangle: public GeometricObject {	
 	public:

@@ -33,8 +33,8 @@ class GeometricObject {
 		virtual GeometricObject*								
 		clone(void) const = 0;
 
-		virtual 												
-		~GeometricObject(void);	
+		//virtual 												
+		//~GeometricObject(void);	
 			
 		virtual bool 												 
 		hit(const Ray& ray, double& t, ShadeRec& s) const = 0;	
@@ -48,8 +48,7 @@ class GeometricObject {
 				   
 		// The following three functions are only required for Chapter 3
 		
-		void
-		set_color(const RGBColor& c);
+		void set_color(const RGBColor& c);
 				
 		void
 		set_color(const float r, const float g, const float b);

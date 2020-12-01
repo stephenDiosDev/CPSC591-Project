@@ -14,7 +14,6 @@
 // the only function that uses this class. The only figure that uses it is Figure 23.3
 
 #include "GeometricObject.h"
-#include "BBox.h"
 
 class SmoothTriangle: public GeometricObject {
 	public:

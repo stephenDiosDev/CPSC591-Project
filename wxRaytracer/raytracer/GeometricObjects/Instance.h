@@ -13,7 +13,6 @@
 
 #include "GeometricObject.h"
 #include "Matrix.h"
-#include "BBox.h"
 
 class Instance: public GeometricObject {	
 	public:

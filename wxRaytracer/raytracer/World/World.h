@@ -25,6 +25,7 @@
 #include "Camera.h"
 #include "Light.h"
 #include "Ambient.h"
+#include "Grid.h"
 
 
 using namespace std;
