@@ -57,7 +57,7 @@ void World::build(void) {
 	pinhole_ptr->set_eye(50, 15, 120);
 	//pinhole_ptr->set_lookat(0, 0, -0.3);
 	pinhole_ptr->set_lookat(0, 0, 0);
-	pinhole_ptr->set_view_distance(800);
+	pinhole_ptr->set_view_distance(1000);
 	pinhole_ptr->compute_uvw();
 	set_camera(pinhole_ptr);
 
@@ -65,7 +65,7 @@ void World::build(void) {
 	// light
 
 	Directional* directional_ptr = new Directional;
-	directional_ptr->set_direction(0, 0.30, -0.15);
+	directional_ptr->set_direction(10, 10.30, -0.15);
 	directional_ptr->scale_radiance(4.5);
 	//directional_ptr->set_shadows(true);
 	add_light(directional_ptr);
@@ -96,14 +96,8 @@ void World::build(void) {
 		//add_object(earthPtr);
 		*/
 
-	Matte* matte_ptr1 = new Matte;
-	matte_ptr1->set_ka(ka);
-	matte_ptr1->set_kd(kd);
-	matte_ptr1->set_cd(lightGreen);
-	Sphere* sphere_ptr1 = new Sphere(Point3D(0, 0, 0), 1);
-	sphere_ptr1->set_material(matte_ptr1);	   							// yellow
-	//add_object(sphere_ptr1);
 
+	//shark=================================================================================================================
 	ConstantColor* constantColor = new ConstantColor;
 	constantColor->set_color(grey);
 
@@ -113,6 +107,7 @@ void World::build(void) {
 	svMattePtr->set_cd(constantColor);
 
 
+	
 	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\sharkTest.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
 	grid_ptr->read_smooth_triangles(file_name);		// for Figure 23.7(b)
@@ -122,7 +117,23 @@ void World::build(void) {
 	add_object(gridInstance);
 
 
+	//chest=================================================================================================================
+	ConstantColor* chestColour = new ConstantColor;
+	chestColour->set_color(brown);
 
+	SV_Matte* chestMatte = new SV_Matte;
+	chestMatte->set_ka(0.45);
+	chestMatte->set_kd(0.65);
+	chestMatte->set_cd(chestColour);
+
+
+	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\testChest.ply";
+	Grid* chestGrid = new Grid(new Mesh);
+	chestGrid->read_smooth_triangles(chestFileName);		// for Figure 23.7(b)
+	chestGrid->set_material(chestMatte);
+	chestGrid->setup_cells();
+	Instance* chestGridInstance = new Instance(chestGrid);
+	add_object(chestGridInstance);
 
 
 
