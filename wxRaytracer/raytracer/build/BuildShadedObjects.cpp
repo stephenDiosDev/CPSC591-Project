@@ -30,6 +30,7 @@ void World::build(void) {
 	RGBColor red(1, 0, 0);
 	RGBColor sand(249,227,190);
 	RGBColor water(0, 1, 2);
+	RGBColor wave(0, 250, 241);
 
 
 	// view plane  
@@ -54,7 +55,7 @@ void World::build(void) {
 	// camera
 
 	Pinhole* pinhole_ptr = new Pinhole;
-	pinhole_ptr->set_eye(50, 15, 120);
+	pinhole_ptr->set_eye(50, 10, 120);
 	//pinhole_ptr->set_lookat(0, 0, -0.3);
 	pinhole_ptr->set_lookat(0, 0, 0);
 	pinhole_ptr->set_view_distance(1000);
@@ -65,7 +66,7 @@ void World::build(void) {
 	// light
 
 	Directional* directional_ptr = new Directional;
-	directional_ptr->set_direction(10, 10.30, -0.15);
+	directional_ptr->set_direction(10, 150.30, -0.15);
 	directional_ptr->scale_radiance(4.5);
 	//directional_ptr->set_shadows(true);
 	add_light(directional_ptr);
@@ -132,6 +133,26 @@ void World::build(void) {
 	sandGrid->setup_cells();
 	Instance* sandGridInstance = new Instance(sandGrid);
 	add_object(sandGridInstance);
+
+
+	//waves=================================================================================================================
+	ConstantColor* wavesColour = new ConstantColor;
+	//wavesColour->set_color(wave);			//mostly for debug
+	wavesColour->set_color(water);
+
+	SV_Matte* waveMatte = new SV_Matte;
+	waveMatte->set_ka(0.45);
+	waveMatte->set_kd(0.65);
+	waveMatte->set_cd(wavesColour);
+
+
+	char* waveFileName = "..\\wxRaytracer\\raytracer\\Models\\ocean\\wavesHigher.ply";
+	Grid* waveGrid = new Grid(new Mesh);
+	waveGrid->read_smooth_triangles(waveFileName);		// for Figure 23.7(b)
+	waveGrid->set_material(waveMatte);
+	waveGrid->setup_cells();
+	Instance* waveGridInstance = new Instance(waveGrid);
+	add_object(waveGridInstance);
 
 
 	// vertical plane
