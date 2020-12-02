@@ -90,8 +90,8 @@ void World::build(void) {
 	earthPtr->set_material(earthMatte);
 	earthPtr->rotate_y(280);
 	earthPtr->rotate_x(30);
-	add_object(earthPtr);
-	
+	//add_object(earthPtr);
+	*/
 	
 	Matte* matte_ptr1 = new Matte;   
 	matte_ptr1->set_ka(ka);	
@@ -103,11 +103,12 @@ void World::build(void) {
 
 	//image texture
 	Image* imgPtr = new Image;
-	imgPtr->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\treasure_chest.ppm");
+	imgPtr->read_ppm_file("..\\wxRaytracer\\raytracer\\Models\\greatwhiteshark.ppm");
 
+	//SphericalMap* testMap = new SphericalMap;
 	ImageTexture* imgTexturePtr = new ImageTexture;
 	imgTexturePtr->set_image(imgPtr);
-	imgTexturePtr->set_mapping(NULL);
+	//imgTexturePtr->set_mapping(testMap);
 
 	ConstantColor* constantColor = new ConstantColor;
 	constantColor->set_color(green);
@@ -115,39 +116,20 @@ void World::build(void) {
 	SV_Matte* svMattePtr = new SV_Matte;
 	svMattePtr->set_ka(0.45);
 	svMattePtr->set_kd(0.65);
-	//svMattePtr->set_cd(imgTexturePtr);
-	svMattePtr->set_cd(constantColor);
+	svMattePtr->set_cd(imgTexturePtr);
+	//svMattePtr->set_cd(constantColor);
 
 
-	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\treasureChest.ply";
+	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\sharkTest.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
 	grid_ptr->read_smooth_triangles(file_name);		// for Figure 23.7(b)
 	grid_ptr->set_material(svMattePtr);
 	grid_ptr->setup_cells();
-	//add_object(grid_ptr);
-
-*/
-
-//image texture
-	Image* imgPtr = new Image;
-	imgPtr->read_ppm_file("..\\wxRaytracer\\raytracer\\Models\\table\\Classic_side_table_0.ppm");
-
-	ImageTexture* imgTexturePtr = new ImageTexture;
-	imgTexturePtr->set_image(imgPtr);
-	imgTexturePtr->set_mapping(NULL);
-
-	SV_Matte* svMattePtr = new SV_Matte;
-	svMattePtr->set_ka(0.45);
-	svMattePtr->set_kd(0.65);
-	svMattePtr->set_cd(imgTexturePtr);
+	Instance* gridInstance = new Instance(grid_ptr);
+	add_object(gridInstance);
 
 
-	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\table\\Classicsidetable.ply";
-	Grid* grid_ptr = new Grid(new Mesh);
-	grid_ptr->read_smooth_triangles(file_name);
-	grid_ptr->set_material(svMattePtr);
-	grid_ptr->setup_cells();
-	add_object(grid_ptr);
+
 
 
 	

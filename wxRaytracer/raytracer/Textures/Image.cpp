@@ -150,8 +150,9 @@ Image::get_color(const int row, const int column) const {
 	int pixels_size = pixels.size();
 
 	
-	if (index < pixels_size && index >= 0)
+	if (index < pixels_size)
 		return (pixels[index]);
+	//else if()
 	else
 		return (red);    // useful for debugging 
 }
