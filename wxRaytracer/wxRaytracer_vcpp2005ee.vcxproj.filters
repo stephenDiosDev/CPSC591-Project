@@ -204,6 +204,9 @@
     <ClCompile Include="raytracer\GeometricObjects\Instance.cpp">
       <Filter>Geometric Objects</Filter>
     </ClCompile>
+    <ClCompile Include="raytracer\Materials\MatteWave.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -355,6 +358,9 @@
     </ClInclude>
     <ClInclude Include="raytracer\GeometricObjects\Instance.h">
       <Filter>Geometric Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Materials\MatteWave.h">
+      <Filter>Materials</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

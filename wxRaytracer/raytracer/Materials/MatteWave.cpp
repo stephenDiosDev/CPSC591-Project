@@ -1,17 +1,18 @@
-#include "SV_Matte.h"
+#include "MatteWave.h"
+
 // ---------------------------------------------------------------- default constructor
 
-SV_Matte::SV_Matte(void)
+MatteWave::MatteWave(void)
 	: Material(),
-	ambient_brdf(new SV_Lambertian),
-	diffuse_brdf(new SV_Lambertian)
+	ambient_brdf(new Lambertian),
+	diffuse_brdf(new Lambertian)
 {}
 
 
 
 // ---------------------------------------------------------------- copy constructor
 
-SV_Matte::SV_Matte(const SV_Matte& m)
+MatteWave::MatteWave(const MatteWave& m)
 	: Material(m)
 {
 	if (m.ambient_brdf)
@@ -27,15 +28,15 @@ SV_Matte::SV_Matte(const SV_Matte& m)
 // ---------------------------------------------------------------- clone
 
 Material*
-SV_Matte::clone(void) const {
-	return (new SV_Matte(*this));
+MatteWave::clone(void) const {
+	return (new MatteWave(*this));
 }
 
 
 // ---------------------------------------------------------------- assignment operator
 
-SV_Matte&
-SV_Matte::operator= (const SV_Matte& rhs) {
+MatteWave&
+MatteWave::operator= (const MatteWave& rhs) {
 	if (this == &rhs)
 		return (*this);
 
@@ -63,7 +64,7 @@ SV_Matte::operator= (const SV_Matte& rhs) {
 
 // ---------------------------------------------------------------- destructor
 
-SV_Matte::~SV_Matte(void) {
+MatteWave::~MatteWave(void) {
 
 	if (ambient_brdf) {
 		delete ambient_brdf;
@@ -74,4 +75,24 @@ SV_Matte::~SV_Matte(void) {
 		delete diffuse_brdf;
 		diffuse_brdf = NULL;
 	}
+}
+
+
+// ---------------------------------------------------------------- shade
+
+RGBColor
+MatteWave::shade(ShadeRec& sr) {
+	Vector3D 	wo = -sr.ray.d;
+	RGBColor 	L = ambient_brdf->rho(sr, wo) * sr.w.ambient_ptr->L(sr);
+	int 		num_lights = sr.w.lights.size();
+
+	for (int j = 0; j < num_lights; j++) {
+		Vector3D wi = sr.w.lights[j]->get_direction(sr);
+		float ndotwi = sr.normal * wi;
+
+		if (ndotwi > 0.0)
+			L += diffuse_brdf->f(sr, wo, wi) * sr.w.lights[j]->L(sr) * ndotwi;
+	}
+
+	return (L);
 }

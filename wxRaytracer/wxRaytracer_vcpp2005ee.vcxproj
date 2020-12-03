@@ -149,6 +149,7 @@
     <ClCompile Include="raytracer\Mappings\SphericalMap.cpp" />
     <ClCompile Include="raytracer\Materials\Material.cpp" />
     <ClCompile Include="raytracer\Materials\Matte.cpp" />
+    <ClCompile Include="raytracer\Materials\MatteWave.cpp" />
     <ClCompile Include="raytracer\Materials\SV_Matte.cpp" />
     <ClCompile Include="raytracer\Textures\ConstantColor.cpp" />
     <ClCompile Include="raytracer\Textures\Image.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="raytracer\Mappings\SphericalMap.h" />
     <ClInclude Include="raytracer\Materials\Material.h" />
     <ClInclude Include="raytracer\Materials\Matte.h" />
+    <ClInclude Include="raytracer\Materials\MatteWave.h" />
     <ClInclude Include="raytracer\Materials\SV_Matte.h" />
     <ClInclude Include="raytracer\Textures\ConstantColor.h" />
     <ClInclude Include="raytracer\Textures\Image.h" />
