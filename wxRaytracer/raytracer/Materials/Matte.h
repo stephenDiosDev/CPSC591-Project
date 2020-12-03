@@ -38,6 +38,8 @@ class Matte: public Material {
 				
 		virtual RGBColor										
 		shade(ShadeRec& sr);
+
+		virtual RGBColor shade_caustics(ShadeRec& sr, Vector3D& lightDir);	//should return black
 		
 	private:
 		
@@ -89,6 +91,10 @@ inline void
 Matte::set_cd(const float c) {
 	ambient_brdf->set_cd(c);
 	diffuse_brdf->set_cd(c);
+}
+
+inline RGBColor Matte::shade_caustics(ShadeRec& sr, Vector3D& lightDir) {
+	return RGBColor(black);
 }
 
 #endif

@@ -163,6 +163,6 @@ void World::build(void) {
 	matte_ptr36->set_cd(water);
 	Plane* plane_ptr = new Plane(Point3D(0, 0, -150), Normal(0, 0, 1));
 	plane_ptr->set_material(matte_ptr36);
-	add_object(plane_ptr);
+	//add_object(plane_ptr);
 }
 

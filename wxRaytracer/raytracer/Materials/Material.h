@@ -20,6 +20,9 @@ class Material {
 				
 		virtual RGBColor
 		shade(ShadeRec& sr);	
+
+		virtual RGBColor shade_caustics(ShadeRec& sr, Vector3D& lightDir);		//should return black
+
 		
 	protected:
 	

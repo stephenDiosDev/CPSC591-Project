@@ -39,6 +39,10 @@ public:
 	virtual RGBColor
 		shade(ShadeRec& sr);
 
+	virtual RGBColor shade_caustics(ShadeRec& sr, Vector3D& lightDir);		//return the transmission ray calculation for a white colour
+
+	float dotProd(Vector3D a, Vector3D b);
+
 private:
 
 	Lambertian* ambient_brdf;
@@ -89,6 +93,15 @@ inline void
 MatteWave::set_cd(const float c) {
 	ambient_brdf->set_cd(c);
 	diffuse_brdf->set_cd(c);
+}
+
+inline
+float MatteWave::dotProd(Vector3D a, Vector3D b) {
+	float x = a.x * b.x;
+	float y = a.y * b.y;
+	float z = a.z * b.z;
+
+	return x + y + z;
 }
 
 #endif

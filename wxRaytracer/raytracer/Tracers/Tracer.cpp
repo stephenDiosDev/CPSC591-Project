@@ -38,5 +38,10 @@ Tracer::trace_ray(const Ray ray, const int depth) const {
 	return (black);
 }
 
+RGBColor Tracer::trace_ray_caustics(const Ray ray, const int depth) const
+{
+	return RGBColor(black);
+}
+
 
 

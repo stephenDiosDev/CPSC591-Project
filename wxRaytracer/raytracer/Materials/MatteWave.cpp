@@ -96,3 +96,50 @@ MatteWave::shade(ShadeRec& sr) {
 
 	return (L);
 }
+
+
+//caustics colour calculation
+RGBColor MatteWave::shade_caustics(ShadeRec& sr, Vector3D& lightDir)
+{
+	float indexOfRefraction = 1 / 1.33;		//may need to change this to 1.33, testing it
+	Vector3D waveNormal = sr.normal;
+	Vector3D incidentRay = sr.ray.d;
+	bool positive = true;
+
+	float squareRoot = 1 + (pow(indexOfRefraction, 2)) * ((pow(min(dotProd(incidentRay, waveNormal), 0), 2)) - 1);
+	if (squareRoot < 0) {	//preserve if it is negative or positive
+		positive = false;
+	}
+	squareRoot = sqrt(abs(squareRoot));
+	float brackets = 0;
+
+	float leftHalf = (indexOfRefraction * dotProd(incidentRay, waveNormal));
+	if (positive) {
+		brackets = leftHalf + squareRoot;
+	}
+	else {
+		brackets = leftHalf - squareRoot;
+	}
+
+	Vector3D transmissionRay = (waveNormal * brackets) + (indexOfRefraction * incidentRay);
+	transmissionRay = transmissionRay * -1.0;
+
+	//now we must find the angle between this ray and the sun
+	//for now assume sun is straight up
+	Vector3D sun(lightDir);
+
+	float angleBetweenTransAndSun = dotProd(transmissionRay, sun) / ((transmissionRay.length()) * (sun.length()));
+	angleBetweenTransAndSun = acos(angleBetweenTransAndSun);	//angle in degrees
+
+	float angleLimit = 0.53;
+	float strength = 0;		//0 = no strength, 1 = max strength
+	if (angleBetweenTransAndSun >= 0 && angleBetweenTransAndSun <= 90) {	//no angles outside of this range should be considered
+		strength = (90 - angleBetweenTransAndSun) / 90;
+	}
+
+	return RGBColor(white) * strength;
+}
+
+
+
+
