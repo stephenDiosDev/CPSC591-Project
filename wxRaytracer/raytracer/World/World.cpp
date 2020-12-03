@@ -104,6 +104,8 @@ World::render_scene(void) const {
 			pixel_color = tracer_ptr->trace_ray(ray);
 			display_pixel(r, c, pixel_color);
 		}	
+
+	//maybe place the backwards pass caustics code in here
 }  
 
 
