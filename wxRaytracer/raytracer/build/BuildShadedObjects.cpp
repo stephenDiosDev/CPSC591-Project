@@ -9,6 +9,7 @@
 #include "Image.h"
 #include "ImageTexture.h"
 #include "SV_Matte.h"
+#include "MatteWave.h"
 #include "SphericalMap.h"
 #include "ConstantColor.h"
 #include "Instance.h"
@@ -140,10 +141,9 @@ void World::build(void) {
 	//wavesColour->set_color(wave);			//mostly for debug
 	wavesColour->set_color(water);
 
-	SV_Matte* waveMatte = new SV_Matte;
+	MatteWave* waveMatte = new MatteWave;
 	waveMatte->set_ka(0.45);
 	waveMatte->set_kd(0.65);
-	waveMatte->set_cd(wavesColour);
 
 
 	char* waveFileName = "..\\wxRaytracer\\raytracer\\Models\\ocean\\wavesHigher.ply";

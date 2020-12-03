@@ -95,7 +95,10 @@ Pinhole::render_scene(const World& w) {
 			L /= vp.num_samples;
 			L *= exposure_time;
 			w.display_pixel(r, c, L);
+			//w.display_pixel(r, c, RGBColor(1, 0, 1));
 		} 
+
+	//add caustics tracer somewhere in this function
 }
 
 

@@ -97,15 +97,13 @@ World::render_scene(void) const {
 	float		zw		= 100.0;				// hardwired in
 
 	ray.d = Vector3D(0, 0, -1);
-	
+
 	for (int r = 0; r < vres; r++)			// up
 		for (int c = 0; c <= hres; c++) {	// across 					
 			ray.o = Point3D(s * (c - hres / 2.0 + 0.5), s * (r - vres / 2.0 + 0.5), zw);
 			pixel_color = tracer_ptr->trace_ray(ray);
 			display_pixel(r, c, pixel_color);
 		}	
-
-	//maybe place the backwards pass caustics code in here
 }  
 
 
