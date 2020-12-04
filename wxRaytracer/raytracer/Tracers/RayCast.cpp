@@ -67,6 +67,8 @@ RayCast::trace_ray_caustics(const Ray ray, const int depth) const {
 		Point3D causticSurface = sr.hit_point;
 		Ray yRay(causticSurface, Vector3D(0, 1, 0));
 
+		//return RGBColor(sr.normal.x, sr.normal.y, sr.normal.z);
+
 		ShadeRec causticSr(world_ptr->hit_objects(yRay));	//where this new yRay hits
 		if (causticSr.hit_an_object) {
 			sr.ray = yRay;
@@ -83,6 +85,7 @@ RayCast::trace_ray_caustics(const Ray ray, const int depth) const {
 		else {
 			return RGBColor(black);
 		}
+		
 	}
 	else
 		return (world_ptr->background_color);	//hits background

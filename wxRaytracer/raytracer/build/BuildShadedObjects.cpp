@@ -29,9 +29,9 @@ void World::build(void) {
 	RGBColor darkPurple(0.5, 0, 1);									// dark purple
 	RGBColor grey(0.65);
 	RGBColor red(1, 0, 0);
-	RGBColor sand(249,227,190);
-	RGBColor water(0, 1, 2);
-	RGBColor wave(0, 250, 241);
+	RGBColor sand(0.24,0.22,0.19);
+	RGBColor water(0, 0.07, 0.2);
+	RGBColor wave(0, 0.250, 0.241);
 
 
 	// view plane  
@@ -67,7 +67,7 @@ void World::build(void) {
 	// light
 
 	Directional* directional_ptr = new Directional;
-	directional_ptr->set_direction(10, 150.30, -0.15);
+	directional_ptr->set_direction(0, 1000, 0);
 	directional_ptr->scale_radiance(4.5);
 	//directional_ptr->set_shadows(true);
 	add_light(directional_ptr);

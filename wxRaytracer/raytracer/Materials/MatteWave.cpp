@@ -101,12 +101,25 @@ MatteWave::shade(ShadeRec& sr) {
 //caustics colour calculation
 RGBColor MatteWave::shade_caustics(ShadeRec& sr, Vector3D& lightDir)
 {
-	float indexOfRefraction = 1 / 1.33;		//may need to change this to 1.33, testing it
+	float strength = 0;
+
+	lightDir = lightDir.hat();
+	sr.normal.normalize();
+
+	strength = dotProd(sr.normal, lightDir);
+
+	strength = acos(strength);
+
+	if (strength > 0.53)
+		strength = 0;
+
+
+/*	float indexOfRefraction = 1 / 1.33;		//may need to change this to 1.33, testing it
 	Vector3D waveNormal = sr.normal;
 	Vector3D incidentRay = sr.ray.d;
 	bool positive = true;
 
-	float squareRoot = 1 + (pow(indexOfRefraction, 2)) * ((pow(min(dotProd(incidentRay, waveNormal), 0), 2)) - 1);
+	float squareRoot = 1 + (pow(indexOfRefraction, 2)) * ((pow(dotProd(incidentRay, waveNormal), 2)) - 1);
 	if (squareRoot < 0) {	//preserve if it is negative or positive
 		positive = false;
 	}
@@ -136,7 +149,7 @@ RGBColor MatteWave::shade_caustics(ShadeRec& sr, Vector3D& lightDir)
 	if (angleBetweenTransAndSun >= 0 && angleBetweenTransAndSun <= 90) {	//no angles outside of this range should be considered
 		strength = (90 - angleBetweenTransAndSun) / 90;
 	}
-
+*/
 	return RGBColor(white) * strength;
 }
 
