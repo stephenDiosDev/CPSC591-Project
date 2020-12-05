@@ -101,6 +101,7 @@ MatteWave::shade(ShadeRec& sr) {
 //caustics colour calculation
 RGBColor MatteWave::shade_caustics(ShadeRec& sr, Vector3D& lightDir)
 {
+
 	float strength = 0;
 
 	lightDir = lightDir.hat();

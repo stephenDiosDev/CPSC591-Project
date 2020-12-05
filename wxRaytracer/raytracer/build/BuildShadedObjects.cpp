@@ -89,7 +89,7 @@ void World::build(void) {
 
 
 	
-	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\sharkTest.ply";
+	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\ocean\\newShark.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
 	grid_ptr->read_smooth_triangles(file_name);		// for Figure 23.7(b)
 	grid_ptr->set_material(svMattePtr);
@@ -108,7 +108,7 @@ void World::build(void) {
 	chestMatte->set_cd(chestColour);
 
 
-	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\testChest.ply";
+	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\ocean\\newChest.ply";
 	Grid* chestGrid = new Grid(new Mesh);
 	chestGrid->read_smooth_triangles(chestFileName);		// for Figure 23.7(b)
 	chestGrid->set_material(chestMatte);
@@ -127,7 +127,7 @@ void World::build(void) {
 	sandMatte->set_cd(sandColour);
 
 
-	char* sandFileName = "..\\wxRaytracer\\raytracer\\Models\\ocean\\sand.ply";
+	char* sandFileName = "..\\wxRaytracer\\raytracer\\Models\\ocean\\smallSand.ply";
 	Grid* sandGrid = new Grid(new Mesh);
 	sandGrid->read_smooth_triangles(sandFileName);		// for Figure 23.7(b)
 	sandGrid->set_material(sandMatte);

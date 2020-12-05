@@ -231,6 +231,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\Bunny4K.ply" />
+    <None Include="raytracer\Models\ocean\wavesHigher2.ply" />
     <None Include="raytracer\Models\penguin\penguin_body.ply" />
     <None Include="raytracer\Models\penguin\penguin_left_eyeball.ply" />
     <None Include="raytracer\Models\penguin\penguin_left_foot.ply" />
