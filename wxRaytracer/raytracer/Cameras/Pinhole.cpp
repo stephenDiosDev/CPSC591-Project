@@ -99,7 +99,7 @@ Pinhole::render_scene(const World& w) {
 					L += caustic;
 
 					//ensure L does not exceed pure white
-					//L = clampColour(L);
+					L = clampColour(L);
 				}
 
 			L /= vp.num_samples;

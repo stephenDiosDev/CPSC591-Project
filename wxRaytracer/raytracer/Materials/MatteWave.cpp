@@ -140,8 +140,9 @@ RGBColor MatteWave::shade_caustics(ShadeRec& sr, Vector3D& lightDir)
 	Vector3D T = N * mainBracket + (indexOfRefraction * E);
 
 	float angleBetweenTAndLight = acos(dotProd(lightDir, T)) * (180.0 / PI);
+	//float angleBetweenTAndLight = acos(dotProd(N, T)) * (180.0 / PI);
 
-	float angleUpperLimit = 30;
+	float angleUpperLimit = 31;
 
 	if (angleBetweenTAndLight >= 0 && angleBetweenTAndLight <= angleUpperLimit) {
 		strength = (angleUpperLimit - angleBetweenTAndLight) / angleUpperLimit;

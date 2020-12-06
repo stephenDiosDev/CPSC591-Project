@@ -146,7 +146,7 @@ void World::build(void) {
 	waveMatte->set_kd(0.65);
 
 
-	char* waveFileName = "..\\wxRaytracer\\raytracer\\Models\\smallOcean\\ocean4small.ply";
+	char* waveFileName = "..\\wxRaytracer\\raytracer\\Models\\smallOcean\\manyOcean.ply";
 	Grid* waveGrid = new Grid(new Mesh);
 	waveGrid->read_smooth_triangles(waveFileName);		// for Figure 23.7(b)
 	waveGrid->set_material(waveMatte);
