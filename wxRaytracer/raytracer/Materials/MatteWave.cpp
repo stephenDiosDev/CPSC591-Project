@@ -101,7 +101,7 @@ MatteWave::shade(ShadeRec& sr) {
 //caustics colour calculation
 RGBColor MatteWave::shade_caustics(ShadeRec& sr, Vector3D& lightDir)
 {
-
+/*
 	float strength = 0;
 
 	lightDir = lightDir.hat();
@@ -109,49 +109,46 @@ RGBColor MatteWave::shade_caustics(ShadeRec& sr, Vector3D& lightDir)
 
 	strength = dotProd(sr.normal, lightDir);
 
-	strength = acos(strength);
+	strength = acos(strength) * (180.0 / PI);
 
 	if (strength > 0.53)
 		strength = 0;
-
-
-/*	float indexOfRefraction = 1 / 1.33;		//may need to change this to 1.33, testing it
-	Vector3D waveNormal = sr.normal;
-	Vector3D incidentRay = sr.ray.d;
-	bool positive = true;
-
-	float squareRoot = 1 + (pow(indexOfRefraction, 2)) * ((pow(dotProd(incidentRay, waveNormal), 2)) - 1);
-	if (squareRoot < 0) {	//preserve if it is negative or positive
-		positive = false;
-	}
-	squareRoot = sqrt(abs(squareRoot));
-	float brackets = 0;
-
-	float leftHalf = (indexOfRefraction * dotProd(incidentRay, waveNormal));
-	if (positive) {
-		brackets = leftHalf + squareRoot;
-	}
-	else {
-		brackets = leftHalf - squareRoot;
-	}
-
-	Vector3D transmissionRay = (waveNormal * brackets) + (indexOfRefraction * incidentRay);
-	transmissionRay = transmissionRay * -1.0;
-
-	//now we must find the angle between this ray and the sun
-	//for now assume sun is straight up
-	Vector3D sun(lightDir);
-
-	float angleBetweenTransAndSun = dotProd(transmissionRay, sun) / ((transmissionRay.length()) * (sun.length()));
-	angleBetweenTransAndSun = acos(angleBetweenTransAndSun);	//angle in degrees
-
-	float angleLimit = 0.53;
-	float strength = 0;		//0 = no strength, 1 = max strength
-	if (angleBetweenTransAndSun >= 0 && angleBetweenTransAndSun <= 90) {	//no angles outside of this range should be considered
-		strength = (90 - angleBetweenTransAndSun) / 90;
-	}
 */
-	return RGBColor(white) * strength;
+
+	float indexOfRefraction = 1.33;		//may need to change this to 1.33, testing it
+	float strength = 0;
+
+	Vector3D E = sr.ray.d;
+	Vector3D N = sr.normal;
+	lightDir = -lightDir;
+
+	//find the transmission ray as outlined here:]
+	//https://developer.download.nvidia.com/books/HTML/gpugems/gpugems_ch02.html
+
+	double squareRoot = 1 + pow(indexOfRefraction, 2) * ((pow(dotProd(E, N), 2)) - 1);
+	bool positive = true;
+	if (squareRoot < 0)
+		positive = false;
+	squareRoot = abs(squareRoot);
+	
+	float mainBracket = (indexOfRefraction * dotProd(E, N));
+	if (positive)
+		mainBracket += squareRoot;
+	else
+		mainBracket -= squareRoot;
+
+	Vector3D T = N * mainBracket + (indexOfRefraction * E);
+
+	float angleBetweenTAndLight = acos(dotProd(lightDir, T)) * (180.0 / PI);
+
+	float angleUpperLimit = 30;
+
+	if (angleBetweenTAndLight >= 0 && angleBetweenTAndLight <= angleUpperLimit) {
+		strength = (angleUpperLimit - angleBetweenTAndLight) / angleUpperLimit;
+	}
+
+
+	return RGBColor(white) * strength;// *0.53;
 }
 
 
