@@ -95,8 +95,11 @@ Pinhole::render_scene(const World& w) {
 
 					//stores the amount of white given by the caustic
 					//combine this with L and ensure it doesn't exceed max white RGB value
-					RGBColor caustic = w.tracer_ptr->trace_ray_caustics(ray, depth);
-					L += caustic;
+					//RGBColor caustic = w.tracer_ptr->trace_ray_caustics(ray, depth);
+					//L += caustic;
+
+					RGBColor forwardCaustic = w.tracer_ptr->trace_ray_forward_caustics(ray, depth);
+					L += forwardCaustic;
 
 					//ensure L does not exceed pure white
 					L = clampColour(L);
