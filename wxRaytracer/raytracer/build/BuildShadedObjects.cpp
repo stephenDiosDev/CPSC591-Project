@@ -56,10 +56,12 @@ void World::build(void) {
 	// camera
 
 	Pinhole* pinhole_ptr = new Pinhole;
+
 	pinhole_ptr->set_eye(50, 40, 100);
 	//pinhole_ptr->set_lookat(0, 0, -0.3);
 	pinhole_ptr->set_lookat(0, 4, 0);
 	pinhole_ptr->set_view_distance(1000);
+
 	pinhole_ptr->compute_uvw();
 	set_camera(pinhole_ptr);
 
@@ -78,7 +80,9 @@ void World::build(void) {
 	float kd = 0.75;
 
 
+
 	//shark=================================================================================================================
+
 	ConstantColor* constantColor = new ConstantColor;
 	constantColor->set_color(grey);
 
@@ -91,7 +95,9 @@ void World::build(void) {
 	
 	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\shark.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
+
 	grid_ptr->read_smooth_triangles(file_name);
+
 	grid_ptr->set_material(svMattePtr);
 	grid_ptr->setup_cells();
 	Instance* gridInstance = new Instance(grid_ptr);
