@@ -14,7 +14,7 @@
 #include "ConstantColor.h"
 #include "Instance.h"
 void World::build(void) {
-	int num_samples = 1;
+	int num_samples = 16;
 
 	// colors
 
@@ -56,9 +56,9 @@ void World::build(void) {
 	// camera
 
 	Pinhole* pinhole_ptr = new Pinhole;
-	pinhole_ptr->set_eye(50, 10, 120);
+	pinhole_ptr->set_eye(50, 40, 100);
 	//pinhole_ptr->set_lookat(0, 0, -0.3);
-	pinhole_ptr->set_lookat(0, 0, 0);
+	pinhole_ptr->set_lookat(0, 4, 0);
 	pinhole_ptr->set_view_distance(1000);
 	pinhole_ptr->compute_uvw();
 	set_camera(pinhole_ptr);
@@ -89,7 +89,7 @@ void World::build(void) {
 
 
 	
-	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\smallOcean\\shark.ply";
+	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\shark.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
 	grid_ptr->read_smooth_triangles(file_name);		// for Figure 23.7(b)
 	grid_ptr->set_material(svMattePtr);
@@ -108,7 +108,7 @@ void World::build(void) {
 	chestMatte->set_cd(chestColour);
 
 
-	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\smallOcean\\chest.ply";
+	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.ply";
 	Grid* chestGrid = new Grid(new Mesh);
 	chestGrid->read_smooth_triangles(chestFileName);		// for Figure 23.7(b)
 	chestGrid->set_material(chestMatte);
@@ -127,7 +127,7 @@ void World::build(void) {
 	sandMatte->set_cd(sandColour);
 
 
-	char* sandFileName = "..\\wxRaytracer\\raytracer\\Models\\smallOcean\\sand.ply";
+	char* sandFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\sand.ply";
 	Grid* sandGrid = new Grid(new Mesh);
 	sandGrid->read_smooth_triangles(sandFileName);		// for Figure 23.7(b)
 	sandGrid->set_material(sandMatte);
@@ -146,7 +146,7 @@ void World::build(void) {
 	waveMatte->set_kd(0.65);
 
 
-	char* waveFileName = "..\\wxRaytracer\\raytracer\\Models\\smallOcean\\manyOcean.ply";
+	char* waveFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\wave3.ply";
 	Grid* waveGrid = new Grid(new Mesh);
 	waveGrid->read_smooth_triangles(waveFileName);		// for Figure 23.7(b)
 	waveGrid->set_material(waveMatte);
@@ -154,15 +154,5 @@ void World::build(void) {
 	Instance* waveGridInstance = new Instance(waveGrid);
 	add_object(waveGridInstance);
 
-
-	// vertical plane
-
-	Matte* matte_ptr36 = new Matte;
-	matte_ptr36->set_ka(ka);
-	matte_ptr36->set_kd(kd);
-	matte_ptr36->set_cd(water);
-	Plane* plane_ptr = new Plane(Point3D(0, 0, -150), Normal(0, 0, 1));
-	plane_ptr->set_material(matte_ptr36);
-	//add_object(plane_ptr);
 }
 

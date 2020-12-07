@@ -133,15 +133,20 @@ RayCast::trace_ray_forward_caustics(const Ray ray, const int depth) const {
 				Point3D causticHitPoint(finalCaustics.hit_point);
 				Point3D actualPoint(sr.hit_point);
 
-				///*
-				float tolerance = 0.0000006;
+				
+				//float tolerance = 0.0000008;
+				float tolerance = 0.0000007;
+				//float tolerance = 0.000002;
 				float distance = sqrt((pow((actualPoint.x - causticHitPoint.x), 2)) + (pow((actualPoint.y - causticHitPoint.y), 2)) + (pow((actualPoint.z - causticHitPoint.z), 2)));
 				strength = (tolerance - distance) / tolerance;
 				
-				if (strength < 0 || strength > 1)
+				if (strength < 0)
 					strength = 0;
-					//*/
+				else if (strength > 1)
+					strength = 1;
+					
 				return RGBColor(white) * strength;
+
 			}
 			else
 				return RGBColor(0, 0, 0);
