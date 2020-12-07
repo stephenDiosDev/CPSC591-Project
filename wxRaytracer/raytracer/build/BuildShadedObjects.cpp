@@ -91,7 +91,7 @@ void World::build(void) {
 	
 	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\shark.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
-	grid_ptr->read_smooth_triangles(file_name);		// for Figure 23.7(b)
+	grid_ptr->read_smooth_triangles(file_name);
 	grid_ptr->set_material(svMattePtr);
 	grid_ptr->setup_cells();
 	Instance* gridInstance = new Instance(grid_ptr);
@@ -110,7 +110,7 @@ void World::build(void) {
 
 	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.ply";
 	Grid* chestGrid = new Grid(new Mesh);
-	chestGrid->read_smooth_triangles(chestFileName);		// for Figure 23.7(b)
+	chestGrid->read_smooth_triangles(chestFileName);
 	chestGrid->set_material(chestMatte);
 	chestGrid->setup_cells();
 	Instance* chestGridInstance = new Instance(chestGrid);
@@ -129,7 +129,7 @@ void World::build(void) {
 
 	char* sandFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\sand.ply";
 	Grid* sandGrid = new Grid(new Mesh);
-	sandGrid->read_smooth_triangles(sandFileName);		// for Figure 23.7(b)
+	sandGrid->read_smooth_triangles(sandFileName);
 	sandGrid->set_material(sandMatte);
 	sandGrid->setup_cells();
 	Instance* sandGridInstance = new Instance(sandGrid);
@@ -138,7 +138,6 @@ void World::build(void) {
 
 	//waves=================================================================================================================
 	ConstantColor* wavesColour = new ConstantColor;
-	//wavesColour->set_color(wave);			//mostly for debug
 	wavesColour->set_color(water);
 
 	MatteWave* waveMatte = new MatteWave;
@@ -148,7 +147,7 @@ void World::build(void) {
 
 	char* waveFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\wave3.ply";
 	Grid* waveGrid = new Grid(new Mesh);
-	waveGrid->read_smooth_triangles(waveFileName);		// for Figure 23.7(b)
+	waveGrid->read_smooth_triangles(waveFileName);
 	waveGrid->set_material(waveMatte);
 	waveGrid->setup_cells();
 	Instance* waveGridInstance = new Instance(waveGrid);
