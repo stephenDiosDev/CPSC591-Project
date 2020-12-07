@@ -18,6 +18,10 @@ class RayCast: public Tracer {
 
 		virtual RGBColor	
 		trace_ray(const Ray ray, const int depth) const;
+
+		virtual RGBColor trace_ray_caustics(const Ray ray, const int depth) const;
+
+		virtual RGBColor trace_ray_forward_caustics(const Ray ray, const int depth) const;
 };
 
 #endif

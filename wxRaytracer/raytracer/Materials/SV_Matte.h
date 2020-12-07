@@ -28,6 +28,8 @@ public:
 	virtual RGBColor
 		shade(ShadeRec& s);
 
+	virtual RGBColor shade_caustics(ShadeRec& sr, Vector3D& lightDir);	//should return black
+
 private:
 
 	SV_Lambertian* ambient_brdf;
@@ -93,3 +95,6 @@ SV_Matte::shade(ShadeRec& sr) {
 	return (L);
 }
 
+inline RGBColor SV_Matte::shade_caustics(ShadeRec& sr, Vector3D& lightDir) {
+	return RGBColor(black);
+}

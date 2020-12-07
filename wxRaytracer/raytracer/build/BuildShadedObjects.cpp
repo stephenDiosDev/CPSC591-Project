@@ -9,11 +9,12 @@
 #include "Image.h"
 #include "ImageTexture.h"
 #include "SV_Matte.h"
+#include "MatteWave.h"
 #include "SphericalMap.h"
 #include "ConstantColor.h"
 #include "Instance.h"
 void World::build(void) {
-	int num_samples = 1;
+	int num_samples = 16;
 
 	// colors
 
@@ -26,83 +27,64 @@ void World::build(void) {
 	RGBColor darkYellow(0.61, 0.61, 0);								// dark yellow
 	RGBColor lightPurple(0.65, 0.3, 1);								// light purple
 	RGBColor darkPurple(0.5, 0, 1);									// dark purple
-	RGBColor grey(0.25);
+	RGBColor grey(0.65);
+	RGBColor red(1, 0, 0);
+	RGBColor sand(0.24,0.22,0.19);
+	RGBColor water(0, 0.07, 0.2);
+	RGBColor wave(0, 0.250, 0.241);
 
 
 	// view plane  
-	  
+
 	vp.set_hres(650);
 	vp.set_vres(400);
 	vp.set_pixel_size(0.5);
 	vp.set_samples(num_samples);
-	
+
 	// the ambient light here is the same as the default set in the World
 	// constructor, and can therefore be left out
-	
+
 	Ambient* ambient_ptr = new Ambient;
 	ambient_ptr->scale_radiance(1.0);
-	set_ambient_light(ambient_ptr); 
+	set_ambient_light(ambient_ptr);
 
-	background_color = white;			// default color - this can be left out
-	
-	tracer_ptr = new RayCast(this); 
+	background_color = water;			// default color - this can be left out
 
-	
+	tracer_ptr = new RayCast(this);
+
+
 	// camera
-	
+
 	Pinhole* pinhole_ptr = new Pinhole;
-	pinhole_ptr->set_eye(50, 15, 120);
+
+	pinhole_ptr->set_eye(50, 40, 100);
 	//pinhole_ptr->set_lookat(0, 0, -0.3);
-	pinhole_ptr->set_lookat(0, 0, 0);
-	pinhole_ptr->set_view_distance(800);
+	pinhole_ptr->set_lookat(0, 4, 0);
+	pinhole_ptr->set_view_distance(1000);
+
 	pinhole_ptr->compute_uvw();
 	set_camera(pinhole_ptr);
 
-	
+
 	// light
-	
+
 	Directional* directional_ptr = new Directional;
-	directional_ptr->set_direction(0, 0.30, -0.15);
+	directional_ptr->set_direction(0, 1000, 0);
 	directional_ptr->scale_radiance(4.5);
 	//directional_ptr->set_shadows(true);
 	add_light(directional_ptr);
 
 	// Matte material reflection coefficients - common to all materials
-	
+
 	float ka = 0.25;
 	float kd = 0.75;
-	
-/*
-	// spheres
-	Image* earthImg = new Image;
-	earthImg->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\EarthHighRes.ppm");
-	SphericalMap* sphericalMapPtr = new SphericalMap;
-	ImageTexture* earthTexturePtr = new ImageTexture;
-	earthTexturePtr->set_image(earthImg);
-	earthTexturePtr->set_mapping(sphericalMapPtr);
-	SV_Matte* earthMatte = new SV_Matte;
-	earthMatte->set_ka(0.45);
-	earthMatte->set_kd(0.65);
-	earthMatte->set_cd(earthTexturePtr);
-	Sphere* earthSphere = new Sphere;
-	earthSphere->set_material(earthMatte);
-	Instance* earthPtr = new Instance(earthSphere);
-	earthPtr->set_material(earthMatte);
-	earthPtr->rotate_y(280);
-	earthPtr->rotate_x(30);
-	//add_object(earthPtr);
-	*/
-	
-	Matte* matte_ptr1 = new Matte;   
-	matte_ptr1->set_ka(ka);	
-	matte_ptr1->set_kd(kd);
-	matte_ptr1->set_cd(lightGreen);				
-	Sphere*	sphere_ptr1 = new Sphere(Point3D(0, 0, 0), 1); 
-	sphere_ptr1->set_material(matte_ptr1);	   							// yellow
-	//add_object(sphere_ptr1);
+
+
+
+	//shark=================================================================================================================
 
 	ConstantColor* constantColor = new ConstantColor;
-	constantColor->set_color(green);
+	constantColor->set_color(grey);
 
 	SV_Matte* svMattePtr = new SV_Matte;
 	svMattePtr->set_ka(0.45);
@@ -110,27 +92,72 @@ void World::build(void) {
 	svMattePtr->set_cd(constantColor);
 
 
-	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\sharkTest.ply";
+	
+	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\shark.ply";
 	Grid* grid_ptr = new Grid(new Mesh);
-	grid_ptr->read_flat_triangles(file_name);		// for Figure 23.7(b)
+
+	grid_ptr->read_smooth_triangles(file_name);
+
 	grid_ptr->set_material(svMattePtr);
 	grid_ptr->setup_cells();
 	Instance* gridInstance = new Instance(grid_ptr);
 	add_object(gridInstance);
 
 
+	//chest=================================================================================================================
+	ConstantColor* chestColour = new ConstantColor;
+	chestColour->set_color(brown);
+
+	SV_Matte* chestMatte = new SV_Matte;
+	chestMatte->set_ka(0.45);
+	chestMatte->set_kd(0.65);
+	chestMatte->set_cd(chestColour);
 
 
+	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.ply";
+	Grid* chestGrid = new Grid(new Mesh);
+	chestGrid->read_smooth_triangles(chestFileName);
+	chestGrid->set_material(chestMatte);
+	chestGrid->setup_cells();
+	Instance* chestGridInstance = new Instance(chestGrid);
+	add_object(chestGridInstance);
 
-	
-	// vertical plane
-	
-	Matte* matte_ptr36 = new Matte;
-	matte_ptr36->set_ka(ka);	
-	matte_ptr36->set_kd(kd);
-	matte_ptr36->set_cd(white);
-	Plane* plane_ptr = new Plane(Point3D(0, 0, -150), Normal(0, 0, 1));
-	plane_ptr->set_material(matte_ptr36);
-	add_object (plane_ptr);
+
+	//sand floor=================================================================================================================
+	ConstantColor* sandColour = new ConstantColor;
+	sandColour->set_color(sand);
+
+	SV_Matte* sandMatte = new SV_Matte;
+	sandMatte->set_ka(0.45);
+	sandMatte->set_kd(0.65);
+	sandMatte->set_cd(sandColour);
+
+
+	char* sandFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\sand.ply";
+	Grid* sandGrid = new Grid(new Mesh);
+	sandGrid->read_smooth_triangles(sandFileName);
+	sandGrid->set_material(sandMatte);
+	sandGrid->setup_cells();
+	Instance* sandGridInstance = new Instance(sandGrid);
+	add_object(sandGridInstance);
+
+
+	//waves=================================================================================================================
+	ConstantColor* wavesColour = new ConstantColor;
+	wavesColour->set_color(water);
+
+	MatteWave* waveMatte = new MatteWave;
+	waveMatte->set_ka(0.45);
+	waveMatte->set_kd(0.65);
+
+
+	char* waveFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\wave3.ply";
+	Grid* waveGrid = new Grid(new Mesh);
+	waveGrid->read_smooth_triangles(waveFileName);
+	waveGrid->set_material(waveMatte);
+	waveGrid->setup_cells();
+	Instance* waveGridInstance = new Instance(waveGrid);
+	add_object(waveGridInstance);
+
 }
 

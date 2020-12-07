@@ -35,6 +35,8 @@ class Pinhole: public Camera {
 		
 		virtual void 												
 		render_scene(const World& w);
+
+		RGBColor clampColour(RGBColor col);
 		
 	private:
 			
@@ -61,5 +63,18 @@ inline void
 Pinhole::set_zoom(float zoom_factor) {
 	zoom = zoom_factor;
 }	
+
+inline
+RGBColor Pinhole::clampColour(RGBColor col) {
+	RGBColor clamped(col);
+	if (clamped.r > 1)
+		clamped.r = 1;
+	if (clamped.g > 1)
+		clamped.g = 1;
+	if (clamped.b > 1)
+		clamped.b = 1;
+
+	return clamped;
+}
 
 #endif

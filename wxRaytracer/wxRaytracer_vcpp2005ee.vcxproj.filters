@@ -204,6 +204,9 @@
     <ClCompile Include="raytracer\GeometricObjects\Instance.cpp">
       <Filter>Geometric Objects</Filter>
     </ClCompile>
+    <ClCompile Include="raytracer\Materials\MatteWave.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="raytracer\BRDFs\BRDF.h">
@@ -356,6 +359,9 @@
     <ClInclude Include="raytracer\GeometricObjects\Instance.h">
       <Filter>Geometric Objects</Filter>
     </ClInclude>
+    <ClInclude Include="raytracer\Materials\MatteWave.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\TwoUVTriangles.ply">
@@ -429,6 +435,9 @@
     </None>
     <None Include="raytracer\Models\table\Classicsidetable.ply">
       <Filter>Models\table</Filter>
+    </None>
+    <None Include="raytracer\Models\ocean\wavesHigher2.ply">
+      <Filter>Models</Filter>
     </None>
   </ItemGroup>
 </Project>

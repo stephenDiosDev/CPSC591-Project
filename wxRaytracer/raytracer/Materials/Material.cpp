@@ -36,4 +36,10 @@ Material::shade(ShadeRec& sr) {
 }
 
 
+RGBColor
+Material::shade_caustics(ShadeRec& sr, Vector3D& lightDir) {
+	return (black);
+}
+
+
 
