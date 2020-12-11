@@ -89,7 +89,7 @@ Pinhole::render_scene(const World& w) {
 					pp.x = vp.s * (c - 0.5 * vp.hres + (q + 0.5) / n);
 					pp.y = vp.s * (r - 0.5 * vp.vres + (p + 0.5) / n);
 					ray.d = get_direction(pp);
-					//L += w.tracer_ptr->trace_ray(ray, depth);
+					L += w.tracer_ptr->trace_ray(ray, depth);
 					
 					//caustics ray pass
 

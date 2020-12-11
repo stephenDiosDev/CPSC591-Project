@@ -71,7 +71,7 @@ void World::build(void) {
 	Directional* directional_ptr = new Directional;
 	directional_ptr->set_direction(0, 1000, 0);
 	directional_ptr->scale_radiance(4.5);
-	//directional_ptr->set_shadows(true);
+	directional_ptr->set_shadows(true);
 	add_light(directional_ptr);
 
 	// Matte material reflection coefficients - common to all materials

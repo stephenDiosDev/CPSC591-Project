@@ -78,10 +78,10 @@ SV_Matte::shade(ShadeRec& sr) {
 		if (ndotwi > 0.0 && ndotwo > 0.0) {
 			bool in_shadow = false;
 
-	//		if (sr.w.lights[j]->casts_shadows()) {
-	//			Ray shadow_ray(sr.hitPoint, wi);
-	//			in_shadow = light_ptr->in_shadow(shadow_ray, sr.w.objects);
-	//		}
+			if (sr.w.lights[j]->casts_shadows()) {
+				Ray shadow_ray(sr.hitPoint, wi);
+				in_shadow = light_ptr->in_shadow(shadow_ray, sr.w.objects);
+			}
 
 			if (!in_shadow) {
 				//G is from the area light section which we don't have yet
