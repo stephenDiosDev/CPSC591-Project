@@ -207,9 +207,6 @@
     <ClCompile Include="raytracer\Materials\MatteWave.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
-    <ClCompile Include="raytracer\Lights\AreaLight.cpp">
-      <Filter>Lights</Filter>
-    </ClCompile>
     <ClCompile Include="Emissive.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -365,9 +362,6 @@
     </ClInclude>
     <ClInclude Include="raytracer\Materials\MatteWave.h">
       <Filter>Materials</Filter>
-    </ClInclude>
-    <ClInclude Include="raytracer\Lights\AreaLight.h">
-      <Filter>Lights</Filter>
     </ClInclude>
     <ClInclude Include="Emissive.h" />
   </ItemGroup>

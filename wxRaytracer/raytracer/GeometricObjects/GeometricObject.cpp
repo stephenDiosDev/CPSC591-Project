@@ -48,8 +48,6 @@ GeometricObject::operator= (const GeometricObject& rhs) {
 	if (rhs.material_ptr)
 		material_ptr = rhs.material_ptr->clone();
 
-	//shadows = rhs.shadows;
-
 	return (*this);
 }
 

@@ -83,6 +83,8 @@ class GeometricObject {
 		virtual Normal
 		get_normal(const Point3D& p); 
 
+		bool shadow_hit(const Ray& ray, float& tmin) const;
+
 	
 	protected:
 	
@@ -92,6 +94,10 @@ class GeometricObject {
 		GeometricObject&						
 		operator= (const GeometricObject& rhs);
 };
+
+inline bool GeometricObject::shadow_hit(const Ray& ray, float& tmin) const{
+	return false;
+}
 
 
 // --------------------------------------------------------------------  set_color

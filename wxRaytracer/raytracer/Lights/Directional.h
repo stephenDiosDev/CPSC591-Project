@@ -42,22 +42,37 @@ class Directional: public Light {
 		
 		void
 		set_direction(float dx, float dy, float dz);
+
+		void set_shadows(const bool shadow);
 		
 		virtual Vector3D								
 		get_direction(ShadeRec& sr);
 				
 		virtual RGBColor		
 		L(ShadeRec& sr);	
+
+		virtual bool casts_shadows();
+
+		virtual bool in_shadow(const Ray& ray, const ShadeRec& sr) const;
 		
 	private:
 
 		float		ls;			
 		RGBColor	color;
 		Vector3D	dir;		// direction the light comes from
+		bool shadows = false;
 };
 
 
 // inlined access functions
+
+inline void Directional::set_shadows(const bool shadow) {
+	shadows = shadow;
+}
+
+inline bool Directional::casts_shadows() {
+	return true;
+}
 
 
 // ------------------------------------------------------------------------------- scale_radiance

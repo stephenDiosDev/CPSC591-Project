@@ -66,4 +66,21 @@ Directional::L(ShadeRec& s) {
 	return (ls * color);
 }
 
+bool Directional::in_shadow(const Ray& ray, const ShadeRec& sr) const
+{
+	float t;
+	int numObjects = sr.w.objects.size();
+	//float d = sr.hit_point.distance(ray.o);
+
+	for (int j = 0; j < numObjects; j++) {	//need to make sure we dont hit the wave and cause shadow
+		if (sr.w.objects[j]->shadow_hit(ray, t))// && t < d)
+		{
+			return (true);
+		}
+			
+	}
+
+	return (false);
+}
+
 

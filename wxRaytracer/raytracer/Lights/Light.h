@@ -32,6 +32,13 @@ class Light {
 		virtual RGBColor														
 		L(ShadeRec& sr);		
 
+		virtual bool in_shadow(const Ray& ray, const ShadeRec& sr) const;
+
+		virtual bool casts_shadows();
+
+private:
+	bool shadows = true;
+
 };
 
 #endif

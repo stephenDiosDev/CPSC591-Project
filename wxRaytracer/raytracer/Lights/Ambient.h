@@ -36,6 +36,8 @@ class Ambient: public Light {
 		
 		virtual RGBColor
 		L(ShadeRec& s);
+
+		virtual bool casts_shadows();
 	
 	private:
 	

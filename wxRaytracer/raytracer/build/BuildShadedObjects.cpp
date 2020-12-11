@@ -79,7 +79,16 @@ void World::build(void) {
 	float ka = 0.25;
 	float kd = 0.75;
 
+	SV_Matte* sphereMatte = new SV_Matte;
+	ConstantColor* sphereconstantColor = new ConstantColor;
+	sphereconstantColor->set_color(orange);
+	sphereMatte->set_ka(0.45);
+	sphereMatte->set_kd(0.65);
+	sphereMatte->set_cd(sphereconstantColor);
 
+	Sphere* sphere = new Sphere(Point3D(0, 7, 0), 3);
+	sphere->set_material(sphereMatte);
+	//add_object(sphere);
 
 	//shark=================================================================================================================
 

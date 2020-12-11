@@ -63,6 +63,11 @@ Ambient::L(ShadeRec& sr) {
 	return (ls * color);
 }
 
+bool Ambient::casts_shadows()
+{
+	return false;
+}
+
 
 
 

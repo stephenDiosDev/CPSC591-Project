@@ -70,25 +70,30 @@ SV_Matte::shade(ShadeRec& sr) {
 
 	for (int j = 0; j < num_lights; j++) {
 		Light* light_ptr = sr.w.lights[j];
-		Vector3D wi = light_ptr->get_direction(sr);	//textbook says compute_direction, but couldn't find anything else
+		//Vector3D wi = light_ptr->get_direction(sr);	//textbook says compute_direction, but couldn't find anything else
+		Vector3D wi(0,1000,0);
 		wi.normalize();
 		float ndotwi = sr.normal * wi;
 		float ndotwo = sr.normal * wo;
 
-		if (ndotwi > 0.0 && ndotwo > 0.0) {
+		if (ndotwi > 0.0 && ndotwo > 0.0) {	//any face that points towards the light
 			bool in_shadow = false;
 
 			if (sr.w.lights[j]->casts_shadows()) {
-				Ray shadow_ray(sr.hitPoint, wi);
-				in_shadow = light_ptr->in_shadow(shadow_ray, sr.w.objects);
+				Ray shadow_ray(sr.hit_point, wi);
+				in_shadow = light_ptr->in_shadow(shadow_ray, sr);
+				//the above always returns false, it says nothing is in shadow
 			}
 
+			//if spot is not in shadow, shade normally
 			if (!in_shadow) {
 				//G is from the area light section which we don't have yet
 				//L += diffuse_brdf->f(sr, wo, wi) * light_ptr->L(sr) * light_ptr->G(sr) * ndotwi;
-				L += diffuse_brdf->f(sr, wo, wi) * light_ptr->L(sr) * ndotwi;
-			}
+				L += diffuse_brdf->f(sr, wo, wi) * sr.w.lights[j]->L(sr) * ndotwi;
 				
+			}
+			else
+				return RGBColor(1.0, 0.0, 1.0);
 		}
 	}
 
