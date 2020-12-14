@@ -125,7 +125,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Emissive.cpp" />
     <ClCompile Include="raytracer\BRDFs\BRDF.cpp" />
     <ClCompile Include="raytracer\BRDFs\Lambertian.cpp" />
     <ClCompile Include="raytracer\BRDFs\SV_Lambertian.cpp" />
@@ -148,6 +147,7 @@
     <ClCompile Include="raytracer\Lights\Light.cpp" />
     <ClCompile Include="raytracer\Mappings\Mapping.cpp" />
     <ClCompile Include="raytracer\Mappings\SphericalMap.cpp" />
+    <ClCompile Include="raytracer\Materials\Emissive.cpp" />
     <ClCompile Include="raytracer\Materials\Material.cpp" />
     <ClCompile Include="raytracer\Materials\Matte.cpp" />
     <ClCompile Include="raytracer\Materials\MatteWave.cpp" />
@@ -178,7 +178,7 @@
     <ClCompile Include="raytracer\World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Emissive.h" />
+    <ClInclude Include="AssimpLoader.h" />
     <ClInclude Include="raytracer\BRDFs\BRDF.h" />
     <ClInclude Include="raytracer\BRDFs\Lambertian.h" />
     <ClInclude Include="raytracer\BRDFs\SV_Lambertian.h" />
@@ -201,6 +201,7 @@
     <ClInclude Include="raytracer\Lights\Light.h" />
     <ClInclude Include="raytracer\Mappings\Mapping.h" />
     <ClInclude Include="raytracer\Mappings\SphericalMap.h" />
+    <ClInclude Include="raytracer\Materials\Emissive.h" />
     <ClInclude Include="raytracer\Materials\Material.h" />
     <ClInclude Include="raytracer\Materials\Matte.h" />
     <ClInclude Include="raytracer\Materials\MatteWave.h" />

@@ -24,6 +24,7 @@
 #include "Mesh.h"
 #include "BBox.h"
 #include "Maths.h"
+#include <string>
 
 
 //---------------------------------------------------------------------- class Grid
@@ -77,7 +78,9 @@ class Grid: public Compound {
 		reverse_mesh_normals(void);
 
 		void
-		store_material(Material* material, const int index); 							
+		store_material(Material* material, const int index); 		
+
+		void readObjWithAssimp(std::string filePath);
 
 	private: 
 
@@ -118,6 +121,11 @@ Grid::reverse_mesh_normals(void) {
 inline void
 Grid::store_material(Material* material_ptr, const int index) {
 	objects[index]->set_material(material_ptr); 
+}
+
+//calls the AssimpTools methods
+inline void Grid::readObjWithAssimp(std::string filePath)
+{
 }
 
 #endif
