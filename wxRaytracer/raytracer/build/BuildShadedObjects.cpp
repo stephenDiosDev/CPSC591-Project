@@ -116,14 +116,22 @@ void World::build(void) {
 	//chest=================================================================================================================
 	ConstantColor* chestColour = new ConstantColor;
 	chestColour->set_color(brown);
+	Image* chestTexture = new Image;
+	chestTexture->read_ppm_file("C:\\Users\\tfsha\\Desktop\\591Project\\SkeletonRayTracer\\CPSC591-Project\\wxRaytracer\\raytracer\\Textures\\ppm\\treasure_chest.ppm");
+
+	ImageTexture* chestImgTexture = new ImageTexture;
+	chestImgTexture->set_image(chestTexture);
+	chestImgTexture->set_mapping(NULL);
 
 	SV_Matte* chestMatte = new SV_Matte;
 	chestMatte->set_ka(0.45);
 	chestMatte->set_kd(0.65);
 	chestMatte->set_cd(chestColour);
+	//chestMatte->set_cd(chestImgTexture);
 
 
 	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.ply";
+	//char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\chestTestFinal.ply";
 	Grid* chestGrid = new Grid(new Mesh);
 	chestGrid->read_smooth_triangles(chestFileName);
 	chestGrid->set_material(chestMatte);

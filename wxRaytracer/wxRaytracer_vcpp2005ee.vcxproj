@@ -53,7 +53,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>wxWidgets\include;wxWidgets\msw;raytracer\BRDFs;raytracer\BTDFs;raytracer\build;raytracer\Cameras;raytracer\GeometricObjects;raytracer\Lights;raytracer\Mappings;raytracer\Materials;raytracer\Noises;raytracer\Samplers;raytracer\Textures;raytracer\Tracers;raytracer\UserInterface;raytracer\Utilities;raytracer\World;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>wxWidgets\include;wxWidgets\msw;raytracer\BRDFs;raytracer\BTDFs;raytracer\build;raytracer\Cameras;raytracer\GeometricObjects;raytracer\Lights;raytracer\Mappings;raytracer\Materials;raytracer\Noises;raytracer\Samplers;raytracer\Textures;raytracer\Tracers;raytracer\UserInterface;raytracer\Utilities;raytracer\World;$(SolutionDir)include\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;__WIN32__;__WXMSW__;WINVER=0x0400;STRICT;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -75,10 +75,10 @@
       <AdditionalIncludeDirectories>C:\wxWidgets-2.8.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>wxmsw31ud_core.lib;wxbase31ud.lib;wxtiff.lib;wxjpeg.lib;wxpng.lib;wxzlib.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;oleacc.lib;odbc32.lib;kernel32.lib;user32.lib;gdi32.lib;ole32.lib;oleaut32.lib;comdlg32.lib;uuid.lib;advapi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>wxmsw31ud_core.lib;wxbase31ud.lib;wxtiff.lib;wxjpeg.lib;wxpng.lib;wxzlib.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;oleacc.lib;odbc32.lib;kernel32.lib;user32.lib;gdi32.lib;ole32.lib;oleaut32.lib;comdlg32.lib;uuid.lib;advapi32.lib;shell32.lib;"assimp-vc142-mtd.lib";%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)wxRaytracer.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>wxWidgets\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>wxWidgets\lib;$(SolutionDir)lib\assimp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>MSVCRT.lib;LIBCD.lib;LIBCMTD.lib;LIBC.lib;LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)wxRaytracer.pdb</ProgramDatabaseFile>
