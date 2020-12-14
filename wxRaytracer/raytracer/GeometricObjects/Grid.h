@@ -24,7 +24,7 @@
 #include "Mesh.h"
 #include "BBox.h"
 #include "Maths.h"
-#include <string>
+#include "AssimpLoader.h"
 
 
 //---------------------------------------------------------------------- class Grid
@@ -126,6 +126,7 @@ Grid::store_material(Material* material_ptr, const int index) {
 //calls the AssimpTools methods
 inline void Grid::readObjWithAssimp(std::string filePath)
 {
+	AssimpLoader::AssimpMesh mesh;
 }
 
 #endif

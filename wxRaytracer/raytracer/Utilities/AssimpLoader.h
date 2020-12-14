@@ -15,6 +15,7 @@
 //https://learnopengl.com/Model-Loading/Assimp
 class AssimpLoader
 {
+public:
     //a middle man struct to hold info
     struct Vertex {
         Point3D position;
@@ -24,7 +25,7 @@ class AssimpLoader
         std::vector<int> vertexFace;
     };
 
-    struct AssimpMesh {
+    public struct AssimpMesh {
         AssimpMesh(std::vector<Vertex> verts, std::vector<int> indix) {
             this->vertices = verts;
             this->indices = indix;

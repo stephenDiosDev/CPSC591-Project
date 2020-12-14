@@ -179,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssimpLoader.h" />
+    <ClInclude Include="AssimpStructs.h" />
     <ClInclude Include="raytracer\BRDFs\BRDF.h" />
     <ClInclude Include="raytracer\BRDFs\Lambertian.h" />
     <ClInclude Include="raytracer\BRDFs\SV_Lambertian.h" />

@@ -371,6 +371,9 @@
     <ClInclude Include="raytracer\Materials\Emissive.h">
       <Filter>Materials</Filter>
     </ClInclude>
+    <ClInclude Include="AssimpStructs.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\TwoUVTriangles.ply">
