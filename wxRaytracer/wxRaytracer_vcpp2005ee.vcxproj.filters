@@ -365,13 +365,13 @@
     <ClInclude Include="raytracer\Materials\MatteWave.h">
       <Filter>Materials</Filter>
     </ClInclude>
-    <ClInclude Include="AssimpLoader.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="raytracer\Materials\Emissive.h">
       <Filter>Materials</Filter>
     </ClInclude>
-    <ClInclude Include="AssimpStructs.h">
+    <ClInclude Include="raytracer\Utilities\AssimpLoader.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="raytracer\Utilities\AssimpStructs.h">
       <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>

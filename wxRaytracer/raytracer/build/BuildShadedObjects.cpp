@@ -133,7 +133,8 @@ void World::build(void) {
 	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.ply";
 	//char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\chestTestFinal.ply";
 	Grid* chestGrid = new Grid(new Mesh);
-	chestGrid->read_smooth_triangles(chestFileName);
+	//chestGrid->read_smooth_triangles(chestFileName);
+	chestGrid->readObjWithAssimp(chestFileName);
 	chestGrid->set_material(chestMatte);
 	chestGrid->setup_cells();
 	Instance* chestGridInstance = new Instance(chestGrid);
