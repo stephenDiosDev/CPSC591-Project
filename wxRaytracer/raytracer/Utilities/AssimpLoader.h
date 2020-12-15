@@ -21,8 +21,11 @@ public:
     std::vector<AssimpStructs::AssimpMesh> meshes;
 
 	void loadModel(std::string path);
-	void processNode(aiNode* node, const aiScene* scene);
+    void processNode(aiNode* node, const aiScene* scene);
     AssimpStructs::AssimpMesh processMesh(aiMesh* mesh, const aiScene* scene);
+
+private:
+
 };
 
 inline void AssimpLoader::loadModel(std::string path)
@@ -47,15 +50,14 @@ inline void AssimpLoader::processNode(aiNode* node, const aiScene* scene)
     for (unsigned int i = 0; i < node->mNumMeshes; i++)
     {
         aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
-        tempMeshes.push_back(processMesh(mesh, scene));
-        //meshes.push_back(processMesh(mesh, scene));
+        //tempMeshes.push_back(processMeshNew(mesh, scene));
+        meshes.push_back(processMesh(mesh, scene));
     }
     // then do the same for each of its children
     for (unsigned int i = 0; i < node->mNumChildren; i++)
     {
         processNode(node->mChildren[i], scene);
     }
-    meshes = tempMeshes;
 }
 
 inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const aiScene* scene) {
@@ -72,9 +74,12 @@ inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const a
         vertex.position.z = mesh->mVertices[i].z;
 
         //normal
-        vertex.normal.x = mesh->mNormals[i].x;
-        vertex.normal.y = mesh->mNormals[i].y;
-        vertex.normal.z = mesh->mNormals[i].z;
+        if (mesh->HasNormals()) {
+            vertex.normal.x = mesh->mNormals[i].x;
+            vertex.normal.y = mesh->mNormals[i].y;
+            vertex.normal.z = mesh->mNormals[i].z;
+        }
+        
 
         //texture coords
         if (mesh->mTextureCoords[0]) {  //if they exist

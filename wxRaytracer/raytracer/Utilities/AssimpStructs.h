@@ -12,13 +12,13 @@ public:
     };
 
     struct AssimpMesh {
-        AssimpMesh(std::vector<Vertex> verts, std::vector<int> indix) {
-            vertices = verts;
-            indices = indix;
-        }
-
         std::vector<Vertex> vertices;
         std::vector<int> indices;
+
+        AssimpMesh(std::vector<Vertex> verts, std::vector<int> indix) {
+            this->vertices = verts;
+            this->indices = indix;
+        }
     };
 };
 

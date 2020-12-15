@@ -80,7 +80,7 @@ class Grid: public Compound {
 		void
 		store_material(Material* material, const int index); 		
 
-		void readObjWithAssimp(std::string filePath);
+		bool readObjWithAssimp(std::string filePath);
 
 	private: 
 
@@ -124,12 +124,12 @@ Grid::store_material(Material* material_ptr, const int index) {
 }
 
 //calls the AssimpTools methods
-inline void Grid::readObjWithAssimp(std::string filePath)
+inline bool Grid::readObjWithAssimp(std::string filePath)
 {
 	std::vector<AssimpStructs::Vertex> verts;
 	std::vector<int> indices;
 
-	AssimpLoader* load;
+	AssimpLoader* load = new AssimpLoader;
 	load->loadModel(filePath);
 
 	//copy all vertices and indices from the assimp data to our own
@@ -182,6 +182,11 @@ inline void Grid::readObjWithAssimp(std::string filePath)
 	mesh_ptr->vertex_faces = allFaces;
 	mesh_ptr->num_triangles = numTriangles;
 	mesh_ptr->num_vertices = numVertices;
+
+	if (mesh_ptr->vertices.size() == numVertices)
+		return true;
+	else
+		return false;
 }
 
 #endif
