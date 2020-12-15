@@ -95,7 +95,7 @@ void World::build(void) {
 	ConstantColor* constantColor = new ConstantColor;
 	constantColor->set_color(grey);
 
-	Image* sharkTexture = new Image;
+	Image* sharkTexture = new Image(1024,512);
 	sharkTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\shark.ppm");
 
 	ImageTexture* sharkImgTexture = new ImageTexture;
@@ -105,8 +105,8 @@ void World::build(void) {
 	SV_Matte* svMattePtr = new SV_Matte;
 	svMattePtr->set_ka(0.45);
 	svMattePtr->set_kd(0.65);
-	//svMattePtr->set_cd(constantColor);
-	svMattePtr->set_cd(sharkImgTexture);
+	svMattePtr->set_cd(constantColor);
+	//svMattePtr->set_cd(sharkImgTexture);
 
 	string file_name = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\shark.obj";
 	Grid* grid_ptr = new Grid(new Mesh);
@@ -121,7 +121,7 @@ void World::build(void) {
 	//chest=================================================================================================================
 	ConstantColor* chestColour = new ConstantColor;
 	chestColour->set_color(brown);
-	Image* chestTexture = new Image;
+	Image* chestTexture = new Image(512,256);
 	chestTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\chest.ppm");
 
 	ImageTexture* chestImgTexture = new ImageTexture;
@@ -131,8 +131,8 @@ void World::build(void) {
 	SV_Matte* chestMatte = new SV_Matte;
 	chestMatte->set_ka(0.45);
 	chestMatte->set_kd(0.65);
-	chestMatte->set_cd(chestColour);
-	//chestMatte->set_cd(chestImgTexture);
+	//chestMatte->set_cd(chestColour);
+	chestMatte->set_cd(chestImgTexture);
 
 
 	string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.obj";
@@ -149,10 +149,19 @@ void World::build(void) {
 	ConstantColor* sandColour = new ConstantColor;
 	sandColour->set_color(sand);
 
+	Image* sandTexture = new Image(800,600);
+	
+	sandTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\sand2.ppm");
+
+	ImageTexture* sandImgTexture = new ImageTexture;
+	sandImgTexture->set_image(sandTexture);
+	sandImgTexture->set_mapping(NULL);
+
 	SV_Matte* sandMatte = new SV_Matte;
 	sandMatte->set_ka(0.45);
 	sandMatte->set_kd(0.65);
-	sandMatte->set_cd(sandColour);
+	//sandMatte->set_cd(sandColour);
+	sandMatte->set_cd(sandImgTexture);
 
 	string sandFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\sand.obj";
 	Grid* sandGrid = new Grid(new Mesh);

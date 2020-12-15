@@ -45,12 +45,10 @@ inline void AssimpLoader::loadModel(std::string path)
 
 inline void AssimpLoader::processNode(aiNode* node, const aiScene* scene)
 {
-    std::vector<AssimpStructs::AssimpMesh> tempMeshes;
     // process all the node's meshes (if any)
     for (unsigned int i = 0; i < node->mNumMeshes; i++)
     {
         aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
-        //tempMeshes.push_back(processMeshNew(mesh, scene));
         meshes.push_back(processMesh(mesh, scene));
     }
     // then do the same for each of its children
@@ -101,6 +99,7 @@ inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const a
             float ind0 = face.mIndices[0];
             float ind1 = face.mIndices[1];
             float ind2 = face.mIndices[2];
+
             std::vector<int> faces;
             faces.push_back(ind0);
             faces.push_back(ind1);

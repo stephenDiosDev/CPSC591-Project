@@ -20,6 +20,12 @@ Image::Image(void)
 {}
 
 
+Image::Image(const int h, const int v)
+	: hres(h),
+	  vres(v)
+{}
+
+
 // ---------------------------------------------------- copy constructor								
 
 Image::Image(const Image& image)

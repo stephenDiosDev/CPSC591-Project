@@ -23,7 +23,9 @@ using namespace std;
 class Image {	
 	public:
 	
-		Image(void);								
+		Image(void);	
+
+		Image(const int h, const int v);
 
 		Image(const Image& image);					
 
