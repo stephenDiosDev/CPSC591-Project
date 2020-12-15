@@ -126,12 +126,12 @@ void World::build(void) {
 	SV_Matte* chestMatte = new SV_Matte;
 	chestMatte->set_ka(0.45);
 	chestMatte->set_kd(0.65);
-	chestMatte->set_cd(chestColour);
-	//chestMatte->set_cd(chestImgTexture);
+	//chestMatte->set_cd(chestColour);
+	chestMatte->set_cd(chestImgTexture);
 
 
-	//char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chestObjTest.obj";
-	char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.ply";
+	string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chestObjTest.obj";
+	//char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.ply";
 	Grid* chestGrid = new Grid(new Mesh);
 	//chestGrid->read_smooth_triangles(chestFileName);
 	bool result = chestGrid->readObjWithAssimp(chestFileName);
