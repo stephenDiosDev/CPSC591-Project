@@ -95,18 +95,23 @@ void World::build(void) {
 	ConstantColor* constantColor = new ConstantColor;
 	constantColor->set_color(grey);
 
+	Image* sharkTexture = new Image;
+	sharkTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\shark.ppm");
+
+	ImageTexture* sharkImgTexture = new ImageTexture;
+	sharkImgTexture->set_image(sharkTexture);
+	sharkImgTexture->set_mapping(NULL);
+
 	SV_Matte* svMattePtr = new SV_Matte;
 	svMattePtr->set_ka(0.45);
 	svMattePtr->set_kd(0.65);
-	svMattePtr->set_cd(constantColor);
+	//svMattePtr->set_cd(constantColor);
+	svMattePtr->set_cd(sharkImgTexture);
 
-
-	
-	char* file_name = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\shark.ply";
+	string file_name = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\shark.obj";
 	Grid* grid_ptr = new Grid(new Mesh);
 
-	grid_ptr->read_smooth_triangles(file_name);
-
+	grid_ptr->readObjWithAssimp(file_name);
 	grid_ptr->set_material(svMattePtr);
 	grid_ptr->setup_cells();
 	Instance* gridInstance = new Instance(grid_ptr);
@@ -117,7 +122,7 @@ void World::build(void) {
 	ConstantColor* chestColour = new ConstantColor;
 	chestColour->set_color(brown);
 	Image* chestTexture = new Image;
-	chestTexture->read_ppm_file("C:\\Users\\tfsha\\Desktop\\591Project\\SkeletonRayTracer\\CPSC591-Project\\wxRaytracer\\raytracer\\Textures\\ppm\\treasure_chest.ppm");
+	chestTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\chest.ppm");
 
 	ImageTexture* chestImgTexture = new ImageTexture;
 	chestImgTexture->set_image(chestTexture);
@@ -126,17 +131,13 @@ void World::build(void) {
 	SV_Matte* chestMatte = new SV_Matte;
 	chestMatte->set_ka(0.45);
 	chestMatte->set_kd(0.65);
-	//chestMatte->set_cd(chestColour);
-	chestMatte->set_cd(chestImgTexture);
+	chestMatte->set_cd(chestColour);
+	//chestMatte->set_cd(chestImgTexture);
 
 
-	string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chestObjTest.obj";
-	//char* chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.ply";
+	string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.obj";
 	Grid* chestGrid = new Grid(new Mesh);
-	//chestGrid->read_smooth_triangles(chestFileName);
-	bool result = chestGrid->readObjWithAssimp(chestFileName);
-	if (!result)
-		exit(EXIT_FAILURE);
+	chestGrid->readObjWithAssimp(chestFileName);
 
 	chestGrid->set_material(chestMatte);
 	chestGrid->setup_cells();
@@ -153,10 +154,9 @@ void World::build(void) {
 	sandMatte->set_kd(0.65);
 	sandMatte->set_cd(sandColour);
 
-
-	char* sandFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\sand.ply";
+	string sandFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\sand.obj";
 	Grid* sandGrid = new Grid(new Mesh);
-	sandGrid->read_smooth_triangles(sandFileName);
+	sandGrid->readObjWithAssimp(sandFileName);
 	sandGrid->set_material(sandMatte);
 	sandGrid->setup_cells();
 	Instance* sandGridInstance = new Instance(sandGrid);
@@ -172,9 +172,9 @@ void World::build(void) {
 	waveMatte->set_kd(0.65);
 
 
-	char* waveFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\wave3.ply";
+	string waveFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\wave.obj";
 	Grid* waveGrid = new Grid(new Mesh);
-	waveGrid->read_smooth_triangles(waveFileName);
+	waveGrid->readObjWithAssimp(waveFileName);
 	waveGrid->set_material(waveMatte);
 	waveGrid->setup_cells();
 	Instance* waveGridInstance = new Instance(waveGrid);
