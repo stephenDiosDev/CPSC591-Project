@@ -152,14 +152,16 @@ Image::read_ppm_file(const char* file_name) {
 
 RGBColor									
 Image::get_color(const int row, const int column) const {
-	int index = column + hres * (vres - row - 1);
+	//int index = column + hres * (vres - row - 1);
+	int index = column + (row * vres);
 	int pixels_size = pixels.size();
 
 	
-	if (index < pixels_size)
+	if (index < pixels_size && index >= 0)
 		return (pixels[index]);
-	//else if()
-	else
+	else if (index >= pixels_size)
+		return (RGBColor(1, 0, 1));
+	else                 //negative index
 		return (red);    // useful for debugging 
 }
 

@@ -119,7 +119,7 @@ ImageTexture::get_color(const ShadeRec& sr) const {
 	if (mapping_ptr)
 		mapping_ptr->get_texel_coordinates(sr.local_hit_point, hres, vres, row, column);
 	else {
-		row 	= (int)(sr.v * (vres - 1));  	
+		row 	= (int)(sr.v * (vres - 1));  	//seem to be going too high
 		column 	= (int)(sr.u * (hres - 1));	
 	}
 	

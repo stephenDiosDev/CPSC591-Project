@@ -526,6 +526,8 @@ bool Grid::readObjWithAssimp(std::string filePath)
 	AssimpLoader* load = new AssimpLoader;
 	load->loadModel(filePath);
 
+	//loop through load->triangles and fill up the verts and indices
+
 	//copy all vertices and indices from the assimp data to our own
 	for (int i = 0; i < load->meshes.size(); i++) {
 		for (int j = 0; j < load->meshes[i].vertices.size(); j++) {
@@ -545,6 +547,9 @@ bool Grid::readObjWithAssimp(std::string filePath)
 	std::vector<std::vector<int>> allFaces;
 	int numVertices;
 	int numTriangles;
+
+	
+
 	//may need to actually make smoothtriangle objects like the Grid methods do
 	//fill up temp vars with data, then place them into above data
 	for (int i = 0; i < verts.size(); i++) {
@@ -558,7 +563,6 @@ bool Grid::readObjWithAssimp(std::string filePath)
 		u = verts[i].u;
 		v = verts[i].v;
 		face = verts[i].vertexFace;
-
 
 		SmoothUVMeshTriangle* trianglePtr = new SmoothUVMeshTriangle(mesh_ptr, face[0], face[1], face[2]);
 		//trianglePtr->compute_normal(reverse_normal);

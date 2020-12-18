@@ -19,6 +19,7 @@ class AssimpLoader
 public:
     //holds the finish mesh list
     std::vector<AssimpStructs::AssimpMesh> meshes;
+    //std::vector<AssimpStructs::Triangle> triangles;
 
 	void loadModel(std::string path);
     void processNode(aiNode* node, const aiScene* scene);
@@ -61,6 +62,7 @@ inline void AssimpLoader::processNode(aiNode* node, const aiScene* scene)
 inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const aiScene* scene) {
     std::vector<AssimpStructs::Vertex> verts;
     std::vector<int> indices;
+    bool hasZero = false;
 
     for (int i = 0; i < mesh->mNumVertices; i++) {
         AssimpStructs::Vertex vertex;
@@ -77,6 +79,7 @@ inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const a
             vertex.normal.y = mesh->mNormals[i].y;
             vertex.normal.z = mesh->mNormals[i].z;
         }
+
         
 
         //texture coords
@@ -96,16 +99,25 @@ inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const a
     for (int i = 0; i < mesh->mNumFaces; i++) {
         aiFace face = mesh->mFaces[i];
         if (face.mNumIndices == 3) {    //triangle
-            float ind0 = face.mIndices[0];
+            float ind0 = face.mIndices[0];      //makes up one face
             float ind1 = face.mIndices[1];
             float ind2 = face.mIndices[2];
+
+            if (ind0 == 0 || ind1 == 0 || ind2 == 0)
+                hasZero = true;
 
             std::vector<int> faces;
             faces.push_back(ind0);
             faces.push_back(ind1);
             faces.push_back(ind2);
-
-            //since the face index corresponds to the order of vertices, ind0/1/2 + 1 should access the correct vertex in verts          
+/*
+            AssimpStructs::Triangle triangle;
+            triangle.triFace = faces;
+            triangle.a = verts[ind0];
+            triangle.b = verts[ind1];
+            triangle.c = verts[ind2];
+            triangles.push_back(triangle);
+  */    
             verts[ind0].vertexFace = faces;
             verts[ind1].vertexFace = faces;
             verts[ind2].vertexFace = faces;

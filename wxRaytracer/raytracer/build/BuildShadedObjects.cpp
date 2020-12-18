@@ -14,7 +14,7 @@
 #include "ConstantColor.h"
 #include "Instance.h"
 void World::build(void) {
-	int num_samples = 16;
+	int num_samples = 1;
 
 	// colors
 
@@ -121,8 +121,9 @@ void World::build(void) {
 	//chest=================================================================================================================
 	ConstantColor* chestColour = new ConstantColor;
 	chestColour->set_color(brown);
-	Image* chestTexture = new Image(512,256);
-	chestTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\chest.ppm");
+	Image* chestTexture = new Image(2560,1280);
+	//chestTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\chest.ppm");
+	chestTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Models\\testFiles\\treasure_chest.ppm");
 
 	ImageTexture* chestImgTexture = new ImageTexture;
 	chestImgTexture->set_image(chestTexture);
@@ -131,11 +132,12 @@ void World::build(void) {
 	SV_Matte* chestMatte = new SV_Matte;
 	chestMatte->set_ka(0.45);
 	chestMatte->set_kd(0.65);
-	//chestMatte->set_cd(chestColour);
-	chestMatte->set_cd(chestImgTexture);
+	chestMatte->set_cd(chestColour);
+	//chestMatte->set_cd(chestImgTexture);
 
 
-	string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.obj";
+	//string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.obj";
+	string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\testFiles\\newChest.obj";
 	Grid* chestGrid = new Grid(new Mesh);
 	chestGrid->readObjWithAssimp(chestFileName);
 
@@ -160,8 +162,8 @@ void World::build(void) {
 	SV_Matte* sandMatte = new SV_Matte;
 	sandMatte->set_ka(0.45);
 	sandMatte->set_kd(0.65);
-	//sandMatte->set_cd(sandColour);
-	sandMatte->set_cd(sandImgTexture);
+	sandMatte->set_cd(sandColour);
+	//sandMatte->set_cd(sandImgTexture);
 
 	string sandFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\sand.obj";
 	Grid* sandGrid = new Grid(new Mesh);
