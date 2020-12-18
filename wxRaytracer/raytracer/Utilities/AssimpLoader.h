@@ -61,7 +61,6 @@ inline void AssimpLoader::processNode(aiNode* node, const aiScene* scene)
 
 inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const aiScene* scene) {
     std::vector<AssimpStructs::Vertex> verts;
-    std::vector<int> indices;
     bool hasZero = false;
 
     for (int i = 0; i < mesh->mNumVertices; i++) {
@@ -79,8 +78,6 @@ inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const a
             vertex.normal.y = mesh->mNormals[i].y;
             vertex.normal.z = mesh->mNormals[i].z;
         }
-
-        
 
         //texture coords
         if (mesh->mTextureCoords[0]) {  //if they exist
@@ -117,17 +114,8 @@ inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const a
             triangle.b = verts[ind1];
             triangle.c = verts[ind2];
             triangles.push_back(triangle);
- /*
-            verts[ind0].vertexFace = faces;
-            verts[ind1].vertexFace = faces;
-            verts[ind2].vertexFace = faces;
-
-            indices.push_back(ind0);
-            indices.push_back(ind1);
-            indices.push_back(ind2);
-            */
         }
     }
-    AssimpStructs::AssimpMesh myMesh(verts, indices);
+    AssimpStructs::AssimpMesh myMesh(verts);
     return myMesh;
 }

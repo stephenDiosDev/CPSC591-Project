@@ -564,59 +564,6 @@ bool Grid::readObjWithAssimp(std::string filePath)
 	numTriangles = load->triangles.size();
 	numVertices = allVertices.size();
 
-	//copy all vertices and indices from the assimp data to our own
-/*	for (int i = 0; i < load->meshes.size(); i++) {
-		for (int j = 0; j < load->meshes[i].vertices.size(); j++) {
-			verts.push_back(load->meshes[i].vertices[j]);
-		}
-
-		for (int k = 0; k < load->meshes[i].indices.size(); k++) {
-			indices.push_back(load->meshes[i].indices[k]);
-		}
-	}
-	
-	//data needed to fill up mesh_ptr
-	std::vector<Point3D> allVertices;
-	std::vector<Normal> allNormals;
-	std::vector<float> allU;
-	std::vector<float> allV;
-	std::vector<std::vector<int>> allFaces;
-	int numVertices;
-	int numTriangles;
-
-	
-
-	//may need to actually make smoothtriangle objects like the Grid methods do
-	//fill up temp vars with data, then place them into above data
-	for (int i = 0; i < verts.size(); i++) {
-		Point3D point;
-		Normal norm;
-		float u, v;
-		std::vector<int> face;
-
-		point = verts[i].position;
-		norm = verts[i].normal;
-		u = verts[i].u;
-		v = verts[i].v;
-		face = verts[i].vertexFace;
-
-		SmoothUVMeshTriangle* trianglePtr = new SmoothUVMeshTriangle(mesh_ptr, face[0], face[1], face[2]);
-		//trianglePtr->compute_normal(reverse_normal);
-		objects.push_back(trianglePtr);
-
-
-		allVertices.push_back(point);
-		allNormals.push_back(norm);
-		allU.push_back(u);
-		allV.push_back(v);
-		allFaces.push_back(face);
-	}
-
-
-
-	numVertices = allVertices.size();
-	numTriangles = allFaces.size();
-	*/
 	mesh_ptr->vertices = allVertices;
 	mesh_ptr->normals = allNormals;
 	mesh_ptr->u = allU;

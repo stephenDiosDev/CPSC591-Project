@@ -8,7 +8,6 @@ public:
         Normal normal;
         float u;
         float v;
-        std::vector<int> vertexFace;
         int index;
 
         Vertex& operator= (const Vertex& rhs);
@@ -25,11 +24,9 @@ public:
 
     struct AssimpMesh {
         std::vector<Vertex> vertices;
-        std::vector<int> indices;
 
-        AssimpMesh(std::vector<Vertex> verts, std::vector<int> indix) {
+        AssimpMesh(std::vector<Vertex> verts) {
             this->vertices = verts;
-            this->indices = indix;
         }
     };
 };
