@@ -105,8 +105,8 @@ void World::build(void) {
 	SV_Matte* svMattePtr = new SV_Matte;
 	svMattePtr->set_ka(0.45);
 	svMattePtr->set_kd(0.65);
-	svMattePtr->set_cd(constantColor);
-	//svMattePtr->set_cd(sharkImgTexture);
+	//svMattePtr->set_cd(constantColor);
+	svMattePtr->set_cd(sharkImgTexture);
 
 	string file_name = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\shark.obj";
 	Grid* grid_ptr = new Grid(new Mesh);
@@ -132,8 +132,8 @@ void World::build(void) {
 	SV_Matte* chestMatte = new SV_Matte;
 	chestMatte->set_ka(0.45);
 	chestMatte->set_kd(0.65);
-	chestMatte->set_cd(chestColour);
-	//chestMatte->set_cd(chestImgTexture);
+	//chestMatte->set_cd(chestColour);
+	chestMatte->set_cd(chestImgTexture);
 
 
 	//string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.obj";
@@ -162,8 +162,8 @@ void World::build(void) {
 	SV_Matte* sandMatte = new SV_Matte;
 	sandMatte->set_ka(0.45);
 	sandMatte->set_kd(0.65);
-	sandMatte->set_cd(sandColour);
-	//sandMatte->set_cd(sandImgTexture);
+	//sandMatte->set_cd(sandColour);
+	sandMatte->set_cd(sandImgTexture);
 
 	string sandFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\sand.obj";
 	Grid* sandGrid = new Grid(new Mesh);
