@@ -146,6 +146,19 @@ Image::read_ppm_file(const char* file_name) {
 	cout << "finished reading PPM file" << endl;
 }
 
+bool Image::readTexture(const char* filePath)
+{
+	pixelData = stbi_load(filePath, &hres, &vres, &channel, 3);	//read image into pixelData, only get RGB component
+
+	//now assign the pixelData to the vector
+
+	stbi_image_free(pixelData);
+	if (pixelData != NULL)
+		return true;
+	else
+		return false;
+}
+
 
 
 // --------------------------------------------------------------------------------------------- get_color 

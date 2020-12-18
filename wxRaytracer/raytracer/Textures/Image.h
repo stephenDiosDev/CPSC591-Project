@@ -1,6 +1,7 @@
 #ifndef __IMAGE__
 #define __IMAGE__
 
+
 // 	Copyright (C) Kevin Suffern 2000-2007.
 // 	Copyright (C) Stefan Brumme 2005.
 // 	Copyright (C) Sverre Kvaale 2007.
@@ -16,6 +17,8 @@
 
 #include <vector>		
 #include "RGBColor.h"
+
+#include "stb_image.h"
 using namespace std;
 
 //--------------------------------------------------------------------- class Image
@@ -36,6 +39,8 @@ class Image {
 		
 		void										
 		read_ppm_file(const char* file_name);
+
+		bool readTexture(const char* filePath);
 		
 		int
 		get_hres(void);	
@@ -50,6 +55,8 @@ class Image {
 		int 				hres = 100;			// horizontal resolution of image
 		int					vres = 100;			// vertical resolution of image
 		vector<RGBColor> 	pixels;
+		unsigned char* pixelData;		//needed by stb library
+		int channel;					//also needed by stb
 };
 
 

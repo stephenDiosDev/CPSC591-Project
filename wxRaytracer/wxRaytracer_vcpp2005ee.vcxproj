@@ -209,6 +209,7 @@
     <ClInclude Include="raytracer\Textures\Image.h" />
     <ClInclude Include="raytracer\Textures\ImageTexture.h" />
     <ClInclude Include="raytracer\Textures\Mapping.h" />
+    <ClInclude Include="raytracer\Textures\stb_image.h" />
     <ClInclude Include="raytracer\Textures\Texture.h" />
     <ClInclude Include="raytracer\Tracers\MultipleObjects.h" />
     <ClInclude Include="raytracer\Tracers\RayCast.h" />

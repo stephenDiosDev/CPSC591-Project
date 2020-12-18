@@ -95,7 +95,8 @@ void World::build(void) {
 	ConstantColor* constantColor = new ConstantColor;
 	constantColor->set_color(grey);
 
-	Image* sharkTexture = new Image(1024,512);
+	//Image* sharkTexture = new Image(1024,512);
+	Image* sharkTexture = new Image();
 	sharkTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\shark.ppm");
 
 	ImageTexture* sharkImgTexture = new ImageTexture;
@@ -121,7 +122,8 @@ void World::build(void) {
 	//chest=================================================================================================================
 	ConstantColor* chestColour = new ConstantColor;
 	chestColour->set_color(brown);
-	Image* chestTexture = new Image(2560,1280);
+	Image* chestTexture = new Image();
+	//Image* chestTexture = new Image(2560,1280);
 	//chestTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Textures\\ppm\\chest.ppm");
 	chestTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Models\\testFiles\\treasure_chest.ppm");
 
@@ -136,8 +138,8 @@ void World::build(void) {
 	chestMatte->set_cd(chestImgTexture);
 
 
-	//string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.obj";
-	string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\testFiles\\newChest.obj";
+	string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\oceanFinal\\chest.obj";
+	//string chestFileName = "..\\wxRaytracer\\raytracer\\Models\\testFiles\\newChest.obj";
 	Grid* chestGrid = new Grid(new Mesh);
 	chestGrid->readObjWithAssimp(chestFileName);
 
@@ -192,9 +194,15 @@ void World::build(void) {
 	//add_object(waveGridInstance);
 
 	//debug cube============================================================================================================
-	Image* cubeTexture = new Image(256, 256);
+	//Image* cubeTexture = new Image(256, 256);
+	Image* cubeTexture = new Image();
 
 	cubeTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Models\\testFiles\\colourTest.ppm");
+
+	char* cubeTexFile = "..\\wxRaytracer\\raytracer\\Models\\testFiles\\chest.jpg";
+	bool testResult = cubeTexture->readTexture(cubeTexFile);
+	if (!testResult)
+		exit(EXIT_FAILURE);
 
 	ImageTexture* cubeImgTexture = new ImageTexture;
 	cubeImgTexture->set_image(cubeTexture);

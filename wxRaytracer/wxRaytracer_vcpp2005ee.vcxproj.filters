@@ -374,6 +374,9 @@
     <ClInclude Include="raytracer\Utilities\AssimpStructs.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="raytracer\Textures\stb_image.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="raytracer\Models\TwoUVTriangles.ply">
