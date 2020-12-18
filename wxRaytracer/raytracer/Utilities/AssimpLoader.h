@@ -19,7 +19,7 @@ class AssimpLoader
 public:
     //holds the finish mesh list
     std::vector<AssimpStructs::AssimpMesh> meshes;
-    //std::vector<AssimpStructs::Triangle> triangles;
+    std::vector<AssimpStructs::Triangle> triangles;
 
 	void loadModel(std::string path);
     void processNode(aiNode* node, const aiScene* scene);
@@ -110,14 +110,14 @@ inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const a
             faces.push_back(ind0);
             faces.push_back(ind1);
             faces.push_back(ind2);
-/*
+
             AssimpStructs::Triangle triangle;
             triangle.triFace = faces;
             triangle.a = verts[ind0];
             triangle.b = verts[ind1];
             triangle.c = verts[ind2];
             triangles.push_back(triangle);
-  */    
+ /*
             verts[ind0].vertexFace = faces;
             verts[ind1].vertexFace = faces;
             verts[ind2].vertexFace = faces;
@@ -125,6 +125,7 @@ inline AssimpStructs::AssimpMesh AssimpLoader::processMesh(aiMesh* mesh, const a
             indices.push_back(ind0);
             indices.push_back(ind1);
             indices.push_back(ind2);
+            */
         }
     }
     AssimpStructs::AssimpMesh myMesh(verts, indices);
