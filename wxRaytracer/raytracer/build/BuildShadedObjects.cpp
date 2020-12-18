@@ -115,7 +115,7 @@ void World::build(void) {
 	grid_ptr->set_material(svMattePtr);
 	grid_ptr->setup_cells();
 	Instance* gridInstance = new Instance(grid_ptr);
-	add_object(gridInstance);
+	//add_object(gridInstance);
 
 
 	//chest=================================================================================================================
@@ -144,7 +144,7 @@ void World::build(void) {
 	chestGrid->set_material(chestMatte);
 	chestGrid->setup_cells();
 	Instance* chestGridInstance = new Instance(chestGrid);
-	add_object(chestGridInstance);
+	//add_object(chestGridInstance);
 
 
 	//sand floor=================================================================================================================
@@ -171,7 +171,7 @@ void World::build(void) {
 	sandGrid->set_material(sandMatte);
 	sandGrid->setup_cells();
 	Instance* sandGridInstance = new Instance(sandGrid);
-	add_object(sandGridInstance);
+	//add_object(sandGridInstance);
 
 
 	//waves=================================================================================================================
@@ -189,7 +189,30 @@ void World::build(void) {
 	waveGrid->set_material(waveMatte);
 	waveGrid->setup_cells();
 	Instance* waveGridInstance = new Instance(waveGrid);
-	add_object(waveGridInstance);
+	//add_object(waveGridInstance);
+
+	//debug cube============================================================================================================
+	Image* cubeTexture = new Image(256, 256);
+
+	cubeTexture->read_ppm_file("..\\wxRaytracer\\raytracer\\Models\\testFiles\\colourTest.ppm");
+
+	ImageTexture* cubeImgTexture = new ImageTexture;
+	cubeImgTexture->set_image(cubeTexture);
+	cubeImgTexture->set_mapping(NULL);
+
+	SV_Matte* cubeMatte = new SV_Matte;
+	cubeMatte->set_ka(0.45);
+	cubeMatte->set_kd(0.65);
+	//sandMatte->set_cd(sandColour);
+	cubeMatte->set_cd(cubeImgTexture);
+
+	string cubeFileName = "..\\wxRaytracer\\raytracer\\Models\\testFiles\\cube.obj";
+	Grid* cubeGrid = new Grid(new Mesh);
+	cubeGrid->readObjWithAssimp(cubeFileName);
+	cubeGrid->set_material(cubeMatte);
+	cubeGrid->setup_cells();
+	Instance* cubeGridInstance = new Instance(cubeGrid);
+	add_object(cubeGridInstance);
 
 }
 
