@@ -108,7 +108,7 @@ SmoothUVMeshTriangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {
 
 	tmin = t;
 	sr.normal = interpolate_normal(beta, gamma);
-	sr.u = interpolate_u(beta, gamma);
+	sr.u = interpolate_u(beta, gamma);				//this could also be a problem area
 	sr.v = interpolate_v(beta, gamma);
 
 	return (true);

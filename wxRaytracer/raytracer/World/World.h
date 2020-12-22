@@ -10,6 +10,7 @@
 // 3 	These operations wouldn't work because the world is self-referencing:
 //	 	the Tracer base class contains a pointer to the world. If we wrote a correct copy constructor for the 
 // 	  	Tracer class, the World copy construtor would call itself recursively until we ran out of memory.
+#define STB_IMAGE_IMPLEMENTATION
 
 
 #include <vector>

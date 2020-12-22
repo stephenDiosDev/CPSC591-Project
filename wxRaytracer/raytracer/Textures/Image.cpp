@@ -20,6 +20,12 @@ Image::Image(void)
 {}
 
 
+Image::Image(const int h, const int v)
+	: hres(h),
+	  vres(v)
+{}
+
+
 // ---------------------------------------------------- copy constructor								
 
 Image::Image(const Image& image)
@@ -140,20 +146,60 @@ Image::read_ppm_file(const char* file_name) {
 	cout << "finished reading PPM file" << endl;
 }
 
+bool Image::readTexture(const char* filePath)
+{
+	//below code is taken and adapted from this forum answer
+	//https://www.cplusplus.com/forum/beginner/267364/
+	unsigned char* data = stbi_load(filePath, &hres, &vres, &channel, 4);	//read image into data, only get RGB component
+	pixelData = vector<unsigned char>(data, data + hres * vres * 4);	//move the above raw data into a nice vector format
+
+	stbi_image_free(data);
+
+	assignPixelData();
+
+	if (data != NULL)
+		return true;
+	else
+		return false;
+}
+
+void Image::assignPixelData()
+{
+	//below code is taken and adapted from this forum answer
+	//https://www.cplusplus.com/forum/beginner/267364/
+	for (int i = hres - 1; i >= 0; i--) {
+		for (int j = vres - 1; j >= 0; j--) {
+			int index = 4 * (j * hres + i);
+
+			float r = static_cast<float>(pixelData[index]);
+			float g = static_cast<float>(pixelData[index + 1]);
+			float b = static_cast<float>(pixelData[index + 2]);
+
+			r /= 255.0;
+			g /= 255.0;
+			b /= 255.0;
+
+			pixels.push_back(RGBColor(r,g,b));
+		}
+	}
+}
+
 
 
 // --------------------------------------------------------------------------------------------- get_color 
 
 RGBColor									
 Image::get_color(const int row, const int column) const {
-	int index = column + hres * (vres - row - 1);
+	//int index = column + hres * (vres - row - 1);
+	int index = column + (row * vres);
 	int pixels_size = pixels.size();
 
 	
-	if (index < pixels_size)
+	if (index < pixels_size && index >= 0)
 		return (pixels[index]);
-	//else if()
-	else
+	else if (index >= pixels_size)
+		return (RGBColor(1, 0, 1));
+	else                 //negative index
 		return (red);    // useful for debugging 
 }
 

@@ -518,6 +518,68 @@ Grid::read_ply_file(char* file_name, const int triangle_type) {
 	ply_close(ply);
 }
 
+bool Grid::readObjWithAssimp(std::string filePath)
+{
+	//this data is what we pass to mesh_ptr
+	std::vector<Point3D> allVertices;
+	std::vector<Normal> allNormals;
+	std::vector<float> allU;
+	std::vector<float> allV;
+	std::vector<std::vector<int>> allFaces;
+	int numVertices;
+	int numTriangles;
+	///////////////////////////////////////
+
+
+	AssimpLoader* load = new AssimpLoader;
+	load->loadModel(filePath);
+
+	//loop through load->triangles and fill up the verts and indices
+	for (int i = 0; i < load->triangles.size(); i++) {
+		AssimpStructs::Triangle* triangle = &load->triangles[i];
+
+		allVertices.push_back(Point3D(triangle->a.position));
+		allVertices.push_back(Point3D(triangle->b.position));
+		allVertices.push_back(Point3D(triangle->c.position));
+
+		allNormals.push_back(Normal(triangle->a.normal));
+		allNormals.push_back(Normal(triangle->b.normal));
+		allNormals.push_back(Normal(triangle->c.normal));
+
+		allU.push_back(triangle->a.u);
+		allU.push_back(triangle->b.u);
+		allU.push_back(triangle->c.u);
+
+		allV.push_back(triangle->a.v);
+		allV.push_back(triangle->b.v);
+		allV.push_back(triangle->c.v);
+
+		allFaces.push_back(triangle->triFace);
+
+		SmoothUVMeshTriangle* trianglePtr = new SmoothUVMeshTriangle(mesh_ptr, triangle->triFace[0], triangle->triFace[1], triangle->triFace[2]);
+		//trianglePtr->compute_normal(reverse_normal);
+		objects.push_back(trianglePtr);
+	}
+
+	numTriangles = load->triangles.size();
+	numVertices = allVertices.size();
+
+	mesh_ptr->vertices = allVertices;
+	mesh_ptr->normals = allNormals;
+	mesh_ptr->u = allU;
+	mesh_ptr->v = allV;
+	mesh_ptr->vertex_faces = allFaces;
+	mesh_ptr->num_triangles = numTriangles;
+	mesh_ptr->num_vertices = numVertices;
+	
+	//sanity check
+	if (mesh_ptr->vertices.size() == numVertices)
+		return true;
+	else
+		return false;
+		
+}
+
 void Grid::read_uv_ply_file(char* file_name, const int triangle_type)
 {
 	// Vertex definition 
