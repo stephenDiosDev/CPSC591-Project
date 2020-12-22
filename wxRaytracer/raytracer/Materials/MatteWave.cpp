@@ -122,7 +122,7 @@ RGBColor MatteWave::shade_caustics(ShadeRec& sr, Vector3D& lightDir)
 	Vector3D N = sr.normal;
 	lightDir = -lightDir;
 
-	//find the transmission ray as outlined here:]
+	//find the transmission ray as outlined here:
 	//https://developer.download.nvidia.com/books/HTML/gpugems/gpugems_ch02.html
 
 	double squareRoot = 1 + pow(indexOfRefraction, 2) * ((pow(dotProd(E, N), 2)) - 1);
@@ -142,7 +142,8 @@ RGBColor MatteWave::shade_caustics(ShadeRec& sr, Vector3D& lightDir)
 	float angleBetweenTAndLight = acos(dotProd(lightDir, T)) * (180.0 / PI);
 	//float angleBetweenTAndLight = acos(dotProd(N, T)) * (180.0 / PI);
 
-	float angleUpperLimit = 31;
+	//float angleUpperLimit = 31;
+	float angleUpperLimit = 60;
 
 	if (angleBetweenTAndLight >= 0 && angleBetweenTAndLight <= angleUpperLimit) {
 		strength = (angleUpperLimit - angleBetweenTAndLight) / angleUpperLimit;

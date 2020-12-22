@@ -148,15 +148,40 @@ Image::read_ppm_file(const char* file_name) {
 
 bool Image::readTexture(const char* filePath)
 {
-	pixelData = stbi_load(filePath, &hres, &vres, &channel, 3);	//read image into pixelData, only get RGB component
+	//below code is taken and adapted from this forum answer
+	//https://www.cplusplus.com/forum/beginner/267364/
+	unsigned char* data = stbi_load(filePath, &hres, &vres, &channel, 4);	//read image into data, only get RGB component
+	pixelData = vector<unsigned char>(data, data + hres * vres * 4);	//move the above raw data into a nice vector format
 
-	//now assign the pixelData to the vector
+	stbi_image_free(data);
 
-	stbi_image_free(pixelData);
-	if (pixelData != NULL)
+	assignPixelData();
+
+	if (data != NULL)
 		return true;
 	else
 		return false;
+}
+
+void Image::assignPixelData()
+{
+	//below code is taken and adapted from this forum answer
+	//https://www.cplusplus.com/forum/beginner/267364/
+	for (int i = hres - 1; i >= 0; i--) {
+		for (int j = vres - 1; j >= 0; j--) {
+			int index = 4 * (j * hres + i);
+
+			float r = static_cast<float>(pixelData[index]);
+			float g = static_cast<float>(pixelData[index + 1]);
+			float b = static_cast<float>(pixelData[index + 2]);
+
+			r /= 255.0;
+			g /= 255.0;
+			b /= 255.0;
+
+			pixels.push_back(RGBColor(r,g,b));
+		}
+	}
 }
 
 
